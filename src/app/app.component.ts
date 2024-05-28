@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AngularQueryDevtools } from '@tanstack/angular-query-devtools-experimental';
+import { PageContainerComponent } from './shared/ui';
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [PageContainerComponent, AngularQueryDevtools],
+  selector: 'app-root',
+  template: `
+    <div>
+      <angular-query-devtools initialIsOpen />
+      <page-container />
+    </div>
+  `,
 })
-export class AppComponent {
-  title = 'my-angular-starter';
-}
+export class AppComponent {}

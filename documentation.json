@@ -1,0 +1,2251 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "ApiRequestMock",
+            "id": "interface-ApiRequestMock-3be07d512029654dc68a5a9a56c932c7dd83f760478a1b4813ad56a15db8848e672573cd258ca5323344534af519f4de1364a4c5fd8f2f76958db50f7858239e",
+            "file": "src/app/shared/utils/api-mocks/api-mocks.models.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "properties": [
+                {
+                    "name": "count",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "<p>The total count to include in the response headers.</p>\n",
+                    "line": 45,
+                    "rawdescription": "\n\nThe total count to include in the response headers.\n"
+                },
+                {
+                    "name": "delay",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": true,
+                    "description": "<p> The delay in milliseconds to wait before returning the response.</p>\n",
+                    "line": 40,
+                    "rawdescription": "\n\n The delay in milliseconds to wait before returning the response.\n"
+                },
+                {
+                    "name": "method",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\" | \"HEAD\" | \"OPTIONS\" | \"JSONP\"",
+                    "optional": false,
+                    "description": "<p>The HTTP method to match the request against.</p>\n",
+                    "line": 7,
+                    "rawdescription": "\n\nThe HTTP method to match the request against.\n"
+                },
+                {
+                    "name": "requestMatcher",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": true,
+                    "description": "<p> Matcher function to match the request.</p>\n",
+                    "line": 25,
+                    "rawdescription": "\n\n Matcher function to match the request.\n"
+                },
+                {
+                    "name": "response",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": true,
+                    "description": "<p>The response to return when the request matches.</p>\n",
+                    "line": 30,
+                    "rawdescription": "\n\nThe response to return when the request matches.\n"
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"200\" | \"201\" | \"204\" | \"400\" | \"401\" | \"403\" | \"404\" | \"500\" | \"502\" | \"503\" | \"504\"",
+                    "optional": true,
+                    "description": "<p>The status code to return when the request matches.</p>\n",
+                    "line": 35,
+                    "rawdescription": "\n\nThe status code to return when the request matches.\n"
+                },
+                {
+                    "name": "statusText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "<p>The status text to return in case of a server error.</p>\n",
+                    "line": 50,
+                    "rawdescription": "\n\nThe status text to return in case of a server error.\n"
+                },
+                {
+                    "name": "url",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | RegExp",
+                    "optional": true,
+                    "description": "<p>The URL to match the request.</p>\n",
+                    "line": 20,
+                    "rawdescription": "\n\nThe URL to match the request.\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "ListResponse",
+            "id": "interface-ListResponse-282589d515b0c74926638e0aeed45cf1d062a90e09733c59da5198de908e1b4b54166d4bcdc8f4efd97e39d972cf173679dd19a170fabcd3389f0dd3137f3897",
+            "file": "src/app/shared/data/api.models.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "properties": [
+                {
+                    "name": "hasMore",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "<p>If there are more elements to load</p>\n",
+                    "line": 54,
+                    "rawdescription": "\n\nIf there are more elements to load\n"
+                },
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<T>",
+                    "optional": false,
+                    "description": "<p>The list of items</p>\n",
+                    "line": 49,
+                    "rawdescription": "\n\nThe list of items\n"
+                },
+                {
+                    "name": "pagination",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Pagination",
+                    "optional": false,
+                    "description": "<p>The pagination options used for this response</p>\n",
+                    "line": 59,
+                    "rawdescription": "\n\nThe pagination options used for this response\n"
+                },
+                {
+                    "name": "total",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "<p>The total number of elements</p>\n",
+                    "line": 44,
+                    "rawdescription": "\n\nThe total number of elements\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "Pagination",
+            "id": "interface-Pagination-282589d515b0c74926638e0aeed45cf1d062a90e09733c59da5198de908e1b4b54166d4bcdc8f4efd97e39d972cf173679dd19a170fabcd3389f0dd3137f3897",
+            "file": "src/app/shared/data/api.models.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "properties": [
+                {
+                    "name": "limit",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "page",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "RequestOptions",
+            "id": "interface-RequestOptions-282589d515b0c74926638e0aeed45cf1d062a90e09733c59da5198de908e1b4b54166d4bcdc8f4efd97e39d972cf173679dd19a170fabcd3389f0dd3137f3897",
+            "file": "src/app/shared/data/api.models.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "properties": [
+                {
+                    "name": "observe",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"body\" | \"events\" | \"response\"",
+                    "optional": true,
+                    "description": "<p>The type of the response that we will get</p>\n",
+                    "line": 26,
+                    "rawdescription": "\n\nThe type of the response that we will get\n"
+                },
+                {
+                    "name": "orderBy",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "orderDirection",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"ASC\" | \"DESC\"",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "pagination",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Partial<Pagination>",
+                    "optional": true,
+                    "description": "<p>The pagination options</p>\n",
+                    "line": 16,
+                    "rawdescription": "\n\nThe pagination options\n"
+                },
+                {
+                    "name": "searchQuery",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "<p>The search query to filter the results</p>\n",
+                    "line": 11,
+                    "rawdescription": "\n\nThe search query to filter the results\n"
+                },
+                {
+                    "name": "select",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 37
+                },
+                {
+                    "name": "staleTime",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "<p>How long the data will be considered fresh</p>\n",
+                    "line": 31,
+                    "rawdescription": "\n\nHow long the data will be considered fresh\n"
+                },
+                {
+                    "name": "url",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": true,
+                    "description": "<p>The URL to make the request and this  replaces the original one</p>\n",
+                    "line": 21,
+                    "rawdescription": "\n\nThe URL to make the request and this  replaces the original one\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "User",
+            "id": "interface-User-ee5d5f80d847e3a5f48be805d53497d1f2baa4197b1b60e6e1c79b473c47764663251ecf36b63431a83c35273f703e95e59db9aa09bfa955b13290dd4162632c",
+            "file": "src/app/users/data/users.models.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "properties": [
+                {
+                    "name": "age",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "company",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "createdAt",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "department",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "updatedAt",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "UsersApiService",
+            "id": "injectable-UsersApiService-ee99afd5dea8669c084ac5e419d39134dc3e0b6cc53f6d12ba07a53fd5cdc736a2d19ce1044f63d670322da72b88e3e9d8828aec584404d4f72261dd2a929737",
+            "file": "src/app/users/data/users-api.service.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "create",
+                    "args": [
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T | null>",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ApiService"
+                    }
+                },
+                {
+                    "name": "fetchById",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ApiService"
+                    }
+                },
+                {
+                    "name": "fetchPage",
+                    "args": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<ListResponse<T>>",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ApiService"
+                    }
+                },
+                {
+                    "name": "request",
+                    "args": [
+                        {
+                            "name": "method",
+                            "type": "\"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\"",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "options",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        },
+                        {
+                            "name": "body",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [
+                        "T"
+                    ],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        124
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "method",
+                            "type": "\"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\"",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "options",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "body",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ApiService"
+                    }
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ],
+                    "inheritance": {
+                        "file": "ApiService"
+                    }
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "extends": [
+                "ApiService"
+            ],
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [
+        {
+            "name": "ApiMocksInterceptor",
+            "id": "class-ApiMocksInterceptor-af35f38d70d7a5eb008d684a2d6618b5e4c269c4c2a08e387a19e9cad1629f68e2c7c665e6649d09cea3608da825324740074f8dc6206c2de49b1db3f32bb686",
+            "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "requestsMocks",
+                        "type": "Array<ApiRequestMock>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true
+                    }
+                ],
+                "line": 19,
+                "jsdoctags": [
+                    {
+                        "name": "requestsMocks",
+                        "type": "Array<ApiRequestMock>",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "optional": true,
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "description": "<p>Interceptor to mock API requests that can be used in unit tests, storybook, or Cypress Component Testing.</p>\n",
+            "rawdescription": "\n\nInterceptor to mock API requests that can be used in unit tests, storybook, or Cypress Component Testing.\n",
+            "methods": [
+                {
+                    "name": "intercept",
+                    "args": [
+                        {
+                            "name": "req",
+                            "type": "HttpRequest<any>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "next",
+                            "type": "HttpHandler",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<HttpEvent<any>>",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nIntercepts a request and returns the mocked data provided in the constructor\n",
+                    "description": "<p>Intercepts a request and returns the mocked data provided in the constructor</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "req",
+                            "type": "HttpRequest<any>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "next",
+                            "type": "HttpHandler",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "implements": [
+                "HttpInterceptor"
+            ]
+        },
+        {
+            "name": "ApiService",
+            "id": "class-ApiService-6dd7c64e5b20f8476bec432ff5a6f94a088ffbc6498ffdce5e4678c85a344a6fcefd05ca3268615e22db589aee119feaf7c92da91afbd215b74e8be8b9a1b220",
+            "file": "src/app/shared/data/api.service.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "entityName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 7,
+                "modifierKind": [
+                    124
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "entityName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "inputsClass": [],
+            "outputsClass": [],
+            "properties": [],
+            "methods": [
+                {
+                    "name": "create",
+                    "args": [
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T | null>",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "fetchById",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "fetchPage",
+                    "args": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<ListResponse<T>>",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125,
+                        134
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "request",
+                    "args": [
+                        {
+                            "name": "method",
+                            "type": "\"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\"",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "options",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        },
+                        {
+                            "name": "body",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [
+                        "T"
+                    ],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        124
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "method",
+                            "type": "\"GET\" | \"POST\" | \"PUT\" | \"DELETE\" | \"PATCH\"",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "options",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "body",
+                            "type": "",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Promise<T>",
+                    "typeParameters": [],
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "body",
+                            "type": "Partial<T>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "requestOptions",
+                            "type": "Partial<RequestOptions>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "optional": true,
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "extends": [],
+            "hostBindings": [],
+            "hostListeners": []
+        }
+    ],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-b1c8f200b09e4981998e60464cc41dc7be7e50c3d176ae6af1d8ec273e5fdaef5c1d7f2419d558b565917fb7eb15de41a2efb26f46a5800f7e8e978ff1d71a21",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div>\n  <angular-query-devtools initialIsOpen />\n  <page-container />\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "PageContainerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "AngularQueryDevtools"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": []
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-276f56c1382370e9c33fdd2212402a01f5cfac8c6699b54d63fc19d0c819172ca913c6a96ab104deaf2ecaa55f11c43fc1cb13edf16d0d12437ef3b2e6eb0998",
+            "file": "src/app/shared/ui/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-button",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<button\n  class=\"btn\"\n  [ngClass]=\"{\n    'btn-xs': size() === 'xs',\n    'btn-sm': size() === 'sm',\n    'btn-md': size() === 'md',\n    'btn-lg': size() === 'lg',\n    'btn-primary': type() === 'primary',\n    'btn-secondary': type() === 'secondary'\n  }\"\n  (click)=\"handleClick()\"\n>\n  <ng-content />\n</button>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "click",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 43,
+                    "required": false
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "buttonClass",
+                    "defaultValue": "computed(() => {\n    var className = 'btn';\n    const size = this.size();\n    const type = this.type();\n\n    if (size !== 'md') {\n      className += ` btn-${size} `;\n    }\n    className += ` btn-${type} `;\n\n    return className;\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 30
+                },
+                {
+                    "name": "click",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 43,
+                    "required": false
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "input<ButtonSize>('md')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "input<ButtonType>('primary')",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 28
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "handleClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": []
+        },
+        {
+            "name": "ManageUsersDialogComponent",
+            "id": "component-ManageUsersDialogComponent-44a4937972a57fe72e90c5a3f3c886e20e56f204fb53c9b0c1224fd068a3c46b3bc341286e89f161c2faffffcab41105af8499fcd0234d3a176e3f0eb5114970",
+            "file": "src/app/users/containers/manage-users-dialog.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "manage-users-modal",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "template": "<div [formGroup]=\"usersFormGroup\">\n  <div class=\"flex flex-row justify-between items-center\">\n    <div class=\"flex flex-column gap-2 w-full\">\n      <label class=\"\" for=\"name\">Name</label>\n      <input formControlName=\"name\" />\n    </div>\n    <div class=\"flex flex-column gap-2 w-full\">\n      <label class=\"\" for=\"age\">Age</label>\n      <!--          <p-inputNumber formControlName=\"age\" />-->\n    </div>\n  </div>\n  <div class=\"mt-4 flex justify-content-end gap-2\">\n    <button\n      type=\"button\"\n      class=\"p-button-outlined p-button-secondary\"\n      label=\"Cancel\"\n    ></button>\n    <button\n      type=\"button\"\n      class=\"\"\n      [disabled]=\"!usersFormGroup.valid\"\n      (click)=\"onSaveUser()\"\n      label=\"Save\"\n    ></button>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "enabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 60
+                },
+                {
+                    "name": "queryById",
+                    "defaultValue": "usersQuery.details(this.#id)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 64
+                },
+                {
+                    "name": "usersFormGroup",
+                    "defaultValue": "new FormGroup({\n    name: new FormControl('', [Validators.required]),\n    age: new FormControl('', [Validators.required]),\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 56
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSaveUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 87,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "PageContainerComponent",
+            "id": "component-PageContainerComponent-e97f68ba349ba4883e25ea33162bf582700367e058822618bde397cabca7542478e63d5eec68a9ba697c69c19f00d3f9b59070c4b3180954f2c3ec607c3adf45",
+            "file": "src/app/shared/ui/layout/page-container.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "page-container",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "template": "<div class=\"p-8 w-full h-full\">\n  <router-outlet></router-outlet>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "RouterModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": []
+        },
+        {
+            "name": "PaginationComponent",
+            "id": "component-PaginationComponent-d1d3434937ed9b39f9d5f53c485dcdd4b8ba54bf60539c76622b9325e88741fabea0614233e72cf6c393568a0be714583c4de860b6d536859136751189ed4e07",
+            "file": "src/app/shared/ui/pagination/pagination.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "ui-pagination",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div\n  class=\"flex items-center justify-between border-t border-gray-200 bg-white py-3 \"\n>\n  <div class=\"flex flex-1 justify-between sm:hidden\">\n    <a\n      class=\"relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToPreviousPage()\"\n      href=\"#\"\n    >\n      Previous\n    </a>\n    <a\n      class=\"relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToNextPage()\"\n      href=\"#\"\n    >\n      Next\n    </a>\n  </div>\n  <div class=\"hidden sm:flex sm:flex-1 sm:items-center sm:justify-between\">\n    <div>\n      <p class=\"text-sm text-gray-700\">\n        Showing <span class=\"font-medium\">{{ firstPageItem() }}</span> to\n        <span class=\"font-medium\">{{ lastPageItem() }}</span>\n        of <span class=\"font-medium\">{{ totalItems() }}</span> results\n      </p>\n    </div>\n    <div>\n      <nav\n        aria-label=\"Pagination\"\n        class=\"isolate inline-flex -space-x-px rounded-md shadow-sm\"\n      >\n        <a\n          class=\"relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToPreviousPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Previous</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M12.293 14.707a1 1 0 001.414-1.414L8.414 8l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n        <!-- Pagination numbers -->\n        <a\n          *ngFor=\"let page of visiblePages()\"\n          [class]=\"\n            currentPage() === page\n              ? 'relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'\n              : 'relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'\n          \"\n          (click)=\"goToPage(page)\"\n          href=\"#\"\n        >\n          {{ page }}\n        </a>\n        <a\n          class=\"relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToNextPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Next</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M7.707 14.707a1 1 0 01-1.414-1.414L11.586 8 6.293 2.707a1 1 0 011.414-1.414l6 6a1 1 0 010 1.414l-6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n      </nav>\n    </div>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "totalItems",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 108,
+                    "required": true
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentPage",
+                    "defaultValue": "model(1)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 106
+                },
+                {
+                    "name": "firstPageItem",
+                    "defaultValue": "computed(() => {\n    return (this.currentPage() - 1) * this.itemsPerPage() + 1;\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 117
+                },
+                {
+                    "name": "itemsPerPage",
+                    "defaultValue": "model(10)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 107
+                },
+                {
+                    "name": "lastPageItem",
+                    "defaultValue": "computed(() => {\n    return Math.min(\n      this.currentPage() * this.itemsPerPage(),\n      this.totalItems(),\n    );\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 120
+                },
+                {
+                    "name": "numberOfPages",
+                    "defaultValue": "computed(() => {\n    return Math.ceil(this.totalItems() / this.itemsPerPage());\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 110
+                },
+                {
+                    "name": "totalItems",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 108,
+                    "required": true
+                },
+                {
+                    "name": "visiblePages",
+                    "defaultValue": "computed(() => {\n    return Array.from({ length: this.numberOfPages() }, (_, i) => i + 1);\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 113
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "goToNextPage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 135,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "goToPage",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 142,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "goToPreviousPage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 128,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgForOf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": []
+        },
+        {
+            "name": "UsersPageComponent",
+            "id": "component-UsersPageComponent-354fc88cdf31963791db5c2ed009f0c707da0a0f3e8b657014a800e1c31113a2ba2f51afaa45a8d6639cbe44b97aba9e0c6ebc76c10b486bc9a4dd757ff2dbe7",
+            "file": "src/app/users/containers/users-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "users-page",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"flex h-full w-full flex-col gap-6 \">\n  <div class=\"flex  items-center justify-between gap-6\">\n    <h1 class=\"text-2xl font-semibold\">Users</h1>\n    <ui-button type=\"primary\" (click)=\"addUser()\" size=\"lg\"\n      >Add User</ui-button\n    >\n  </div>\n  <div class=\"\">\n    @if (usersPageQuery.isPending()) {\n      <p>Loading...</p>\n    } @else if (usersPageQuery.isError()) {\n      <span> Error</span>\n    } @else {\n      <div class=\"\">\n        <ag-grid-angular\n          class=\"ag-theme-alpine border-round\"\n          [rowData]=\"usersPageQuery.data()?.items\"\n          [columnDefs]=\"columnDefs\"\n          (rowClicked)=\"handleRowClicked($event)\"\n          style=\"width: 100%; height: 400px;\"\n        />\n        <div class=\"flex-auto\">\n          <ui-pagination\n            [totalItems]=\"usersPageQuery.data()?.total || 0\"\n            (currentPageChange)=\"handleCurrentPageChange()\"\n          />\n          <!--              <p-paginator-->\n          <!--                [first]=\"1\"-->\n          <!--                [rows]=\"20\"-->\n          <!--                [totalRecords]=\"usersPageQuery.data()?.total || 0\"-->\n          <!--                (onPageChange)=\"onPageChange($event)\"-->\n          <!--              />-->\n        </div>\n      </div>\n    }\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "columnDefs",
+                    "defaultValue": "[\n    { field: 'name' },\n    { field: 'age' },\n    { field: 'email' },\n    { field: 'company' },\n    { field: 'title' },\n    { field: 'createdAt' },\n    { field: 'updatedAt' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<ColDef>",
+                    "optional": false,
+                    "description": "",
+                    "line": 55
+                },
+                {
+                    "name": "currentPage",
+                    "defaultValue": "signal(1)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 65
+                },
+                {
+                    "name": "usersPageQuery",
+                    "defaultValue": "usersQuery.page(this.usersRequestOptions)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 78
+                },
+                {
+                    "name": "usersRequestOptions",
+                    "defaultValue": "computed(() => {\n    return {\n      pagination: {\n        limit: 10,\n        page: this.currentPage(),\n      },\n      orderBy: 'createdAt',\n      orderDirection: 'ASC',\n    } as RequestOptions;\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 67
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "addUser",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 80,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "handleCurrentPageChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 109,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "handleRowClicked",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "RowClickedEvent<User>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 96,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "RowClickedEvent<User>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onPageChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 92,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "AgGridModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "PaginationComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "assetsDirs": [],
+            "extends": []
+        }
+    ],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\n  providers: [\n    provideRouter(appRoutes),\n    provideHttpClient(),\n    provideAnimations(),\n    provideAngularQuery(new QueryClient()),\n  ],\n}"
+            },
+            {
+                "name": "appRoutes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.routes.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Array<Route>",
+                "defaultValue": "[\n  { path: '', pathMatch: 'full', redirectTo: 'users' },\n  {\n    path: 'users',\n    loadChildren: () =>\n      import('@my/users/containers').then((m) => m.usersRoutes),\n  },\n]"
+            },
+            {
+                "name": "ConvertToClassName",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/string.utils.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(str: string) => {\n  return ' ' + str + ' ';\n}"
+            },
+            {
+                "name": "data",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/containers/users-page.mocks.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  users: [\n    {\n      name: 'Sari Dillway',\n      age: 82,\n      email: 'sdillway0@ft.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Accounting',\n      createdAt: '10/16/2023',\n      updatedAt: '8/14/2023',\n      id: '4d5b9a1d-597c-4d1e-82be-02757836b226',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n    {\n      name: 'Kalindi Wonfar',\n      age: 84,\n      email: 'kwonfar2@elegantthemes.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Marketing',\n      createdAt: '2/16/2023',\n      updatedAt: '1/14/2023',\n      id: '80350fd5-525c-4a08-bd96-3c49fcacab16',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n  ],\n}"
+            },
+            {
+                "name": "entityName",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/data/users.queries.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'users'"
+            },
+            {
+                "name": "injectUserQuery",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/data/users-query-api.service.ts"
+            },
+            {
+                "name": "ObjectToStr",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/string.utils.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(obj: object) => {\n  let result: string[] = [];\n\n  Object.values(obj).forEach((value) => {\n    if (typeof value === 'string') {\n      result = [...result, value];\n    } else if (\n      typeof value === 'object' &&\n      !Array.isArray(value) &&\n      value !== null\n    ) {\n      result = [...result, ObjectToStr(value)];\n    }\n\n    return undefined;\n  });\n\n  return result.join(' ');\n}"
+            },
+            {
+                "name": "queryKeys",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/data/users.queries.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  all: (requestOptions: RequestOptions) => [entityName, requestOptions],\n  page: (requestOptions: RequestOptions) => [\n    entityName,\n    'page',\n    requestOptions,\n  ],\n  details: (id: User['id']) => [entityName, 'details', id],\n}"
+            },
+            {
+                "name": "queryOptions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/data/users.queries.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  staleTime: 1000 * 5,\n  gcTime: 1000 * 120,\n}"
+            },
+            {
+                "name": "usersPageMocks",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/containers/users-page.mocks.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  data,\n}"
+            },
+            {
+                "name": "usersQuery",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/data/users.queries.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  page: pageQuery,\n  details: detailsQuery,\n}"
+            }
+        ],
+        "functions": [
+            {
+                "name": "detailsQuery",
+                "file": "src/app/users/data/users.queries.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "id",
+                        "type": "Signal",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "id",
+                        "type": "Signal",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "functionalApiService",
+                "file": "src/app/shared/data/functional-api.service.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "entityName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "entityName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "pageQuery",
+                "file": "src/app/users/data/users.queries.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "requestOptions",
+                        "type": "Signal",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "requestOptions",
+                        "type": "Signal",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "queryState",
+                "file": "src/app/users/data/users-query-api.service.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "entityName",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "entityName",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [
+            {
+                "name": "ButtonSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+                "file": "src/app/shared/ui/button/button.models.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "ButtonType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"secondary\" | \"accent\" | \"ghost\" | \"error\" | \"success\" | \"warning\" | \"info\"",
+                "file": "src/app/shared/ui/button/button.models.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 192
+            },
+            {
+                "name": "QueryStateOptions",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/users/data/users-query-api.service.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/app.config.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\n  providers: [\n    provideRouter(appRoutes),\n    provideHttpClient(),\n    provideAnimations(),\n    provideAngularQuery(new QueryClient()),\n  ],\n}"
+                }
+            ],
+            "src/app/app.routes.ts": [
+                {
+                    "name": "appRoutes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.routes.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<Route>",
+                    "defaultValue": "[\n  { path: '', pathMatch: 'full', redirectTo: 'users' },\n  {\n    path: 'users',\n    loadChildren: () =>\n      import('@my/users/containers').then((m) => m.usersRoutes),\n  },\n]"
+                }
+            ],
+            "src/app/shared/utils/string.utils.ts": [
+                {
+                    "name": "ConvertToClassName",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/string.utils.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(str: string) => {\n  return ' ' + str + ' ';\n}"
+                },
+                {
+                    "name": "ObjectToStr",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/string.utils.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(obj: object) => {\n  let result: string[] = [];\n\n  Object.values(obj).forEach((value) => {\n    if (typeof value === 'string') {\n      result = [...result, value];\n    } else if (\n      typeof value === 'object' &&\n      !Array.isArray(value) &&\n      value !== null\n    ) {\n      result = [...result, ObjectToStr(value)];\n    }\n\n    return undefined;\n  });\n\n  return result.join(' ');\n}"
+                }
+            ],
+            "src/app/users/containers/users-page.mocks.ts": [
+                {
+                    "name": "data",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/containers/users-page.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  users: [\n    {\n      name: 'Sari Dillway',\n      age: 82,\n      email: 'sdillway0@ft.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Accounting',\n      createdAt: '10/16/2023',\n      updatedAt: '8/14/2023',\n      id: '4d5b9a1d-597c-4d1e-82be-02757836b226',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n    {\n      name: 'Kalindi Wonfar',\n      age: 84,\n      email: 'kwonfar2@elegantthemes.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Marketing',\n      createdAt: '2/16/2023',\n      updatedAt: '1/14/2023',\n      id: '80350fd5-525c-4a08-bd96-3c49fcacab16',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n  ],\n}"
+                },
+                {
+                    "name": "usersPageMocks",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/containers/users-page.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  data,\n}"
+                }
+            ],
+            "src/app/users/data/users.queries.ts": [
+                {
+                    "name": "entityName",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'users'"
+                },
+                {
+                    "name": "queryKeys",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  all: (requestOptions: RequestOptions) => [entityName, requestOptions],\n  page: (requestOptions: RequestOptions) => [\n    entityName,\n    'page',\n    requestOptions,\n  ],\n  details: (id: User['id']) => [entityName, 'details', id],\n}"
+                },
+                {
+                    "name": "queryOptions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  staleTime: 1000 * 5,\n  gcTime: 1000 * 120,\n}"
+                },
+                {
+                    "name": "usersQuery",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  page: pageQuery,\n  details: detailsQuery,\n}"
+                }
+            ],
+            "src/app/users/data/users-query-api.service.ts": [
+                {
+                    "name": "injectUserQuery",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/data/users-query-api.service.ts"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "src/app/users/data/users.queries.ts": [
+                {
+                    "name": "detailsQuery",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "Signal",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "Signal",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "pageQuery",
+                    "file": "src/app/users/data/users.queries.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Signal",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "requestOptions",
+                            "type": "Signal",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/app/shared/data/functional-api.service.ts": [
+                {
+                    "name": "functionalApiService",
+                    "file": "src/app/shared/data/functional-api.service.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "entityName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "entityName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "src/app/users/data/users-query-api.service.ts": [
+                {
+                    "name": "queryState",
+                    "file": "src/app/users/data/users-query-api.service.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "entityName",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "entityName",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/shared/ui/button/button.models.ts": [
+                {
+                    "name": "ButtonSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"xs\" | \"sm\" | \"md\" | \"lg\"",
+                    "file": "src/app/shared/ui/button/button.models.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                },
+                {
+                    "name": "ButtonType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"secondary\" | \"accent\" | \"ghost\" | \"error\" | \"success\" | \"warning\" | \"info\"",
+                    "file": "src/app/shared/ui/button/button.models.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 192
+                }
+            ],
+            "src/app/users/data/users-query-api.service.ts": [
+                {
+                    "name": "QueryStateOptions",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/users/data/users-query-api.service.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ]
+        }
+    }
+}

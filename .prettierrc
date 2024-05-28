@@ -1,0 +1,49 @@
+{
+  "singleQuote": true,
+  "embeddedLanguageFormatting": "auto",
+  "plugins": [
+    "prettier-plugin-organize-attributes",
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "attributeGroups": [
+    "^(id|name)$",
+    "$ANGULAR_STRUCTURAL_DIRECTIVE",
+    "^app",
+    "$ANGULAR_ELEMENT_REF",
+    "data-testid",
+    "tabindex",
+    "$ALT",
+    "$ARIA",
+    "$ROLE",
+    "$TYPE",
+    "$CLASS",
+    "ngClass",
+    "^\\[style",
+    "$ANGULAR_ANIMATION",
+    "$ANGULAR_ANIMATION_INPUT",
+    "^\\[attr",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$ANGULAR_INPUT",
+    "^(\\(blur\\)|\\(focus\\)|)$",
+    "^(\\(click\\)|\\(dbclick\\)|\\(submit\\))$",
+    "^(\\(cut\\)|\\(copy\\)|\\(paste\\))$",
+    "^(\\(keyup\\)|\\(keypress\\)|\\(keydown\\))$",
+    "^(\\(mouseup\\)|\\(mousedown\\)|\\(mouseenter\\)|\\(scroll\\))$",
+    "^(\\(drag\\)|\\(drop\\)|\\(dragover\\))$",
+    "$ANGULAR_OUTPUT"
+  ],
+  "importOrder": [
+    "^@angular",
+    "<THIRD_PARTY_MODULES>",
+    "^@my/shared",
+    "^@my/(.*)$",
+    "^[./|~/]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": [
+    "typescript",
+    "decorators-legacy"
+  ]
+}
