@@ -17,9 +17,15 @@ const preview: Preview = {
       },
     },
     layout: 'centered',
+    options: {
+      storySort: {
+        order: ["Guides", "*"],
+      },
+    },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'autodocs'],
   decorators: [
+
     applicationConfig({
       providers: [provideAngularQuery(new QueryClient())],
     }),

@@ -15,9 +15,12 @@ export default meta;
 type Story = StoryObj<PaginationComponent>;
 
 export const Default: Story = {
+
+};
+
+
+export const WithFewItems:Story = {
   args: {
-    totalItems: 100,
-    currentPage: 1,
-    itemsPerPage: 10,
+    totalItems: 5,
   },
 };

@@ -690,101 +690,6 @@
     "interceptors": [],
     "classes": [
         {
-            "name": "ApiMocksInterceptor",
-            "id": "class-ApiMocksInterceptor-af35f38d70d7a5eb008d684a2d6618b5e4c269c4c2a08e387a19e9cad1629f68e2c7c665e6649d09cea3608da825324740074f8dc6206c2de49b1db3f32bb686",
-            "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "class",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "requestsMocks",
-                        "type": "Array<ApiRequestMock>",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "optional": true
-                    }
-                ],
-                "line": 19,
-                "jsdoctags": [
-                    {
-                        "name": "requestsMocks",
-                        "type": "Array<ApiRequestMock>",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "optional": true,
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            },
-            "inputsClass": [],
-            "outputsClass": [],
-            "properties": [],
-            "description": "<p>Interceptor to mock API requests that can be used in unit tests, storybook, or Cypress Component Testing.</p>\n",
-            "rawdescription": "\n\nInterceptor to mock API requests that can be used in unit tests, storybook, or Cypress Component Testing.\n",
-            "methods": [
-                {
-                    "name": "intercept",
-                    "args": [
-                        {
-                            "name": "req",
-                            "type": "HttpRequest<any>",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        },
-                        {
-                            "name": "next",
-                            "type": "HttpHandler",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
-                    ],
-                    "optional": false,
-                    "returnType": "Observable<HttpEvent<any>>",
-                    "typeParameters": [],
-                    "line": 25,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nIntercepts a request and returns the mocked data provided in the constructor\n",
-                    "description": "<p>Intercepts a request and returns the mocked data provided in the constructor</p>\n",
-                    "jsdoctags": [
-                        {
-                            "name": "req",
-                            "type": "HttpRequest<any>",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        },
-                        {
-                            "name": "next",
-                            "type": "HttpHandler",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "indexSignatures": [],
-            "extends": [],
-            "hostBindings": [],
-            "hostListeners": [],
-            "implements": [
-                "HttpInterceptor"
-            ]
-        },
-        {
             "name": "ApiService",
             "id": "class-ApiService-6dd7c64e5b20f8476bec432ff5a6f94a088ffbc6498ffdce5e4678c85a344a6fcefd05ca3268615e22db589aee119feaf7c92da91afbd215b74e8be8b9a1b220",
             "file": "src/app/shared/data/api.service.ts",
@@ -1152,7 +1057,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-276f56c1382370e9c33fdd2212402a01f5cfac8c6699b54d63fc19d0c819172ca913c6a96ab104deaf2ecaa55f11c43fc1cb13edf16d0d12437ef3b2e6eb0998",
+            "id": "component-ButtonComponent-89d480568a7997be5cac360103e1009d0171ec872f042ffa7565e17d229ac36b6db6bb7afd9cf99bbac321b011bbee21662207c2c22dbbd875dbbcbb7f4841eb",
             "file": "src/app/shared/ui/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1162,7 +1067,7 @@
             "selector": "ui-button",
             "styleUrls": [],
             "styles": [],
-            "template": "<button\n  class=\"btn\"\n  [ngClass]=\"{\n    'btn-xs': size() === 'xs',\n    'btn-sm': size() === 'sm',\n    'btn-md': size() === 'md',\n    'btn-lg': size() === 'lg',\n    'btn-primary': type() === 'primary',\n    'btn-secondary': type() === 'secondary'\n  }\"\n  (click)=\"handleClick()\"\n>\n  <ng-content />\n</button>\n",
+            "template": "<button\n  class=\"btn\"\n  [ngClass]=\"{\n    'btn-xs': size() === 'xs',\n    'btn-sm': size() === 'sm',\n    'btn-md': size() === 'md',\n    'btn-lg': size() === 'lg',\n    'btn-primary': type() === 'primary',\n    'btn-secondary': type() === 'secondary',\n    'btn-accent': type() === 'accent',\n    'btn-ghost': type() === 'ghost',\n    'btn-error': type() === 'error',\n    'btn-success': type() === 'success',\n    'btn-warning': type() === 'warning',\n    'btn-info': type() === 'info'\n  }\"\n  (click)=\"handleClick()\"\n>\n  <ng-content />\n</button>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1175,7 +1080,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 43,
+                    "line": 49,
                     "required": false
                 }
             ],
@@ -1188,7 +1093,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 36
                 },
                 {
                     "name": "click",
@@ -1197,7 +1102,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 43,
+                    "line": 49,
                     "required": false
                 },
                 {
@@ -1208,7 +1113,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 33
                 },
                 {
                     "name": "type",
@@ -1218,7 +1123,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 28
+                    "line": 34
                 }
             ],
             "methodsClass": [
@@ -1228,7 +1133,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 45,
+                    "line": 51,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1386,7 +1291,7 @@
         },
         {
             "name": "PaginationComponent",
-            "id": "component-PaginationComponent-d1d3434937ed9b39f9d5f53c485dcdd4b8ba54bf60539c76622b9325e88741fabea0614233e72cf6c393568a0be714583c4de860b6d536859136751189ed4e07",
+            "id": "component-PaginationComponent-26e81e22609c3b3d700bdc151c75eb679a110a7ed10b07b3f7e1746b4b68d300738dcef9fda25399ef57b4f85e338b50acc6343729d3800f61cd0f6b2269b394",
             "file": "src/app/shared/ui/pagination/pagination.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -1397,7 +1302,7 @@
             "selector": "ui-pagination",
             "styleUrls": [],
             "styles": [],
-            "template": "<div\n  class=\"flex items-center justify-between border-t border-gray-200 bg-white py-3 \"\n>\n  <div class=\"flex flex-1 justify-between sm:hidden\">\n    <a\n      class=\"relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToPreviousPage()\"\n      href=\"#\"\n    >\n      Previous\n    </a>\n    <a\n      class=\"relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToNextPage()\"\n      href=\"#\"\n    >\n      Next\n    </a>\n  </div>\n  <div class=\"hidden sm:flex sm:flex-1 sm:items-center sm:justify-between\">\n    <div>\n      <p class=\"text-sm text-gray-700\">\n        Showing <span class=\"font-medium\">{{ firstPageItem() }}</span> to\n        <span class=\"font-medium\">{{ lastPageItem() }}</span>\n        of <span class=\"font-medium\">{{ totalItems() }}</span> results\n      </p>\n    </div>\n    <div>\n      <nav\n        aria-label=\"Pagination\"\n        class=\"isolate inline-flex -space-x-px rounded-md shadow-sm\"\n      >\n        <a\n          class=\"relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToPreviousPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Previous</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M12.293 14.707a1 1 0 001.414-1.414L8.414 8l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n        <!-- Pagination numbers -->\n        <a\n          *ngFor=\"let page of visiblePages()\"\n          [class]=\"\n            currentPage() === page\n              ? 'relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'\n              : 'relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'\n          \"\n          (click)=\"goToPage(page)\"\n          href=\"#\"\n        >\n          {{ page }}\n        </a>\n        <a\n          class=\"relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToNextPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Next</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M7.707 14.707a1 1 0 01-1.414-1.414L11.586 8 6.293 2.707a1 1 0 011.414-1.414l6 6a1 1 0 010 1.414l-6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n      </nav>\n    </div>\n  </div>\n</div>\n",
+            "template": "<div\n  class=\"flex items-center justify-between border-t border-gray-200 bg-white py-3 \"\n>\n  <div class=\"flex flex-1 justify-between sm:hidden\">\n    <a\n      class=\"relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToPreviousPage()\"\n      href=\"#\"\n    >\n      Previous\n    </a>\n    <a\n      class=\"relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50\"\n      (click)=\"goToNextPage()\"\n      href=\"#\"\n    >\n      Next\n    </a>\n  </div>\n  <div class=\"hidden sm:flex sm:flex-1 sm:items-center sm:justify-between\">\n    <div>\n      <p class=\"hidden text-sm xl:block \">\n        Showing <span class=\"font-medium\">{{ firstPageItem() }}</span> to\n        <span class=\"font-medium\">{{ lastPageItem() }}</span>\n        of <span class=\"font-medium\">{{ totalItems() }}</span> results\n      </p>\n    </div>\n    <div>\n      <nav\n        aria-label=\"Pagination\"\n        class=\"isolate inline-flex -space-x-px rounded-md shadow-sm\"\n      >\n        <a\n          class=\"relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToPreviousPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Previous</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M12.293 14.707a1 1 0 001.414-1.414L8.414 8l5.293-5.293a1 1 0 00-1.414-1.414l-6 6a1 1 0 000 1.414l6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n        <!-- Pagination numbers -->\n        <a\n          *ngFor=\"let page of visiblePages()\"\n          [class]=\"\n            currentPage() === page\n              ? 'relative z-10 inline-flex items-center bg-primary px-4 py-2 text-sm font-semibold  focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'\n              : 'relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0'\n          \"\n          (click)=\"goToPage(page)\"\n          href=\"#\"\n        >\n          {{ page }}\n        </a>\n        <a\n          class=\"relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0\"\n          (click)=\"goToNextPage()\"\n          href=\"#\"\n        >\n          <span class=\"sr-only\">Next</span>\n          <svg\n            aria-hidden=\"true\"\n            class=\"h-5 w-5\"\n            fill=\"currentColor\"\n            viewBox=\"0 0 20 20\"\n          >\n            <path\n              fill-rule=\"evenodd\"\n              d=\"M7.707 14.707a1 1 0 01-1.414-1.414L11.586 8 6.293 2.707a1 1 0 011.414-1.414l6 6a1 1 0 010 1.414l-6 6z\"\n              clip-rule=\"evenodd\"\n            />\n          </svg>\n        </a>\n      </nav>\n    </div>\n  </div>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1554,7 +1459,7 @@
         },
         {
             "name": "UsersPageComponent",
-            "id": "component-UsersPageComponent-354fc88cdf31963791db5c2ed009f0c707da0a0f3e8b657014a800e1c31113a2ba2f51afaa45a8d6639cbe44b97aba9e0c6ebc76c10b486bc9a4dd757ff2dbe7",
+            "id": "component-UsersPageComponent-98a0e7717976ceb1881b9975243a389083f616d4ed6de5ee5ba93b9ef81b76b921af5e2c32f28d88970dc77ca1b025cc3c502598f3a3f2a73b385b535196b371",
             "file": "src/app/users/containers/users-page.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1564,7 +1469,7 @@
             "selector": "users-page",
             "styleUrls": [],
             "styles": [],
-            "template": "<div class=\"flex h-full w-full flex-col gap-6 \">\n  <div class=\"flex  items-center justify-between gap-6\">\n    <h1 class=\"text-2xl font-semibold\">Users</h1>\n    <ui-button type=\"primary\" (click)=\"addUser()\" size=\"lg\"\n      >Add User</ui-button\n    >\n  </div>\n  <div class=\"\">\n    @if (usersPageQuery.isPending()) {\n      <p>Loading...</p>\n    } @else if (usersPageQuery.isError()) {\n      <span> Error</span>\n    } @else {\n      <div class=\"\">\n        <ag-grid-angular\n          class=\"ag-theme-alpine border-round\"\n          [rowData]=\"usersPageQuery.data()?.items\"\n          [columnDefs]=\"columnDefs\"\n          (rowClicked)=\"handleRowClicked($event)\"\n          style=\"width: 100%; height: 400px;\"\n        />\n        <div class=\"flex-auto\">\n          <ui-pagination\n            [totalItems]=\"usersPageQuery.data()?.total || 0\"\n            (currentPageChange)=\"handleCurrentPageChange()\"\n          />\n          <!--              <p-paginator-->\n          <!--                [first]=\"1\"-->\n          <!--                [rows]=\"20\"-->\n          <!--                [totalRecords]=\"usersPageQuery.data()?.total || 0\"-->\n          <!--                (onPageChange)=\"onPageChange($event)\"-->\n          <!--              />-->\n        </div>\n      </div>\n    }\n  </div>\n</div>\n",
+            "template": "<div class=\"flex h-full w-full flex-col gap-6 \">\n  <div class=\"flex  items-center justify-between gap-6\">\n    <h1 class=\"text-2xl font-semibold\">Users</h1>\n    <ui-button type=\"primary\" (click)=\"addUser()\">Add User</ui-button>\n  </div>\n  <div class=\"\">\n    @if (usersPageQuery.isPending()) {\n      <p>Loading...</p>\n    } @else if (usersPageQuery.isError()) {\n      <span> Error</span>\n    } @else {\n      <div class=\"\">\n        <ag-grid-angular\n          class=\"ag-theme-alpine border-round\"\n          [rowData]=\"usersPageQuery.data()?.items\"\n          [columnDefs]=\"columnDefs\"\n          (rowClicked)=\"handleRowClicked($event)\"\n          style=\"width: 100%; height: 400px;\"\n        />\n        <div class=\"flex-auto\">\n          <ui-pagination\n            [totalItems]=\"usersPageQuery.data()?.total || 0\"\n            (currentPageChange)=\"handleCurrentPageChange()\"\n          />\n          <!--              <p-paginator-->\n          <!--                [first]=\"1\"-->\n          <!--                [rows]=\"20\"-->\n          <!--                [totalRecords]=\"usersPageQuery.data()?.total || 0\"-->\n          <!--                (onPageChange)=\"onPageChange($event)\"-->\n          <!--              />-->\n        </div>\n      </div>\n    }\n  </div>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -1579,7 +1484,7 @@
                     "type": "Array<ColDef>",
                     "optional": false,
                     "description": "",
-                    "line": 55
+                    "line": 53
                 },
                 {
                     "name": "currentPage",
@@ -1589,7 +1494,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 65
+                    "line": 63
                 },
                 {
                     "name": "usersPageQuery",
@@ -1599,7 +1504,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 78
+                    "line": 76
                 },
                 {
                     "name": "usersRequestOptions",
@@ -1609,7 +1514,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 67
+                    "line": 65
                 }
             ],
             "methodsClass": [
@@ -1619,7 +1524,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 78,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1632,7 +1537,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 109,
+                    "line": 107,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1649,7 +1554,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 96,
+                    "line": 94,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1673,7 +1578,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 92,
+                    "line": 90,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -1745,6 +1650,16 @@
                 "defaultValue": "(str: string) => {\n  return ' ' + str + ' ';\n}"
             },
             {
+                "name": "createResponse",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(\n  mockedRequest: ApiRequestMock,\n): HttpResponse<unknown> => {\n  return new HttpResponse(\n    mockedRequest.count !== undefined\n      ? {\n          status: mockedRequest.status || 200,\n          body: mockedRequest.response,\n          headers: new HttpHeaders().set(\n            'x-total-count',\n            `${mockedRequest.count}`,\n          ),\n        }\n      : {\n          status: mockedRequest.status || 200,\n          body: mockedRequest.response,\n        },\n  );\n}"
+            },
+            {
                 "name": "data",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1765,10 +1680,40 @@
                 "defaultValue": "'users'"
             },
             {
+                "name": "getResponse",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(\n  request: HttpRequest<any>,\n  requestsMocks?: Array<ApiRequestMock>,\n): {\n  response: HttpResponse<unknown>;\n  delay: number;\n} | null => {\n  if (!requestsMocks) {\n    return null;\n  }\n\n  for (const mockedRequest of requestsMocks) {\n    if (isRequestMatch(request, mockedRequest)) {\n      if (mockedRequest.status && mockedRequest.status > 299) {\n        throwErrorResponse(mockedRequest);\n      }\n\n      return {\n        response: createResponse(mockedRequest),\n        delay: mockedRequest.delay ?? 0,\n      };\n    }\n  }\n\n  return null;\n}"
+            },
+            {
                 "name": "injectUserQuery",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/users/data/users-query-api.service.ts"
+            },
+            {
+                "name": "isRequestMatch",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(\n  request: HttpRequest<any>,\n  mockedRequest: ApiRequestMock,\n): boolean => {\n  if (!mockedRequest.url && mockedRequest.requestMatcher) {\n    return !!mockedRequest.requestMatcher(request);\n  }\n\n  const isUrlMatch =\n    (mockedRequest.url === request.urlWithParams ||\n      new RegExp(mockedRequest.url ?? '').test(request.urlWithParams)) &&\n    request.method === mockedRequest.method;\n\n  if (isUrlMatch && mockedRequest.requestMatcher) {\n    return !!mockedRequest.requestMatcher(request);\n  }\n\n  return isUrlMatch;\n}"
+            },
+            {
+                "name": "mocksInterceptor",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(requestsMocks?: Array<ApiRequestMock>) => (req: any, next: any) => {\n    if (req.url.indexOf('.json') > -1) {\n      return next.handle(req);\n    }\n\n    const mockedResponse = getResponse(req, requestsMocks);\n    if (!!mockedResponse?.response) {\n      return of(mockedResponse.response).pipe(\n        delay(mockedResponse?.delay || 0),\n      );\n    }\n    return next.handle(req);\n  }"
             },
             {
                 "name": "ObjectToStr",
@@ -1801,6 +1746,46 @@
                 "defaultValue": "{\n  staleTime: 1000 * 5,\n  gcTime: 1000 * 120,\n}"
             },
             {
+                "name": "requests",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/containers/users-page.mocks.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  users: {\n    method: 'GET',\n    url: urls.users,\n    response: data.users,\n  } as ApiRequestMock,\n  withoutUsers: {\n    method: 'GET',\n    url: urls.users,\n    response: [],\n  } as ApiRequestMock,\n}"
+            },
+            {
+                "name": "testInterceptor",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/test.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "HttpInterceptorFn",
+                "defaultValue": "(req, next) => {\n  return next(req);\n}"
+            },
+            {
+                "name": "throwErrorResponse",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(mockedRequest: ApiRequestMock): void => {\n  throw new HttpErrorResponse({\n    error: mockedRequest.response,\n    statusText: mockedRequest.statusText,\n  });\n}"
+            },
+            {
+                "name": "urls",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/users/containers/users-page.mocks.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  users: '/users',\n}"
+            },
+            {
                 "name": "usersPageMocks",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1808,7 +1793,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\n  data,\n}"
+                "defaultValue": "{\n  data,\n  urls,\n  requests,\n}"
             },
             {
                 "name": "usersQuery",
@@ -2016,6 +2001,58 @@
                     "defaultValue": "(obj: object) => {\n  let result: string[] = [];\n\n  Object.values(obj).forEach((value) => {\n    if (typeof value === 'string') {\n      result = [...result, value];\n    } else if (\n      typeof value === 'object' &&\n      !Array.isArray(value) &&\n      value !== null\n    ) {\n      result = [...result, ObjectToStr(value)];\n    }\n\n    return undefined;\n  });\n\n  return result.join(' ');\n}"
                 }
             ],
+            "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts": [
+                {
+                    "name": "createResponse",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(\n  mockedRequest: ApiRequestMock,\n): HttpResponse<unknown> => {\n  return new HttpResponse(\n    mockedRequest.count !== undefined\n      ? {\n          status: mockedRequest.status || 200,\n          body: mockedRequest.response,\n          headers: new HttpHeaders().set(\n            'x-total-count',\n            `${mockedRequest.count}`,\n          ),\n        }\n      : {\n          status: mockedRequest.status || 200,\n          body: mockedRequest.response,\n        },\n  );\n}"
+                },
+                {
+                    "name": "getResponse",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(\n  request: HttpRequest<any>,\n  requestsMocks?: Array<ApiRequestMock>,\n): {\n  response: HttpResponse<unknown>;\n  delay: number;\n} | null => {\n  if (!requestsMocks) {\n    return null;\n  }\n\n  for (const mockedRequest of requestsMocks) {\n    if (isRequestMatch(request, mockedRequest)) {\n      if (mockedRequest.status && mockedRequest.status > 299) {\n        throwErrorResponse(mockedRequest);\n      }\n\n      return {\n        response: createResponse(mockedRequest),\n        delay: mockedRequest.delay ?? 0,\n      };\n    }\n  }\n\n  return null;\n}"
+                },
+                {
+                    "name": "isRequestMatch",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(\n  request: HttpRequest<any>,\n  mockedRequest: ApiRequestMock,\n): boolean => {\n  if (!mockedRequest.url && mockedRequest.requestMatcher) {\n    return !!mockedRequest.requestMatcher(request);\n  }\n\n  const isUrlMatch =\n    (mockedRequest.url === request.urlWithParams ||\n      new RegExp(mockedRequest.url ?? '').test(request.urlWithParams)) &&\n    request.method === mockedRequest.method;\n\n  if (isUrlMatch && mockedRequest.requestMatcher) {\n    return !!mockedRequest.requestMatcher(request);\n  }\n\n  return isUrlMatch;\n}"
+                },
+                {
+                    "name": "mocksInterceptor",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(requestsMocks?: Array<ApiRequestMock>) => (req: any, next: any) => {\n    if (req.url.indexOf('.json') > -1) {\n      return next.handle(req);\n    }\n\n    const mockedResponse = getResponse(req, requestsMocks);\n    if (!!mockedResponse?.response) {\n      return of(mockedResponse.response).pipe(\n        delay(mockedResponse?.delay || 0),\n      );\n    }\n    return next.handle(req);\n  }"
+                },
+                {
+                    "name": "throwErrorResponse",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/api-mocks.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(mockedRequest: ApiRequestMock): void => {\n  throw new HttpErrorResponse({\n    error: mockedRequest.response,\n    statusText: mockedRequest.statusText,\n  });\n}"
+                }
+            ],
             "src/app/users/containers/users-page.mocks.ts": [
                 {
                     "name": "data",
@@ -2028,6 +2065,26 @@
                     "defaultValue": "{\n  users: [\n    {\n      name: 'Sari Dillway',\n      age: 82,\n      email: 'sdillway0@ft.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Accounting',\n      createdAt: '10/16/2023',\n      updatedAt: '8/14/2023',\n      id: '4d5b9a1d-597c-4d1e-82be-02757836b226',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n    {\n      name: 'Kalindi Wonfar',\n      age: 84,\n      email: 'kwonfar2@elegantthemes.com',\n      company: 'Apple',\n      title: 'Desktop Support Technician',\n      department: 'Marketing',\n      createdAt: '2/16/2023',\n      updatedAt: '1/14/2023',\n      id: '80350fd5-525c-4a08-bd96-3c49fcacab16',\n    },\n    {\n      name: 'Konstance Dawson',\n      age: 84,\n      email: 'kdawson1@sakura.ne.jp',\n      company: 'Microsoft',\n      title: 'Assistant Media Planner',\n      department: 'Human Resources',\n      createdAt: '8/1/2023',\n      updatedAt: '7/12/2023',\n      id: '1ff5416e-8634-4b84-b5e1-1e16042cc8d8',\n    },\n  ],\n}"
                 },
                 {
+                    "name": "requests",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/containers/users-page.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  users: {\n    method: 'GET',\n    url: urls.users,\n    response: data.users,\n  } as ApiRequestMock,\n  withoutUsers: {\n    method: 'GET',\n    url: urls.users,\n    response: [],\n  } as ApiRequestMock,\n}"
+                },
+                {
+                    "name": "urls",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/users/containers/users-page.mocks.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  users: '/users',\n}"
+                },
+                {
                     "name": "usersPageMocks",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -2035,7 +2092,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\n  data,\n}"
+                    "defaultValue": "{\n  data,\n  urls,\n  requests,\n}"
                 }
             ],
             "src/app/users/data/users.queries.ts": [
@@ -2086,6 +2143,18 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/users/data/users-query-api.service.ts"
+                }
+            ],
+            "src/app/shared/utils/api-mocks/test.interceptor.ts": [
+                {
+                    "name": "testInterceptor",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/utils/api-mocks/test.interceptor.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "HttpInterceptorFn",
+                    "defaultValue": "(req, next) => {\n  return next(req);\n}"
                 }
             ]
         },

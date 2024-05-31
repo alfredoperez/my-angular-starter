@@ -1,0 +1,29 @@
+import { Meta, Title, Primary, Controls, Story, Canvas } from '@storybook/blocks';
+
+import * as UsersPageStories from './users-page.stories';
+
+<Meta of={UsersPageStories} />
+
+<Title />
+
+# Definition
+
+The `UsersPage` component is a container component that displays a list of users.
+
+<Canvas of={UsersPageStories.Default} />
+
+# Behavior
+
+The component fetches a list of users from the server and displays them in a table.
+
+## No Data
+
+When there is no data presents the grid with a message saying that is empty.
+
+<Story of={UsersPageStories.WithoutData} />
+
+
+# Inputs
+
+<Controls />
+

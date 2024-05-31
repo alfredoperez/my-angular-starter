@@ -59,6 +59,11 @@ export const requests = {
     url: urls.users,
     response: data.users,
   } as ApiRequestMock,
+  withoutUsers: {
+    method: 'GET',
+    url: urls.users,
+    response: [],
+  } as ApiRequestMock,
 };
 export const usersPageMocks = {
   data,
