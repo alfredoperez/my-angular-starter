@@ -10,9 +10,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - [ngxtension](https://www.npmjs.com/package/ngxtension)
 - [JSON Server](https://www.npmjs.com/package/json-server)
 - 
-### Testing 
-- [ng-mocks](https://ng-mocks.sudo.eu/extra/install)
-- [Web Test Runner](https://dev.to/danywalls/testing-in-angular-replace-karma-to-web-test-runner-5gag)
+### Testing
 
 ### DevX
 - Prettier
@@ -22,8 +20,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 -  [StoryBook](https://storybook.js.org/docs/angular/get-started/introduction)
   - [Accessibility Testing](https://storybook.js.org/docs/writing-tests/accessibility-testing)
   - [Story Source](https://www.npmjs.com/package/@storybook/addon-storysource) 
-  - [MSW](https://storybook.js.org/addons/msw-storybook-addon)
-  - [Mock Service Worker Addon Panel](https://storybook.js.org/addons/storybook-msw-addon)
+- ESLint
+  - [Angular ESLint](https://github.com/angular-eslint/angular-eslint)
+
+---
 
 ## TODO
 - ESLint
@@ -37,3 +37,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - commitlint
   - husky
   - Releaselog
+### Testing
+- [ng-mocks](https://ng-mocks.sudo.eu/extra/install)
+- [Web Test Runner](https://dev.to/danywalls/testing-in-angular-replace-karma-to-web-test-runner-5gag)

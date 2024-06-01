@@ -4,6 +4,7 @@ import { PaginationComponent } from '@my/shared/ui';
 const meta: Meta<PaginationComponent> = {
   title: 'Shared/Components/Pagination',
   component: PaginationComponent,
+  tags: ['!autodocs'],
   args: {
     totalItems: 100,
     currentPage: 1,
@@ -14,12 +15,9 @@ const meta: Meta<PaginationComponent> = {
 export default meta;
 type Story = StoryObj<PaginationComponent>;
 
-export const Default: Story = {
+export const Default: Story = {};
 
-};
-
-
-export const WithFewItems:Story = {
+export const WithFewItems: Story = {
   args: {
     totalItems: 5,
   },

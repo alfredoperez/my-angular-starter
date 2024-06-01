@@ -1,17 +1,20 @@
 import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.ts', '../.storybook/stories/**/*.mdx'],
+  stories: [
+    '../src/**/*.mdx',
+    '../src/**/*.stories.ts',
+    '../.storybook/stories/**/*.mdx',
+  ],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/addon-mdx-gfm',
-    '@chromatic-com/storybook'
+    '@chromatic-com/storybook',
   ],
   docs: {
-    defaultName: 'Documentation'
+    defaultName: 'Documentation',
   },
   framework: {
     name: '@storybook/angular',

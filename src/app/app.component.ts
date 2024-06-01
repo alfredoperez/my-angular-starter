@@ -9,7 +9,7 @@ import { PageContainerComponent } from './shared/ui';
   template: `
     <div>
       <angular-query-devtools initialIsOpen />
-      <page-container />
+      <ui-page-container />
     </div>
   `,
 })
