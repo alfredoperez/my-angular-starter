@@ -24,11 +24,22 @@ export interface Options {
     escape?: boolean;
     click?: boolean;
   };
-  data?: {
-    [key: string]: unknown;
-  };
+  data?: Record<string, unknown>;
 }
 
+export const DefaultOptions: Options = {
+  modal: {
+    enter: 'enter-scale-down .4s ease-out',
+  },
+  overlay: {
+    leave: 'fade-out 0.3s',
+  },
+  size: {
+    width: '400px',
+    height: 'auto',
+    maxWidth: '600px',
+  },
+};
 export interface SubjectModal {
   subject: Subject<unknown>;
   contentCpRef: ComponentRef<any>;

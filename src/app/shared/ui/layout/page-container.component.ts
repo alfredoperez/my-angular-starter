@@ -7,11 +7,12 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="h-full w-full p-8">
-      <router-outlet></router-outlet>
+    <div class="flex h-full items-center justify-center p-8">
+      <div class="max-w-6xl">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   `,
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageContainerComponent {}

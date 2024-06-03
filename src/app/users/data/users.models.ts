@@ -1,11 +1,11 @@
 export interface User {
+  id: string;
   name: string;
   age: number;
   email: string;
   company: string;
   title: string;
   department: string;
-  createdAt: string;
-  updatedAt: string;
-  id: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

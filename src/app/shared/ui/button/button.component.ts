@@ -22,6 +22,7 @@ import { ButtonSize, ButtonType } from './button.models';
         'btn-warning': type() === 'warning',
         'btn-info': type() === 'info'
       }"
+      [disabled]="disabled()"
       (click)="handleClick()"
     >
       <ng-content />
@@ -32,6 +33,7 @@ import { ButtonSize, ButtonType } from './button.models';
 export class ButtonComponent {
   size = input<ButtonSize>('md');
   type = input<ButtonType>('primary');
+  disabled = input<boolean>(false);
 
   buttonClass = computed(() => {
     var className = 'btn';

@@ -1,18 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { ColDef, RowClickedEvent } from 'ag-grid-community';
 import { RequestOptions } from '@my/shared/data';
-import { ButtonComponent, PaginationComponent } from '@my/shared/ui';
+import {
+  ButtonComponent,
+  DefaultOptions,
+  ModalService,
+  PaginationComponent,
+} from '@my/shared/ui';
 import { User, usersQuery } from '@my/users/data';
+import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 
+function dateFormatter(params: { value: string }) {
+  return new Date(params.value).toLocaleDateString();
+}
 @Component({
-  selector: 'users-page',
   standalone: true,
   imports: [CommonModule, AgGridModule, ButtonComponent, PaginationComponent],
-  providers: [],
   template: `
-    <div class="flex h-full w-full flex-col gap-6 ">
+    <div class="flex h-full flex-col gap-6">
       <div class="flex  items-center justify-between gap-6">
         <h1 class="text-2xl font-semibold">Users</h1>
         <ui-button type="primary" (click)="addUser()">Add User</ui-button>
@@ -23,26 +31,18 @@ import { User, usersQuery } from '@my/users/data';
         } @else if (usersPageQuery.isError()) {
           <span> Error</span>
         } @else {
-          <div class="">
+          <div>
             <ag-grid-angular
-              class="ag-theme-alpine border-round"
+              class="ag-theme-alpine border-round "
               [rowData]="usersPageQuery.data()?.items"
               [columnDefs]="columnDefs"
               (rowClicked)="handleRowClicked($event)"
-              style="width: 100%; height: 400px;"
+              style="width: 1000px; height: 400px;"
             />
-            <div class="flex-auto">
-              <ui-pagination
-                [totalItems]="usersPageQuery.data()?.total || 0"
-                (currentPageChange)="handleCurrentPageChange()"
-              />
-              <!--              <p-paginator-->
-              <!--                [first]="1"-->
-              <!--                [rows]="20"-->
-              <!--                [totalRecords]="usersPageQuery.data()?.total || 0"-->
-              <!--                (onPageChange)="onPageChange($event)"-->
-              <!--              />-->
-            </div>
+            <ui-pagination
+              [totalItems]="usersPageQuery.data()?.total || 0"
+              (currentPageChange)="handleCurrentPageChange($event)"
+            />
           </div>
         }
       </div>
@@ -50,14 +50,16 @@ import { User, usersQuery } from '@my/users/data';
   `,
 })
 export class UsersPageComponent {
+  #modalService = inject(ModalService);
+  #router = inject(Router);
   columnDefs: Array<ColDef> = [
     { field: 'name' },
     { field: 'age' },
+    { field: 'createdAt', valueFormatter: dateFormatter },
     { field: 'email' },
     { field: 'company' },
     { field: 'title' },
-    { field: 'createdAt' },
-    { field: 'updatedAt' },
+    { field: 'updatedAt', valueFormatter: dateFormatter },
   ];
 
   currentPage = signal(1);
@@ -65,10 +67,10 @@ export class UsersPageComponent {
   usersRequestOptions = computed(() => {
     return {
       pagination: {
-        limit: 10,
+        limit: 20,
         page: this.currentPage(),
       },
-      orderBy: 'createdAt',
+      orderBy: 'age',
       orderDirection: 'ASC',
     } as RequestOptions;
   });
@@ -76,33 +78,23 @@ export class UsersPageComponent {
   usersPageQuery = usersQuery.page(this.usersRequestOptions);
 
   public addUser() {
-    // this.ref = this.#dialogService.open(ManageUsersDialogComponent, {
-    //   header: 'Create a new user',
-    //   width: '50vw',
-    //   modal: true,
-    //   breakpoints: {
-    //     '960px': '75vw',
-    //     '640px': '90vw',
-    //   },
-    // });
-  }
-
-  public onPageChange() {
-    // this.currentPage.update(() => (event.page ? event.page + 1 : 1));
+    this.#modalService.open(AddUserModalComponent, DefaultOptions);
   }
 
   public handleRowClicked(event: RowClickedEvent<User>) {
-    // this.ref = this.#dialogService.open(ManageUsersDialogComponent, {
-    //   header: 'Edit user',
-    //   width: '50vw',
-    //   modal: true,
-    //   breakpoints: {
-    //     '960px': '75vw',
-    //     '640px': '90vw',
-    //   },
-    //   data: { id: event.data?.id },
+    if (!event.data) {
+      return;
+    }
+
+    this.#router.navigate(['/users', event.data.id]);
+
+    // this.#modalService.open(EditUserModalComponent, {
+    //   ...DefaultOptions,
+    //   data: { item: event.data },
     // });
   }
 
-  handleCurrentPageChange() {}
+  handleCurrentPageChange(page: number) {
+    this.currentPage.set(page);
+  }
 }

@@ -40,22 +40,26 @@ export abstract class ApiService<T> {
     body: Partial<T>,
     requestOptions?: Partial<RequestOptions>,
   ): Promise<T> {
-    return this.request('PATCH', requestOptions, body, id);
+    return this.request('PUT', requestOptions, body, id);
+  }
+
+  public delete(
+    id: string,
+    requestOptions?: Partial<RequestOptions>,
+  ): Promise<T> {
+    return this.request('DELETE', requestOptions, null, id);
   }
 
   protected request<T>(
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH',
-    options?: Partial<RequestOptions>,
+    requestOptions?: Partial<RequestOptions>,
     body?: unknown,
     id?: string,
   ): Promise<T> {
-    return lastValueFrom(
-      this.#httpClient.request(
-        method,
-        this.getUrl(id),
-        this.getOptions(options, body),
-      ),
-    );
+    const url = this.getUrl(id);
+    const options = this.getOptions(requestOptions, body);
+
+    return lastValueFrom(this.#httpClient.request(method, url, options));
   }
 
   private getUrl(id?: string) {
