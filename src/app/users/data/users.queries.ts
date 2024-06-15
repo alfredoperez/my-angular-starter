@@ -1,15 +1,19 @@
 import { Signal, inject } from '@angular/core';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import {
+  injectMutation,
+  injectQuery,
+  injectQueryClient,
+} from '@tanstack/angular-query-experimental';
 import { RequestOptions } from '@my/shared/data';
 import { UsersApiService } from './users-api.service';
 import { User } from './users.models';
 
 const entityName = 'users';
 const queryKeys = {
-  all: (requestOptions: RequestOptions) => [entityName, requestOptions],
-  page: (requestOptions: RequestOptions) => [
+  all: () => [entityName],
+  list: (requestOptions?: RequestOptions) => [
     entityName,
-    'page',
+    'list',
     requestOptions,
   ],
   details: (id: User['id']) => [entityName, 'details', id],
@@ -23,7 +27,7 @@ const queryOptions = {
 function pageQuery(requestOptions: Signal<RequestOptions>) {
   const usersApi = inject(UsersApiService);
   return injectQuery(() => ({
-    queryKey: queryKeys.page(requestOptions()),
+    queryKey: queryKeys.list(requestOptions()),
     queryFn: () => usersApi.fetchPage(requestOptions()),
     select: ({ items, total, hasMore, pagination }) => {
       return {
@@ -38,7 +42,8 @@ function pageQuery(requestOptions: Signal<RequestOptions>) {
 }
 
 function detailsQuery(id: Signal<User['id']>) {
-  if (!id) {
+  const targetId = id();
+  if (!targetId || targetId === '') {
     return;
   }
   const usersApi = inject(UsersApiService);
@@ -49,7 +54,56 @@ function detailsQuery(id: Signal<User['id']>) {
   }));
 }
 
+function addMutation() {
+  const usersApi = inject(UsersApiService);
+  const queryClient = injectQueryClient();
+
+  return injectMutation(() => {
+    return {
+      mutationKey: ['addUser'],
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: queryKeys.all() });
+      },
+      mutationFn: (user: User) => usersApi.create(user),
+    };
+  });
+}
+
+function updateMutation(user: Signal<User>) {
+  const usersApi = inject(UsersApiService);
+  const queryClient = injectQueryClient();
+
+  return injectMutation(() => {
+    return {
+      mutationKey: ['updateUser'],
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: queryKeys.all() });
+      },
+      mutationFn: () => {
+        return usersApi.update(user().id, user());
+      },
+    };
+  });
+}
+
+function deleteMutation(user: Signal<User>) {
+  const usersApi = inject(UsersApiService);
+  const queryClient = injectQueryClient();
+
+  return injectMutation(() => ({
+    mutationKey: ['deleteUser'],
+    mutationFn: () => usersApi.delete(user().id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: queryKeys.all() });
+      queryClient.removeQueries({ queryKey: queryKeys.details(user().id) });
+    },
+  }));
+}
+
 export const usersQuery = {
   page: pageQuery,
   details: detailsQuery,
+  delete: deleteMutation,
+  add: addMutation,
+  update: updateMutation,
 };

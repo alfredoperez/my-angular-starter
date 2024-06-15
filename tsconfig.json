@@ -22,8 +22,7 @@
       "@my/shared/data": ["./src/app/shared/data/index.ts"],
       "@my/shared/ui": ["./src/app/shared/ui/index.ts"],
       "@my/shared/utils": ["./src/app/shared/utils/index.ts"],
-      "@my/users/containers": ["./src/app/users/containers/index.ts"],
-      "@my/users/data": ["./src/app/users/data/index.ts"]
+      "@my/users/*": ["./src/app/users/*"]
     }
   },
   "angularCompilerOptions": {

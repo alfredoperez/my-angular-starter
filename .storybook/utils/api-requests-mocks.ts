@@ -8,8 +8,9 @@ import { ApiRequestMock } from '../../src/app/shared/utils/api-mocks/api-mocks.m
  * with the mocksInterceptor.
  * @param requestMocks
  */
-export const setApiRequestMocks = (requestMocks: Array<ApiRequestMock>) =>
+export const setApiMocks = (requestMocks: Array<ApiRequestMock>) =>
   applicationConfig({
+
     providers: [
       provideHttpClient(withInterceptors([mocksInterceptor(requestMocks)])),
     ],

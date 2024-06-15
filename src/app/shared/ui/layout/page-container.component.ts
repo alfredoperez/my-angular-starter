@@ -2,17 +2,17 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-
 @Component({
-  selector: 'page-container',
+  selector: 'ui-page-container',
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="p-8 w-full h-full">
-      <router-outlet></router-outlet>
+    <div class="flex h-full items-center justify-center p-8">
+      <div class="max-w-6xl">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   `,
-  styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageContainerComponent {}
