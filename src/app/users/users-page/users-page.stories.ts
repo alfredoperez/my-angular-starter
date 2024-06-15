@@ -15,7 +15,3 @@ type Story = StoryObj<UsersPageComponent>;
 export const Default: Story = {
   decorators: [setApiMocks([mocks.requests.users])],
 };
-
-export const WithoutData: Story = {
-  decorators: [setApiMocks([mocks.requests.withoutUsers])],
-};

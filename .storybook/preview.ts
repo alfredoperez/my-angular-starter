@@ -19,13 +19,12 @@ const preview: Preview = {
     layout: 'centered',
     options: {
       storySort: {
-        order: ["Guides", "*"],
+        order: ['Guides', '*'],
       },
     },
   },
-  tags: ['autodocs', 'autodocs'],
+  tags: ['autodocs'],
   decorators: [
-
     applicationConfig({
       providers: [provideAngularQuery(new QueryClient())],
     }),
