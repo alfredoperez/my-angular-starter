@@ -3,13 +3,14 @@ import {
   injectMutation,
   injectQuery,
   injectQueryClient,
+  keepPreviousData,
 } from '@tanstack/angular-query-experimental';
 import { RequestOptions } from '@my/shared/data';
 import { UsersApiService } from './users-api.service';
 import { User } from './users.models';
 
 const entityName = 'users';
-const queryKeys = {
+export const queryKeys = {
   all: () => [entityName],
   list: (requestOptions?: RequestOptions) => [
     entityName,
@@ -26,19 +27,36 @@ const queryOptions = {
 
 function pageQuery(requestOptions: Signal<RequestOptions>) {
   const usersApi = inject(UsersApiService);
+
   return injectQuery(() => ({
     queryKey: queryKeys.list(requestOptions()),
     queryFn: () => usersApi.fetchPage(requestOptions()),
-    select: ({ items, total, hasMore, pagination }) => {
-      return {
-        items,
-        total,
-        hasMore,
-        pagination,
-      };
-    },
+    placeholderData: keepPreviousData,
     ...queryOptions,
   }));
+}
+
+function prefetchNextPageQuery(requestOptions: Signal<RequestOptions>) {
+  const usersApi = inject(UsersApiService);
+  const queryClient = injectQueryClient();
+
+  return {
+    prefetch: () => {
+      const currentPage = requestOptions().pagination?.page || 1;
+
+      const options = {
+        ...requestOptions(),
+        pagination: {
+          ...requestOptions().pagination,
+          page: currentPage + 1,
+        },
+      };
+      return queryClient.prefetchQuery({
+        queryKey: queryKeys.list(options),
+        queryFn: () => usersApi.fetchPage(options),
+      });
+    },
+  };
 }
 
 function detailsQuery(id: Signal<User['id']>) {
@@ -103,6 +121,7 @@ function deleteMutation(user: Signal<User>) {
 export const usersQuery = {
   page: pageQuery,
   details: detailsQuery,
+  prefetchNextPage: prefetchNextPageQuery,
   delete: deleteMutation,
   add: addMutation,
   update: updateMutation,

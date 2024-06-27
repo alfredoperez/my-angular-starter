@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { delay, lastValueFrom } from 'rxjs';
 import { ListResponse, Pagination, RequestOptions } from './api.models';
 
 export abstract class ApiService<T> {
@@ -15,10 +15,13 @@ export abstract class ApiService<T> {
       ...requestOptions,
       observe: 'response',
     });
-    return this.mapListResponse(
+
+    const mappedResponse = this.mapListResponse(
       result as unknown as HttpResponse<T>,
       requestOptions?.pagination,
     );
+
+    return mappedResponse;
   }
 
   public fetchById(
@@ -59,7 +62,9 @@ export abstract class ApiService<T> {
     const url = this.getUrl(id);
     const options = this.getOptions(requestOptions, body);
 
-    return lastValueFrom(this.#httpClient.request(method, url, options));
+    return lastValueFrom(
+      this.#httpClient.request(method, url, options).pipe(delay(1000)),
+    );
   }
 
   private getUrl(id?: string) {
@@ -95,9 +100,7 @@ export abstract class ApiService<T> {
     if (!response.headers) {
       return {} as ListResponse<T>;
     }
-    // TODO: Find out why this is not working in the JSON-Server
-    // const total = Number(response.headers.get('X-Total-Count'));
-    const total = 100;
+    const total = Number(response.headers.get('X-Total-Count'));
     let hasMore = false;
 
     if (pagination) {
