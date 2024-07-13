@@ -7,12 +7,13 @@ import {
   provideAngularQuery,
 } from '@tanstack/angular-query-experimental';
 import { appRoutes } from './app.routes';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes, withComponentInputBinding()),
     provideHttpClient(),
     provideAnimations(),
-    provideAngularQuery(new QueryClient()),
+    provideAngularQuery(new QueryClient()), provideAnimationsAsync(),
   ],
 };

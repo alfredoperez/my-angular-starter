@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, inject } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent } from 'ag-grid-community';
+import { RowClickedEvent, SortChangedEvent } from 'ag-grid-community';
 import {
   ButtonComponent,
   DefaultOptions,
@@ -16,7 +17,13 @@ import { DataViewerStore } from '../../shared/state';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, AgGridModule, ButtonComponent, PaginationComponent],
+  imports: [
+    CommonModule,
+    AgGridModule,
+    ButtonComponent,
+    PaginationComponent,
+    MatPaginator,
+  ],
   providers: [DataViewerStore],
   template: `
     <div class="flex h-full flex-col gap-6">
@@ -64,14 +71,23 @@ import { DataViewerStore } from '../../shared/state';
               [rowData]="users()"
               [columnDefs]="columnDefs"
               (rowClicked)="handleRowClicked($event)"
-              style="width: 1000px; height: 500px;"
+              (sortChanged)="handleSortChanged($event)"
+              style="width: 100%; height: 500px; max-width: 1000px"
             />
-            <ui-pagination
-              [totalItems]="totalItems()"
-              [itemsPerPage]="20"
-              [currentPage]="this.store.page() ?? 1"
-              (currentPageChange)="handleCurrentPageChange($event)"
-            />
+
+            <mat-paginator
+              #paginator
+              aria-label="Select page"
+              class="demo-paginator"
+              [length]="totalItems()"
+              [pageSize]="20"
+              [disabled]="isPlaceholderData()"
+              [showFirstLastButtons]="false"
+              [hidePageSize]="true"
+              [pageIndex]="0"
+              (page)="handleCurrentPageChange($event)"
+            >
+            </mat-paginator>
           </div>
         }
       </div>
@@ -115,9 +131,14 @@ export class UsersPageComponent {
     this.#router.navigate(['/users', event.data.id]);
   }
 
-  handleCurrentPageChange(page: number) {
-    this.store.setPage(page);
+  handleCurrentPageChange(pageEvent: PageEvent) {
+    this.store.setPage(pageEvent.pageIndex);
   }
+  // handleCurrentPageChange(page: number) {
+  //   this.store.setPage(page);
+  // }
+
+  handleSortChanged($event: SortChangedEvent) {}
 
   handleSearchQueryChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
