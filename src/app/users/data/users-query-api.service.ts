@@ -1,11 +1,11 @@
 import { createInjectionToken } from 'ngxtension/create-injection-token';
-import { RequestOptions, functionalApiService } from '@my/shared/data';
+import { RequestOptions, functionalApiService } from '../../shared';
 import { User } from './users.models';
 
-type QueryStateOptions = {
+interface QueryStateOptions {
   entityName: string;
   requestOptions?: Partial<RequestOptions>;
-};
+}
 function queryState<T>(entityName: string | QueryStateOptions) {
   const name =
     typeof entityName === 'string' ? entityName : entityName.entityName;

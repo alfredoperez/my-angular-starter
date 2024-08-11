@@ -3,7 +3,8 @@ import { Component, computed, effect, inject } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent, SortChangedEvent } from 'ag-grid-community';
+import { RowClickedEvent } from 'ag-grid-community';
+import { DataViewerStore } from '@my/shared/state';
 import {
   ButtonComponent,
   DefaultOptions,
@@ -13,7 +14,6 @@ import {
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
-import { DataViewerStore } from '../../shared/state';
 
 @Component({
   standalone: true,
@@ -71,7 +71,6 @@ import { DataViewerStore } from '../../shared/state';
               [rowData]="users()"
               [columnDefs]="columnDefs"
               (rowClicked)="handleRowClicked($event)"
-              (sortChanged)="handleSortChanged($event)"
               style="width: 100%; height: 500px; max-width: 1000px"
             />
 
@@ -95,19 +94,18 @@ import { DataViewerStore } from '../../shared/state';
   `,
 })
 export class UsersPageComponent {
+  // injects
+  store = inject(DataViewerStore);
+  // signals
+  usersQuery = usersQuery.page(this.store.requestOptions);
+  users = computed(() => this.usersQuery.data()?.items || []);
+  totalItems = computed(() => this.usersQuery.data()?.total || 0);
+  isPlaceholderData = this.usersQuery.isPlaceholderData;
+  prefetchNextPage = usersQuery.prefetchNextPage(this.store.requestOptions);
+  // props
+  protected readonly columnDefs = columnDefs;
   #modalService = inject(ModalService);
   #router = inject(Router);
-  store = inject(DataViewerStore);
-
-  usersQuery = usersQuery.page(this.store.requestOptions);
-
-  users = computed(() => this.usersQuery.data()?.items || []);
-
-  totalItems = computed(() => this.usersQuery.data()?.total || 0);
-
-  isPlaceholderData = this.usersQuery.isPlaceholderData;
-
-  prefetchNextPage = usersQuery.prefetchNextPage(this.store.requestOptions);
 
   constructor() {
     effect(() => {
@@ -130,20 +128,20 @@ export class UsersPageComponent {
     }
     this.#router.navigate(['/users', event.data.id]);
   }
-
-  handleCurrentPageChange(pageEvent: PageEvent) {
-    this.store.setPage(pageEvent.pageIndex);
-  }
   // handleCurrentPageChange(page: number) {
   //   this.store.setPage(page);
   // }
 
-  handleSortChanged($event: SortChangedEvent) {}
+  handleCurrentPageChange(pageEvent: PageEvent) {
+    this.store.setPage(pageEvent.pageIndex);
+  }
+
+  handleSortChanged() {
+    // TODO: need to implement this
+  }
 
   handleSearchQueryChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.store.setSearchQuery(value);
   }
-
-  protected readonly columnDefs = columnDefs;
 }
