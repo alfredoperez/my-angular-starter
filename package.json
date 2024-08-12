@@ -51,7 +51,7 @@
     "@storybook/addon-interactions": "^8.1.5",
     "@storybook/addon-links": "^8.1.5",
     "@storybook/angular": "^8.1.5",
-    "@storybook/blocks": "^8.1.5",
+    "@storybook/blocks": "^8.2.8",
     "@storybook/test": "^8.1.5",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/jest": "^29.5.12",
