@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ButtonSize, ButtonType } from './button.models';
 
 @Component({
@@ -35,22 +35,9 @@ export class ButtonComponent {
   type = input<ButtonType>('primary');
   disabled = input<boolean>(false);
 
-  buttonClass = computed(() => {
-    var className = 'btn';
-    const size = this.size();
-    const type = this.type();
-
-    if (size !== 'md') {
-      className += ` btn-${size} `;
-    }
-    className += ` btn-${type} `;
-
-    return className;
-  });
-
   click = output();
 
   handleClick() {
-    this.click.emit;
+    this.click.emit();
   }
 }

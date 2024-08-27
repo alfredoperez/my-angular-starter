@@ -27,22 +27,22 @@ export function functionalApiService<T>(entityName: string) {
   function fetchById(
     id: number,
     requestOptions?: Partial<RequestOptions>,
-  ): Promise<any> {
+  ): Promise<T> {
     return request('GET', requestOptions, undefined, id);
   }
 
   function create(
-    body: Partial<any>,
+    body: Partial<T>,
     requestOptions?: Partial<RequestOptions>,
-  ): Promise<any | null> {
+  ): Promise<T | null> {
     return request('POST', requestOptions, body);
   }
 
   function update(
     id: number,
-    body: Partial<any>,
+    body: Partial<T>,
     requestOptions?: Partial<RequestOptions>,
-  ): Promise<any> {
+  ): Promise<T> {
     return request('PATCH', requestOptions, body, id);
   }
 
@@ -116,9 +116,9 @@ export function functionalApiService<T>(entityName: string) {
   function mapListResponse(
     httpResponse: HttpResponse<unknown>,
     pagination?: Partial<Pagination>,
-  ): ListResponse<any> {
+  ): ListResponse<T> {
     if (!httpResponse.headers) {
-      return {} as ListResponse<any>;
+      return {} as ListResponse<T>;
     }
     const { items: total, next, data: items } = httpResponse.body as never;
     const hasMore = next > (pagination?.page || 0);
@@ -128,7 +128,7 @@ export function functionalApiService<T>(entityName: string) {
       total,
       hasMore,
       pagination,
-    } as ListResponse<any>;
+    } as ListResponse<T>;
   }
 
   return {
