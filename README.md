@@ -15,7 +15,7 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 
 ### 🎨 Styles
 - **[Tailwind CSS](https://tailwindcss.com/docs/guides/angular):** Utility-first CSS framework for rapid UI development.
-- **[DaisyUI](https://daisyui.com/docs/install):** Tailwind CSS components plugin with additional UI components.
+- **[Angular Material](https://material.angular.io/):** UI component library for Angular.
 
 ### 🔄 State Management
 - **[Angular Query](https://tanstack.com/query/latest/docs/framework/angular/installation):** Powerful data fetching and caching for Angular.
@@ -97,3 +97,9 @@ Created by [Alfredo Perez](https://alfredo-perez.dev) - feel free to contact me!
 
 ## 🌟 Acknowledgements
 - Thanks to all the contributors who have made this project possible.
+
+---
+
+## 📖 Using Angular Material
+
+Refer to the [Angular Material documentation](https://material.angular.io/) for more information on using Angular Material components.

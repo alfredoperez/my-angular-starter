@@ -6,29 +6,42 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatFormField, MatInput } from '@angular/material/input';
 import { ButtonComponent, ModalService } from '@my/shared/ui';
 import { User, usersQuery } from '@my/users/data';
 
 @Component({
   selector: 'ui-add-user-modal',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ButtonComponent,
+    MatInput,
+    MatFormField,
+  ],
   template: `
-    <div class="flex flex-col bg-base-100  p-8 " [formGroup]="usersFormGroup">
+    <div class="flex flex-col bg-white p-8" [formGroup]="usersFormGroup">
       <h1 class="text-2xl font-semibold">Add User</h1>
       <div class="mt-4 flex flex-col gap-4">
-        <input
-          type="text"
-          class="input input-bordered input-primary w-full max-w-xs"
-          placeholder="Name"
-          formControlName="name"
-        />
-        <input
-          type="number"
-          class="input input-bordered input-primary w-full max-w-xs"
-          placeholder="Age"
-          formControlName="age"
-        />
+        <mat-form-field>
+          <input
+            type="text"
+            class="w-full max-w-xs"
+            matInput
+            placeholder="Name"
+            formControlName="name"
+          />
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            type="number"
+            class="input-primary w-full max-w-xs"
+            matInput
+            placeholder="Age"
+            formControlName="age"
+          />
+        </mat-form-field>
       </div>
       <div class=" mt-4 flex justify-end gap-2">
         <ui-button type="secondary" (click)="handleClose()">Cancel</ui-button>
@@ -41,13 +54,12 @@ import { User, usersQuery } from '@my/users/data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddUserModalComponent {
-  #modalService = inject(ModalService);
-
   addMutation = usersQuery.add();
   usersFormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
   });
+  #modalService = inject(ModalService);
 
   public handleSaveUser() {
     if (this.usersFormGroup === undefined || this.usersFormGroup.invalid) {

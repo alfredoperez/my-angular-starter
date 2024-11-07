@@ -7,10 +7,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="flex h-full items-center justify-center p-8">
-      <div class="max-w-6xl">
-        <router-outlet></router-outlet>
-      </div>
+    <div class="flex h-full w-full items-center justify-center p-8">
+      <router-outlet></router-outlet>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
