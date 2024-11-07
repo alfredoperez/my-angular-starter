@@ -10,6 +10,7 @@ import { UsersApiService } from './users-api.service';
 import { User } from './users.models';
 
 const entityName = 'users';
+
 export const queryKeys = {
   all: () => [entityName],
   list: (requestOptions?: RequestOptions) => [
