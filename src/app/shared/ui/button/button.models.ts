@@ -8,4 +8,4 @@ export type ButtonType =
   | 'warning'
   | 'info';
 
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg';
+export type ButtonSize =  'sm' | 'md' | 'lg';

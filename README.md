@@ -3,7 +3,7 @@
 # 🚀 MyAngularStarter
 
 [![Angular Version](https://img.shields.io/badge/Angular-v18-dd0031.svg)](https://angular.io)
-[![TanStack Query](https://img.shields.io/badge/Angular_Query-v1.0-blue.svg)](https://tanstack.com/query/latest)
+[![Angular Query](https://img.shields.io/badge/Angular_Query-v1.0-blue.svg)](https://tanstack.com/query/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
@@ -14,25 +14,20 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 ## ✨ Features
 
 ### 🎨 Styles
-
 - **[Tailwind CSS](https://tailwindcss.com/docs/guides/angular):** Utility-first CSS framework for rapid UI development.
-- **[DaisyUI](https://daisyui.com/docs/install):** Tailwind CSS components plugin with additional UI components.
+- **[Angular Material](https://material.angular.io/):** UI component library for Angular.
 
 ### 🔄 State Management
-
 - **[Angular Query](https://tanstack.com/query/latest/docs/framework/angular/installation):** Powerful data fetching and caching for Angular.
 
 ### 🛠️ Other Tools
-
 - **[Ag Grid](https://www.ag-grid.com/angular-data-grid/getting-started/):** Feature-rich data grid for Angular applications.
 - **[ngxtension](https://www.npmjs.com/package/ngxtension):** Angular extensions for enhanced development.
 
 ### 🧑‍💻 Development
-
 - **[JSON Server](https://www.npmjs.com/package/json-server):** Simple full fake REST API.
 
 ### 🧪 Testing
-
 - **[ng-mocks](https://ng-mocks.sudo.eu/extra/install):** Test Angular applications more easily.
 - **[Web Test Runner](https://dev.to/danywalls/testing-in-angular-replace-karma-to-web-test-runner-5gag):** Replaces Karma for more modern testing setups.
 - **[Storybook](https://storybook.js.org/docs/angular/get-started/introduction):** Isolated component development environment.
@@ -40,7 +35,6 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
   - **[Story Source](https://www.npmjs.com/package/@storybook/addon-storysource):** Addon to show the code source of your stories.
 
 ### 🌟 Code Quality
-
 - **[ESLint](https://github.com/angular-eslint/angular-eslint):** Pluggable linting utility for JavaScript and TypeScript.
   - **[Sheriff](https://github.com/softarc-consulting/sheriff):** Enforces architecture rules.
 - **Prettier Plugins**
@@ -51,7 +45,6 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 ---
 
 ## 📝 TODO
-
 - **Cypress Component Testing**
 - **ngrx**
   - [ngrx toolkit](https://github.com/angular-architects/ngrx-toolkit)
@@ -65,20 +58,17 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 ## 📦 Getting Started
 
 1. **Clone the repository:**
-
    ```sh
    git clone https://github.com/yourusername/my-angular-starter.git
    cd my-angular-starter
    ```
 
 2. **Install dependencies:**
-
    ```sh
    npm install
    ```
 
 3. **Run the development server:**
-
    ```sh
    ng serve
    ```
@@ -91,23 +81,25 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 ---
 
 ## 🤝 Contributing
-
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/my-angular-starter/issues).
 
 ---
 
 ## 📜 License
-
 This project is licensed under the MIT License.
 
 ---
 
 ## 📫 Contact
-
 Created by [Alfredo Perez](https://alfredo-perez.dev) - feel free to contact me!
 
 ---
 
 ## 🌟 Acknowledgements
-
 - Thanks to all the contributors who have made this project possible.
+
+---
+
+## 📖 Using Angular Material
+
+Refer to the [Angular Material documentation](https://material.angular.io/) for more information on using Angular Material components.

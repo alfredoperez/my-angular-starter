@@ -1,43 +1,28 @@
-import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { ButtonSize, ButtonType } from './button.models';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'ui-button',
   standalone: true,
   template: `
     <button
-      class="btn"
-      [ngClass]="{
-        'btn-xs': size() === 'xs',
-        'btn-sm': size() === 'sm',
-        'btn-md': size() === 'md',
-        'btn-lg': size() === 'lg',
-        'btn-primary': type() === 'primary',
-        'btn-secondary': type() === 'secondary',
-        'btn-accent': type() === 'accent',
-        'btn-ghost': type() === 'ghost',
-        'btn-error': type() === 'error',
-        'btn-success': type() === 'success',
-        'btn-warning': type() === 'warning',
-        'btn-info': type() === 'info'
-      }"
+      mat-stroked-button
+      [color]="color()"
       [disabled]="disabled()"
-      (click)="handleClick()"
+      (click)="onClick()"
     >
-      <ng-content />
+      <ng-content></ng-content>
     </button>
   `,
-  imports: [NgClass],
+  imports: [MatButtonModule]
 })
 export class ButtonComponent {
-  size = input<ButtonSize>('md');
-  type = input<ButtonType>('primary');
-  disabled = input<boolean>(false);
 
+  color = input<	'primary'| 'secondary'| 'tertiary'| 'error'>('primary');
+  disabled = input<boolean>(false);
   click = output();
 
-  handleClick() {
+  onClick() {
     this.click.emit();
   }
 }

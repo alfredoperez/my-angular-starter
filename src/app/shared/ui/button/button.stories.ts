@@ -1,4 +1,4 @@
-import { Meta, StoryObj, argsToTemplate } from '@storybook/angular';
+import { argsToTemplate, Meta, StoryObj } from '@storybook/angular';
 import { ButtonComponent } from './button.component';
 
 const meta: Meta<ButtonComponent> = {
@@ -17,20 +17,24 @@ export const Default: Story = {};
 
 export const Primary = {
   args: {
-    size: 'md',
-    type: 'primary',
+    color: 'primary',
   },
 };
 
 export const Secondary = {
   args: {
-    type: 'secondary',
+    color: 'secondary',
   },
 };
 
-export const PrimaryAndLarge = {
+export const Tertiary = {
   args: {
-    size: 'lg',
-    type: 'primary',
+    color: 'tertiary',
+  },
+};
+
+export const Error = {
+  args: {
+    color: 'error',
   },
 };
