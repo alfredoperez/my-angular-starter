@@ -11,14 +11,5 @@ import { DevToolbarComponent, PageContainerComponent } from './shared/ui';
       <ui-page-container />
     </div>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-    `,
-  ],
 })
 export class AppComponent {}

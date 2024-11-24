@@ -1,33 +1,11 @@
-@use '@angular/material' as mat;
-@include mat.core();
-
-// Define the theme object.
-$my-angular-starter-theme: mat.define-theme(
-  (
-    color: (
-      theme-type: light,
-      primary: mat.$violet-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    density: (
-      scale: 0,
-    ),
-  )
-);
-
-:root {
-  @include mat.all-component-themes($my-angular-starter-theme);
-}
-
-/* Tailwind */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Ag-Grid */
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+/*Tailwind*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -36,4 +14,9 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, inject } from '@angular/core';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { MatInput } from '@angular/material/input';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent, SortChangedEvent } from 'ag-grid-community';
-import { ButtonComponent, DefaultOptions, ModalService } from '@my/shared/ui';
+import { RowClickedEvent } from 'ag-grid-community';
+import { ButtonComponent, DefaultOptions, ModalService } from '@my/ui';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
@@ -14,32 +11,28 @@ import { DataViewerStore } from '../../shared/state';
 
 @Component({
   standalone: true,
-  imports: [
-    CommonModule,
-    AgGridModule,
-    ButtonComponent,
-    MatPaginator,
-    MatLabel,
-    MatInput,
-    MatFormField,
-  ],
+  imports: [CommonModule, AgGridModule, ButtonComponent],
   providers: [DataViewerStore],
   template: `
     <div class="flex h-full flex-col gap-6">
       <div class="flex items-center justify-between gap-6">
         <h1 class="text-xl font-semibold">Users</h1>
-        <ui-button type="primary" (click)="onAddUser()">Add User</ui-button>
+        <a-button type="success" (click)="onAddUser()" label="Add User" />
       </div>
-      <mat-form-field appearance="fill" style="width: 1000px">
-        <mat-label>Search</mat-label>
-        <input
-          type="search"
-          (change)="onSearch($event)"
-          placeholder="Search for users"
-          matInput
-        />
-        <!--        <mat-icon matSuffix>search</mat-icon>-->
-      </mat-form-field>
+      <div>
+        <!--        <mat-form-field appearance="outline" style="width: 1000px;">-->
+        <!--          <mat-label>Search</mat-label>-->
+        <!--          <input-->
+        <!--            type="text"-->
+        <!--            (input)="onSearch($event)"-->
+        <!--            matInput-->
+        <!--            placeholder="Search"-->
+        <!--          />-->
+        <!--          <button mat-icon-button matSuffix>-->
+        <!--            <mat-icon>search</mat-icon>-->
+        <!--          </button>-->
+        <!--        </mat-form-field>-->
+      </div>
       <div class="">
         @if (usersQuery.isPending()) {
           <div>Loading...</div>
@@ -54,23 +47,8 @@ import { DataViewerStore } from '../../shared/state';
               [rowData]="users()"
               [columnDefs]="columnDefs"
               (rowClicked)="onRowClicked($event)"
-              (sortChanged)="onSort($event)"
               style="width: 100%; height: 500px; max-width: 1000px"
             />
-
-            <mat-paginator
-              #paginator
-              aria-label="Select page"
-              class="demo-paginator"
-              [length]="totalItems()"
-              [pageSize]="20"
-              [disabled]="isPlaceholderData()"
-              [showFirstLastButtons]="false"
-              [hidePageSize]="true"
-              [pageIndex]="0"
-              (page)="onChangePage($event)"
-            >
-            </mat-paginator>
           </div>
         }
       </div>
@@ -113,11 +91,11 @@ export class UsersPageComponent {
   //   this.store.setPage(page);
   // }
 
-  onChangePage(pageEvent: PageEvent) {
-    this.store.setPage(pageEvent.pageIndex);
-  }
+  // onChangePage(pageEvent) {
+  //   this.store.setPage(pageEvent.pageIndex);
+  // }
 
-  onSort($event: SortChangedEvent) {}
+  // onSort($event: SortChangedEvent) {}
 
   onSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;

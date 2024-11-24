@@ -20,7 +20,7 @@ import { User, usersQuery } from '@my/users/data';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
   template: `
-    <div class="flex flex-col bg-base-100  p-8 " [formGroup]="usersFormGroup">
+    <div class="bg-base-100 flex flex-col  p-8 " [formGroup]="usersFormGroup">
       <h1 class="text-2xl font-semibold">Add User</h1>
       <div class="mt-4 flex flex-col gap-4">
         <input
@@ -37,14 +37,14 @@ import { User, usersQuery } from '@my/users/data';
         />
       </div>
       <div class="mt-4 flex justify-between">
-        <ui-button type="error" (click)="handleDelete()">Delete</ui-button>
+        <a-button type="danger" (click)="handleDelete()" label="Delete" />
         <div class="flex justify-end gap-2">
-          <ui-button type="secondary" (click)="handleClose()">Cancel</ui-button>
-          <ui-button
+          <a-button type="secondary" (click)="handleClose()" label="Cancel" />
+          <a-button
             [disabled]="!usersFormGroup.valid"
             (click)="handleSaveUser()"
-            >Save</ui-button
-          >
+            label="Save"
+          />
         </div>
       </div>
     </div>
@@ -53,16 +53,13 @@ import { User, usersQuery } from '@my/users/data';
 })
 export class EditUserModalComponent implements OnInit {
   modalService = inject(ModalService);
-
-  #user = signal({} as User);
-
-  updateMutation = usersQuery.update(this.#user);
-  deleteMutation = usersQuery.delete(this.#user);
-
   usersFormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     age: new FormControl(0, [Validators.required]),
   });
+  #user = signal({} as User);
+  updateMutation = usersQuery.update(this.#user);
+  deleteMutation = usersQuery.delete(this.#user);
 
   public ngOnInit(): void {
     const user = this.modalService.options?.data?.['item'] as User;

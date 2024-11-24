@@ -6,49 +6,42 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatFormField, MatInput } from '@angular/material/input';
-import { ButtonComponent, ModalService } from '@my/shared/ui';
+import { ModalService } from '@my/ui';
 import { User, usersQuery } from '@my/users/data';
 
 @Component({
-  selector: 'ui-add-user-modal',
+  selector: 'a-add-user-modal',
   standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    ButtonComponent,
-    MatInput,
-    MatFormField,
-  ],
+  imports: [CommonModule, ReactiveFormsModule],
   template: `
     <div class="flex flex-col bg-white p-8" [formGroup]="usersFormGroup">
       <h1 class="text-2xl font-semibold">Add User</h1>
-      <div class="mt-4 flex flex-col gap-4">
-        <mat-form-field>
-          <input
-            type="text"
-            class="w-full max-w-xs"
-            matInput
-            placeholder="Name"
-            formControlName="name"
-          />
-        </mat-form-field>
-        <mat-form-field>
-          <input
-            type="number"
-            class="input-primary w-full max-w-xs"
-            matInput
-            placeholder="Age"
-            formControlName="age"
-          />
-        </mat-form-field>
-      </div>
-      <div class=" mt-4 flex justify-end gap-2">
-        <ui-button type="secondary" (click)="handleClose()">Cancel</ui-button>
-        <ui-button [disabled]="!usersFormGroup.valid" (click)="handleSaveUser()"
-          >Save</ui-button
-        >
-      </div>
+      <!--      <div class="mt-4 flex flex-col gap-4">-->
+      <!--        <mat-form-field appearance="outline">-->
+      <!--          <input-->
+      <!--            type="text"-->
+      <!--            class="w-full max-w-xs"-->
+      <!--            matInput-->
+      <!--            placeholder="Name"-->
+      <!--            formControlName="name"-->
+      <!--          />-->
+      <!--        </mat-form-field>-->
+      <!--        <mat-form-field appearance="outline">-->
+      <!--          <input-->
+      <!--            type="number"-->
+      <!--            class="input-primary w-full max-w-xs"-->
+      <!--            matInput-->
+      <!--            placeholder="Age"-->
+      <!--            formControlName="age"-->
+      <!--          />-->
+      <!--        </mat-form-field>-->
+      <!--      </div>-->
+      <!--      <div class=" mt-4 flex justify-end gap-2">-->
+      <!--        <ui-button type="secondary" (click)="handleClose()">Cancel</ui-button>-->
+      <!--        <ui-button [disabled]="!usersFormGroup.valid" (click)="handleSaveUser()"-->
+      <!--          >Save</ui-button-->
+      <!--        >-->
+      <!--      </div>-->
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -6,7 +6,7 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
-import { Pagination, RequestOptions } from '@my/shared/data';
+import { Pagination, RequestOptions } from '@my/data';
 
 interface DataViewerState {
   /**

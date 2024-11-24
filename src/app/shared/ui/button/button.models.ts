@@ -1,11 +1,14 @@
+export type ButtonSize = 'small' | 'large' | undefined;
+
 export type ButtonType =
   | 'primary'
   | 'secondary'
-  | 'accent'
-  | 'ghost'
-  | 'error'
   | 'success'
-  | 'warning'
-  | 'info';
+  | 'info'
+  | 'help'
+  | 'danger'
+  | null;
 
-export type ButtonSize =  'sm' | 'md' | 'lg';
+export type ButtonIconPosition = 'left' | 'right' | 'top' | 'bottom';
+
+export type TooltipPosition = 'top' | 'right' | 'bottom' | 'left';

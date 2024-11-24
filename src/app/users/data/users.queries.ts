@@ -5,7 +5,7 @@ import {
   injectQueryClient,
   keepPreviousData,
 } from '@tanstack/angular-query-experimental';
-import { RequestOptions } from '@my/shared/data';
+import { RequestOptions } from '@my/data';
 import { UsersApiService } from './users-api.service';
 import { User } from './users.models';
 
