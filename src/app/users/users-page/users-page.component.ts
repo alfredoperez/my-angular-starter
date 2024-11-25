@@ -1,9 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { RowClickedEvent } from 'ag-grid-community';
-import { ButtonComponent, DefaultOptions, ModalService } from '@my/ui';
+import { InputTextModule } from 'primeng/inputtext';
+import { PaginatorModule } from 'primeng/paginator';
+import { ButtonComponent, ModalService } from '@my/ui';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
@@ -11,34 +14,39 @@ import { DataViewerStore } from '../../shared/state';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, AgGridModule, ButtonComponent],
+  imports: [
+    CommonModule,
+    AgGridModule,
+    ButtonComponent,
+    InputTextModule,
+    PaginatorModule,
+    FormsModule,
+  ],
   providers: [DataViewerStore],
   template: `
-    <div class="flex h-full flex-col gap-6">
-      <div class="flex items-center justify-between gap-6">
+    <div class="flex flex-col gap-6 h-full">
+      <div class="flex gap-6 justify-between items-center">
         <h1 class="text-xl font-semibold">Users</h1>
         <a-button type="success" (click)="onAddUser()" label="Add User" />
       </div>
-      <div>
-        <!--        <mat-form-field appearance="outline" style="width: 1000px;">-->
-        <!--          <mat-label>Search</mat-label>-->
-        <!--          <input-->
-        <!--            type="text"-->
-        <!--            (input)="onSearch($event)"-->
-        <!--            matInput-->
-        <!--            placeholder="Search"-->
-        <!--          />-->
-        <!--          <button mat-icon-button matSuffix>-->
-        <!--            <mat-icon>search</mat-icon>-->
-        <!--          </button>-->
-        <!--        </mat-form-field>-->
+
+      <div class="w-full p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          class="w-full"
+          (input)="onSearch($event)"
+          pInputText
+          placeholder="Search users..."
+        />
       </div>
+
       <div class="">
         @if (usersQuery.isPending()) {
           <div>Loading...</div>
         }
         @if (usersQuery.isError()) {
-          <span> Error</span>
+          <span>Error</span>
         }
         @if (usersQuery.isSuccess()) {
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
@@ -46,9 +54,17 @@ import { DataViewerStore } from '../../shared/state';
               class="ag-theme-alpine border-round"
               [rowData]="users()"
               [columnDefs]="columnDefs"
-              (rowClicked)="onRowClicked($event)"
-              style="width: 100%; height: 500px; max-width: 1000px"
+              (rowClicked)="onEditUser($event)"
+              style="width: 100%; height: 500px"
             />
+
+            <p-paginator
+              class="mt-4 rounded-md border border-gray-200"
+              [rows]="10"
+              [totalRecords]="totalItems()"
+              [rowsPerPageOptions]="[10, 20, 30]"
+              (onPageChange)="onPageChange($event)"
+            ></p-paginator>
           </div>
         }
       </div>
@@ -56,15 +72,19 @@ import { DataViewerStore } from '../../shared/state';
   `,
 })
 export class UsersPageComponent {
-  store = inject(DataViewerStore);
-  usersQuery = usersQuery.page(this.store.requestOptions);
+  #store = inject(DataViewerStore);
+  #modalService = inject(ModalService);
+  #router = inject(Router);
+
+  usersQuery = usersQuery.page(this.#store.requestOptions);
   users = computed(() => this.usersQuery.data()?.items || []);
   totalItems = computed(() => this.usersQuery.data()?.total || 0);
   isPlaceholderData = this.usersQuery.isPlaceholderData;
-  prefetchNextPage = usersQuery.prefetchNextPage(this.store.requestOptions);
+  prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
+
   protected readonly columnDefs = columnDefs;
-  #modalService = inject(ModalService);
-  #router = inject(Router);
+
+  searchQuery = '';
 
   constructor() {
     effect(() => {
@@ -78,27 +98,22 @@ export class UsersPageComponent {
   }
 
   public onAddUser() {
-    this.#modalService.open(AddUserModalComponent, DefaultOptions);
+    this.#modalService.open(AddUserModalComponent);
   }
 
-  public onRowClicked(event: RowClickedEvent<User>) {
+  public onEditUser(event: RowClickedEvent<User>) {
     if (!event.data) {
       return;
     }
     this.#router.navigate(['/users', event.data.id]);
   }
-  // handleCurrentPageChange(page: number) {
-  //   this.store.setPage(page);
-  // }
 
-  // onChangePage(pageEvent) {
-  //   this.store.setPage(pageEvent.pageIndex);
-  // }
-
-  // onSort($event: SortChangedEvent) {}
+  onPageChange(event: any) {
+    this.#store.setPage(event.page);
+  }
 
   onSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    this.store.setSearchQuery(value);
+    this.#store.setSearchQuery(value);
   }
 }
