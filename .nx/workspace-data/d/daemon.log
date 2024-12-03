@@ -53,3 +53,25 @@
 [NX Daemon Server] - 2024-11-24T21:20:26.915Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2024-11-24T21:20:26.915Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (sources)
 [NX Daemon Server] - 2024-11-24T21:20:26.915Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (outputs)
+[NX Daemon Server] - 2024-11-28T16:23:52.046Z - Started listening on: /var/folders/kl/wv5n_qp95k52p6fz00jb0r3c0000gn/T/fb856715d4c631fb0823/d.sock
+[NX Daemon Server] - 2024-11-28T16:23:52.047Z - [WATCHER]: Subscribed to changes within: /Users/alfredoperez/dev/sandbox/my-angular-starter (native)
+[NX Daemon Server] - 2024-11-28T16:23:52.049Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-28T16:23:52.049Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-11-28T16:23:52.050Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-28T16:23:52.051Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-11-28T16:23:52.051Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-11-28T16:23:52.051Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-11-28T16:23:52.053Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-11-28T16:23:52.053Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (sources)
+[NX Daemon Server] - 2024-11-28T16:23:52.053Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (outputs)
+[NX Daemon Server] - 2024-11-30T18:23:11.573Z - Started listening on: /var/folders/kl/wv5n_qp95k52p6fz00jb0r3c0000gn/T/fb856715d4c631fb0823/d.sock
+[NX Daemon Server] - 2024-11-30T18:23:11.575Z - [WATCHER]: Subscribed to changes within: /Users/alfredoperez/dev/sandbox/my-angular-starter (native)
+[NX Daemon Server] - 2024-11-30T18:23:11.577Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-30T18:23:11.577Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-11-30T18:23:11.578Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-11-30T18:23:11.579Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2024-11-30T18:23:11.579Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2024-11-30T18:23:11.579Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2024-11-30T18:23:11.580Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (sources)
+[NX Daemon Server] - 2024-11-30T18:23:11.581Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-11-30T18:23:11.581Z - [WATCHER]: Stopping the watcher for /Users/alfredoperez/dev/sandbox/my-angular-starter (outputs)

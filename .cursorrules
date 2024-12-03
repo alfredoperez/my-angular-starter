@@ -32,6 +32,7 @@ File Naming Conventions
 - All files use kebab-case.
 
 Templates
+
 - Use semantic HTML elements where possible
 
 Code Style
@@ -50,9 +51,9 @@ Angular-Specific Guidelines
 - Utilize deferrable views for optimizing component rendering, deferring non-critical views until necessary.
 - Incorporate Angular's signals system to enhance reactive programming and state management efficiency.
 - Use the `NgOptimizedImage` directive for efficient image loading, improving performance and preventing broken links.
-- Use `output` signal  instead of `@Output()`
+- Use `output` signal instead of `@Output()`
 - Use `input` and `input.required` instead of `@Input()`
-- Use model input  `model` in the component when the value passed to the component also needs to be propagated. .(e.g. a search component takes the `search` text and also propagate to the parent component the changes on it
+- Use model input `model` in the component when the value passed to the component also needs to be propagated. .(e.g. a search component takes the `search` text and also propagate to the parent component the changes on it
 
 Import Order
 
@@ -93,8 +94,8 @@ Documentation
 - DO NOT use html tags such as <p>, <lu>, <li>.
 - DO NOT generate documentation for type member properties.
 
-
 StoryBook
+
 - Create a StoryBook Story for $SELECTION
 - The first story should be called `Default` and should not modify any input
 - Avoid using template or HTML when defining a story
@@ -104,6 +105,7 @@ StoryBook
 - Add all the stories
 
 Security
+
 - Prevent XSS with Angular’s sanitization; avoid using innerHTML.
 - Sanitize dynamic content with built-in tools.
 
@@ -116,6 +118,7 @@ Key Conventions
 - Focus on optimizing Web Vitals like LCP, INP, and CLS.
 
 Commit Message Guidelines
+
 - Avoid overly verbose descriptions or unnecessary details.
 - Start with a short sentence in imperative form, no more than 50 characters long.
 - Then leave an empty line and continue with a more detailed explanation.
@@ -125,16 +128,18 @@ Commit Message Guidelines
 - Use bullet points for multiple changes
 
 Reference
+
 - Refer to Angular’s official documentation for best practices in Components, Services, and Modules.
 - Refer to MDN Web Docs for HTML and CSS best practices and to the W3C guidelines for accessibility standards.
 
-
 Key Principles for CSS and HTML
+
 - Write semantic HTML to improve accessibility and SEO.
 - Ensure responsive design using media queries and flexible layouts.
 - Prioritize accessibility by using ARIA roles and attributes.
 
 HTML
+
 - Use semantic elements (e.g., <header>, <main>, <footer>, <article>, <section>).
 - Use <button> for clickable elements, not <div> or <span>.
 - Use <a> for links, ensuring href attribute is present.
@@ -143,45 +148,49 @@ HTML
 - Avoid using deprecated elements (e.g., <font>, <center>).
 
 CSS
+
 - Use external stylesheets for CSS.
 - Use class selectors over ID selectors for styling.
-    - Use Flexbox and Grid for layout.
-    - Use rem and em units for scalable and accessible typography.
-    - Use CSS variables for consistent theming.
-    - Use CSS for styling, avoiding inline styles.
 
-    - Use BEM (Block Element Modifier) methodology for naming classes.
-    - Avoid !important; use specificity to manage styles.
+  - Use Flexbox and Grid for layout.
+  - Use rem and em units for scalable and accessible typography.
+  - Use CSS variables for consistent theming.
+  - Use CSS for styling, avoiding inline styles.
 
-    Responsive Design
-    - Use media queries to create responsive layouts.
-    - Use mobile-first approach for media queries.
-    - Ensure touch targets are large enough for touch devices.
-    - Use responsive images with srcset and sizes attributes.
-    - Use viewport meta tag for responsive scaling.
+  - Use Component based BEM (Block Element Modifier) methodology for naming classes.
+  - Avoid !important; use specificity to manage styles.
 
-    Accessibility
-    - Use ARIA roles and attributes to enhance accessibility.
-    - Ensure sufficient color contrast for text.
-    - Provide keyboard navigation for interactive elements.
-    - Use focus styles to indicate focus state.
-    - Use landmarks (e.g., <nav>, <main>, <aside>) for screen readers.
+  Responsive Design
 
-    Performance
-    - Minimize CSS and HTML file sizes.
-    - Use CSS minification and compression.
-    - Avoid excessive use of animations and transitions.
-    - Use lazy loading for images and other media.
+  - Use media queries to create responsive layouts.
+  - Use mobile-first approach for media queries.
+  - Ensure touch targets are large enough for touch devices.
+  - Use responsive images with srcset and sizes attributes.
+  - Use viewport meta tag for responsive scaling.
 
-    Testing
-    - Test HTML and CSS in multiple browsers and devices.
-    - Use tools like Lighthouse for performance and accessibility audits.
-    - Validate HTML and CSS using W3C validators.
+  Accessibility
 
-    Documentation
-    - Comment complex CSS rules and HTML structures.
-    - Use consistent naming conventions for classes and IDs.
-    - Document responsive breakpoints and design decisions.
+  - Use ARIA roles and attributes to enhance accessibility.
+  - Ensure sufficient color contrast for text.
+  - Provide keyboard navigation for interactive elements.
+  - Use focus styles to indicate focus state.
+  - Use landmarks (e.g., <nav>, <main>, <aside>) for screen readers.
 
+  Performance
 
+  - Minimize CSS and HTML file sizes.
+  - Use CSS minification and compression.
+  - Avoid excessive use of animations and transitions.
+  - Use lazy loading for images and other media.
 
+  Testing
+
+  - Test HTML and CSS in multiple browsers and devices.
+  - Use tools like Lighthouse for performance and accessibility audits.
+  - Validate HTML and CSS using W3C validators.
+
+  Documentation
+
+  - Comment complex CSS rules and HTML structures.
+  - Use consistent naming conventions for classes and IDs.
+  - Document responsive breakpoints and design decisions.

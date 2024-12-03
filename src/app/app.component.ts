@@ -7,7 +7,7 @@ import { DevToolbarComponent, PageContainerComponent } from './shared/ui';
   selector: 'app-root',
   template: `
     <div>
-      <ui-dev-toolbar />
+      <ngx-dev-toolbar />
       <ui-page-container />
     </div>
   `,

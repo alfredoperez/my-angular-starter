@@ -2,6 +2,8 @@
 @import 'ag-grid-community/styles/ag-grid.css';
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
 
+@import '@angular/cdk/overlay-prebuilt.css';
+
 /*Tailwind*/
 @tailwind base;
 @tailwind components;
