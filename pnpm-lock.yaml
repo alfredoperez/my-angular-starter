@@ -42,11 +42,11 @@ importers:
         specifier: 18.0.0-rc.1
         version: 18.0.0-rc.1
       '@tanstack/angular-query-devtools-experimental':
-        specifier: ^5.61.1
-        version: 5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/angular-query-experimental@5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))
+        specifier: ^5.62.1
+        version: 5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/angular-query-experimental@5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))
       '@tanstack/angular-query-experimental':
-        specifier: ^5.61.1
-        version: 5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
+        specifier: ^5.62.1
+        version: 5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
       ag-grid-angular:
         specifier: ^32.3.2
         version: 32.3.3(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(ag-grid-community@32.3.2)
@@ -2513,24 +2513,24 @@ packages:
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
-  '@tanstack/angular-query-devtools-experimental@5.61.1':
-    resolution: {integrity: sha512-xEZ+0kwrlU+H2m9gkIKjFgdhZiYeTfyW2AZ/Lh9jo6Qg386iHJFtJhVLyspn528XUkd32xcQSJzfD7SdRg0hmw==}
+  '@tanstack/angular-query-devtools-experimental@5.62.1':
+    resolution: {integrity: sha512-gOhV0QTk9xRveZy47ZreOdTK4KAKxsMn8RQ+/iL6ddyhZgFnZPY6w5aljsAKH30+fIToa4H72md0rx9BE9J7rg==}
     peerDependencies:
       '@angular/common': '>=16.0.0'
       '@angular/core': '>=16.0.0'
-      '@tanstack/angular-query-experimental': ^5.61.1
+      '@tanstack/angular-query-experimental': ^5.62.1
 
-  '@tanstack/angular-query-experimental@5.61.1':
-    resolution: {integrity: sha512-jUkaJbq1Hd6q8imsYDtRfshSUCKjXz7uwQCi0ANZUb1aJoWpB99y3Hb8WWOW885POov0onm6IBaBl9h4CpwrAQ==}
+  '@tanstack/angular-query-experimental@5.62.1':
+    resolution: {integrity: sha512-MN8+HmK1FktTgSFG//Z3bntnFDb9AP5kbhslz3CNbI2UdSXlX0UGVvDSr2P8Wcnms50AkSnzicm23zu168Xa2w==}
     peerDependencies:
       '@angular/common': '>=16.0.0'
       '@angular/core': '>=16.0.0'
 
-  '@tanstack/query-core@5.60.6':
-    resolution: {integrity: sha512-tI+k0KyCo1EBJ54vxK1kY24LWj673ujTydCZmzEZKAew4NqZzTaVQJEuaG1qKj2M03kUHN46rchLRd+TxVq/zQ==}
+  '@tanstack/query-core@5.62.1':
+    resolution: {integrity: sha512-thYv90GkMcfumgmtp6sptC18SqxWwXTCKUuk7jyeHHn7kYouh0VJrowuuBffAIBiR3Z8OnsccmPUnP1leKJBVQ==}
 
-  '@tanstack/query-devtools@5.59.20':
-    resolution: {integrity: sha512-vxhuQ+8VV4YWQSFxQLsuM+dnEKRY7VeRzpNabFXdhEwsBYLrjXlF1pM38A8WyKNLqZy8JjyRO8oP4Wd/oKHwuQ==}
+  '@tanstack/query-devtools@5.61.4':
+    resolution: {integrity: sha512-21Tw+u8E3IJJj4A/Bct4H0uBaDTEu7zBrR79FeSyY+mS2gx5/m316oDtJiKkILc819VSTYt+sFzODoJNcpPqZQ==}
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -10456,23 +10456,23 @@ snapshots:
     dependencies:
       storybook: 8.4.5(prettier@3.3.3)
 
-  '@tanstack/angular-query-devtools-experimental@5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/angular-query-experimental@5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))':
+  '@tanstack/angular-query-devtools-experimental@5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/angular-query-experimental@5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))':
     dependencies:
       '@angular/common': 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@angular/core': 18.2.12(rxjs@7.8.1)(zone.js@0.14.10)
-      '@tanstack/angular-query-experimental': 5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
-      '@tanstack/query-devtools': 5.59.20
+      '@tanstack/angular-query-experimental': 5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
+      '@tanstack/query-devtools': 5.61.4
 
-  '@tanstack/angular-query-experimental@5.61.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))':
+  '@tanstack/angular-query-experimental@5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))':
     dependencies:
       '@angular/common': 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@angular/core': 18.2.12(rxjs@7.8.1)(zone.js@0.14.10)
-      '@tanstack/query-core': 5.60.6
-      '@tanstack/query-devtools': 5.59.20
+      '@tanstack/query-core': 5.62.1
+      '@tanstack/query-devtools': 5.61.4
 
-  '@tanstack/query-core@5.60.6': {}
+  '@tanstack/query-core@5.62.1': {}
 
-  '@tanstack/query-devtools@5.59.20': {}
+  '@tanstack/query-devtools@5.61.4': {}
 
   '@testing-library/dom@10.4.0':
     dependencies:
