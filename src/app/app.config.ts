@@ -2,7 +2,6 @@ import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
-import Lara from '@primeng/themes/Lara';
 import {
   QueryClient,
   provideTanStackQuery,
@@ -16,11 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withComponentInputBinding()),
     provideHttpClient(),
     provideAnimationsAsync(),
-    providePrimeNG({
-      theme: {
-        preset: Lara,
-      },
-    }),
+    providePrimeNG(),
     provideTanStackQuery(new QueryClient(), withDevtools()),
   ],
 };
