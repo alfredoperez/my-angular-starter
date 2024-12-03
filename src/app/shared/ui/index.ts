@@ -1,4 +1,4 @@
+export * from './devtools';
 export * from './layout';
-export * from './button/button.component';
-export * from './pagination/pagination.component';
+export * from './button';
 export * from './modal';

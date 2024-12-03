@@ -11,7 +11,8 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ModalComponent } from './modal.component';
-import { Options, SubjectModal } from './modal.models';
+import { Options, SubjectModal, ModalDefaultOptions } from './modal.models';
+import './modal.models';
 
 @Injectable({
   providedIn: 'root',
@@ -66,7 +67,7 @@ export class ModalService {
    * });
    * ```
    */
-  open<C>(componentToCreate: Type<C>, options?: Options) {
+  open<C>(componentToCreate: Type<C>, options: Options = ModalDefaultOptions) {
     this.options = options;
 
     this.modalSubject = new Subject();

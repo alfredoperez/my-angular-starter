@@ -1,43 +1,82 @@
-import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { ButtonSize, ButtonType } from './button.models';
+import { ButtonModule } from 'primeng/button';
+import { TooltipModule } from 'primeng/tooltip';
+import {
+  ButtonIconPosition,
+  ButtonSize,
+  ButtonType,
+  TooltipPosition,
+} from './button.models';
 
 @Component({
-  selector: 'ui-button',
   standalone: true,
+  selector: 'a-button',
   template: `
-    <button
-      class="btn"
-      [ngClass]="{
-        'btn-xs': size() === 'xs',
-        'btn-sm': size() === 'sm',
-        'btn-md': size() === 'md',
-        'btn-lg': size() === 'lg',
-        'btn-primary': type() === 'primary',
-        'btn-secondary': type() === 'secondary',
-        'btn-accent': type() === 'accent',
-        'btn-ghost': type() === 'ghost',
-        'btn-error': type() === 'error',
-        'btn-success': type() === 'success',
-        'btn-warning': type() === 'warning',
-        'btn-info': type() === 'info'
-      }"
+    <p-button
+      [severity]="type()"
+      [size]="size()"
       [disabled]="disabled()"
-      (click)="handleClick()"
+      [label]="label()"
+      [icon]="icon()"
+      [iconPos]="iconPos()"
+      [ariaLabel]="ariaLabel()"
+      [pTooltip]="tooltip()"
+      [tooltipPosition]="tooltipPosition()"
+      (onClick)="onClick($event)"
+      (onFocus)="onFocus($event)"
+      (onBlur)="onBlur($event)"
+      pRipple
     >
-      <ng-content />
-    </button>
+    </p-button>
   `,
-  imports: [NgClass],
+  imports: [ButtonModule, TooltipModule],
 })
 export class ButtonComponent {
-  size = input<ButtonSize>('md');
+  /** Button severity type that defines its visual style */
   type = input<ButtonType>('primary');
+
+  /** Size of the button */
+  size = input<ButtonSize>(undefined);
+
+  /** Whether the button is disabled */
   disabled = input<boolean>(false);
 
-  click = output();
+  /** Text to display inside the button */
+  label = input<string>();
 
-  handleClick() {
-    this.click.emit();
+  /** Icon to display in the button */
+  icon = input<string>();
+
+  /** Position of the icon relative to the label */
+  iconPos = input<ButtonIconPosition>('left');
+
+  /** Accessibility label for screen readers */
+  ariaLabel = input<string>();
+
+  /** Tooltip text to display on hover */
+  tooltip = input<string>();
+
+  /** Position where the tooltip should appear */
+  tooltipPosition = input<TooltipPosition>('bottom');
+
+  /** Emits when the button is clicked */
+  click = output<Event>();
+
+  /** Emits when the button receives focus */
+  focus = output<Event>();
+
+  /** Emits when the button loses focus */
+  blur = output<Event>();
+
+  onClick(event: Event) {
+    this.click.emit(event);
+  }
+
+  onFocus(event: Event) {
+    this.focus.emit(event);
+  }
+
+  onBlur(event: Event) {
+    this.blur.emit(event);
   }
 }

@@ -1,19 +1,21 @@
 import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 import {
   QueryClient,
-  provideAngularQuery,
+  provideTanStackQuery,
+  withDevtools,
 } from '@tanstack/angular-query-experimental';
+import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes, withComponentInputBinding()),
     provideHttpClient(),
-    provideAnimations(),
-    provideAngularQuery(new QueryClient()), provideAnimationsAsync(),
+    provideAnimationsAsync(),
+    providePrimeNG(),
+    provideTanStackQuery(new QueryClient(), withDevtools()),
   ],
 };

@@ -1,0 +1,74 @@
+import { Meta, Story, Controls } from '@storybook/blocks';
+import * as ButtonStories from './button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button Component
+
+A versatile button component built on top of PrimeNG's button, providing various styles, sizes, and accessibility features.
+
+## Key Features
+- Multiple visual styles through the `type` property
+- Three size options: small, normal, and large
+- Icon support with customizable positioning
+- Built-in accessibility features
+- Tooltip support
+
+## Usage Examples
+
+### Basic Button
+The most common use case is a simple button with text:
+
+<Story of={ButtonStories.Default} />
+
+### Button with Icon
+Add icons to enhance visual communication:
+
+<Story of={ButtonStories.WithIcon} />
+
+### Different Types
+Choose from various visual styles to match your needs:
+
+<Story of={ButtonStories.Types} />
+
+### Sizes
+Available in three sizes to fit your layout:
+
+<Story of={ButtonStories.Sizes} />
+
+## Accessibility
+The button component follows accessibility best practices:
+- Proper ARIA labels for icon-only buttons
+- Keyboard navigation support
+- Focus management
+- Optional tooltips for additional context
+
+<Story of={ButtonStories.IconOnly} />
+
+## API Reference
+
+### Inputs
+
+| Input | Type | Default | Description |
+|-------|------|---------|-------------|
+| type | ButtonType | 'primary' | Visual style of the button |
+| size | ButtonSize | 'normal' | Size of the button |
+| disabled | boolean | false | Whether the button is disabled |
+| label | string | undefined | Text to display inside the button |
+| icon | string | undefined | Icon to display (uses PrimeNG icons) |
+| iconPos | ButtonIconPosition | 'left' | Position of the icon relative to label |
+| ariaLabel | string | undefined | Accessibility label for screen readers |
+| tooltip | string | undefined | Tooltip text to display on hover |
+| tooltipPosition | 'top' \| 'right' \| 'bottom' \| 'left' | 'bottom' | Position of the tooltip |
+
+### Outputs
+
+| Output | Type | Description |
+|--------|------|-------------|
+| click | EventEmitter<MouseEvent> | Emitted when button is clicked |
+| focus | EventEmitter<FocusEvent> | Emitted when button receives focus |
+| blur | EventEmitter<FocusEvent> | Emitted when button loses focus |
+
+## Component Controls
+
+<Controls /> 

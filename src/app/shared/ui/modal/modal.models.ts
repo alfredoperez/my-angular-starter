@@ -27,7 +27,7 @@ export interface Options {
   data?: Record<string, unknown>;
 }
 
-export const DefaultOptions: Options = {
+export const ModalDefaultOptions: Options = {
   modal: {
     enter: 'enter-scale-down .4s ease-out',
   },

@@ -7,8 +7,8 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="flex h-full items-center justify-center p-8">
-      <div class="max-w-6xl">
+    <div class="flex min-h-screen w-full justify-center">
+      <div class="w-full max-w-7xl px-4 py-8">
         <router-outlet></router-outlet>
       </div>
     </div>
