@@ -11,17 +11,15 @@ import { SettingsToolbarOverlayComponent } from './settings-toolbar-overlay.comp
   selector: 'ngx-toolbar-settings-app',
   standalone: true,
   imports: [
-    DevToolbarButtonComponent,
     DevToolbarOverlayComponent,
     DevToolbarToolComponent,
-    DevToolbarButtonComponent,
-    GearIconComponent,
   ],
   template: `
-    <ngx-dev-toolbar-tool [component]="overlayComponent" title="Settings">
-      <ngx-dev-toolbar-button title="Settings">
-        <ngx-dev-toolbar-gear-icon />
-      </ngx-dev-toolbar-button>
+    <ngx-dev-toolbar-tool
+      [component]="overlayComponent"
+      title="Settings"
+      icon="gear"
+    >
       <ngx-dev-toolbar-overlay>
         <p>Settings Content</p>
       </ngx-dev-toolbar-overlay>

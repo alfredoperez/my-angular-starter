@@ -1,0 +1,17 @@
+export type IconName =
+  | 'angular'
+  | 'bug'
+  | 'code'
+  | 'database'
+  | 'gauge'
+  | 'gear'
+  | 'git-branch'
+  | 'layout'
+  | 'lighting'
+  | 'network'
+  | 'puzzle'
+  | 'refresh'
+  | 'star'
+  | 'terminal'
+  | 'toggle-left'
+  | 'user';

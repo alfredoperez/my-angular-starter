@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-dev-toolbar-gear-icon',
+  selector: 'ngx-dev-toolbar-bug-icon',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,  
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <svg
       [attr.fill]="fill()"
@@ -22,6 +22,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
     </svg>
   `,
 })
-export class GearIconComponent {
+export class BugIconComponent {
   fill = input<string>('#FFFF');
 }
