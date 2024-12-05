@@ -15,15 +15,25 @@ import {
 } from '@angular/core';
 import { DevToolbarButtonComponent } from '../dev-toolbar-button/dev-toolbar-button.component';
 import { DevToolbarWindowComponent } from '../dev-toolbar-window/dev-toolbar-window.component';
+import { IconComponent, IconName } from '../icons';
 
 @Component({
   selector: 'ngx-dev-toolbar-tool',
   standalone: true,
-  imports: [CdkConnectedOverlay, OverlayModule, DevToolbarWindowComponent],
+  imports: [
+    CdkConnectedOverlay,
+    OverlayModule,
+    DevToolbarWindowComponent,
+    DevToolbarButtonComponent,
+    IconComponent,
+  ],
   template: `
     <div #trigger="cdkOverlayOrigin" class="tool" cdkOverlayOrigin>
       <div class="trigger" (click)="onOpen()">
         <div [attr.data-tooltip]="title()">
+          <ngx-dev-toolbar-button [title]="title()">
+            <ngx-dev-toolbar-icon [name]="icon()" />
+          </ngx-dev-toolbar-button>
           <ng-content select="ngx-dev-toolbar-button"></ng-content>
         </div>
       </div>
@@ -63,6 +73,7 @@ export class DevToolbarToolComponent {
   @ContentChild(DevToolbarButtonComponent)
   buttonComponent!: DevToolbarButtonComponent;
 
+  icon = input.required<IconName>();
   title = input.required<string>();
   component = input.required<any>();
 

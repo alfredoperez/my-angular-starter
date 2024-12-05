@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  standalone: true,
   selector: 'ngx-dev-toolbar-angular-icon',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <defs>
