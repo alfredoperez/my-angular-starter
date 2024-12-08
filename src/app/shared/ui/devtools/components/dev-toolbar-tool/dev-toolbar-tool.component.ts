@@ -11,7 +11,7 @@ import {
 import { DevToolbarButtonComponent } from '../dev-toolbar-button/dev-toolbar-button.component';
 import { DevToolbarWindowComponent } from '../dev-toolbar-window/dev-toolbar-window.component';
 import { WindowConfig } from '../dev-toolbar-window/dev-toolbar-window.models';
-import { IconComponent, IconName } from '../icons';
+import { DevToolbarIconComponent, IconName } from '../icons';
 
 @Component({
   selector: 'ngx-dev-toolbar-tool',
@@ -21,11 +21,11 @@ import { IconComponent, IconName } from '../icons';
     OverlayModule,
     DevToolbarWindowComponent,
     DevToolbarButtonComponent,
-    IconComponent,
+    DevToolbarIconComponent,
   ],
   template: `
-    <div #trigger="cdkOverlayOrigin" class="tool" cdkOverlayOrigin>
-      <div class="trigger" (click)="onOpen()">
+    <div #trigger="cdkOverlayOrigin" class="dev-toolbar-tool" cdkOverlayOrigin>
+      <div class="dev-toolbar-tool__icon" (click)="onOpen()">
         <div [attr.data-tooltip]="title()">
           @if (icon()) {
             <ngx-dev-toolbar-button [title]="title()">
@@ -42,10 +42,10 @@ import { IconComponent, IconName } from '../icons';
         [cdkConnectedOverlayOrigin]="trigger"
         [cdkConnectedOverlayOpen]="isActive()"
         [cdkConnectedOverlayPositions]="positions"
-        [cdkConnectedOverlayWidth]="400"
-        [cdkConnectedOverlayMinWidth]="300"
-        [cdkConnectedOverlayMinHeight]="200"
-        [cdkConnectedOverlayHeight]="300"
+        [cdkConnectedOverlayWidth]="640"
+        [cdkConnectedOverlayMinWidth]="400"
+        [cdkConnectedOverlayMinHeight]="300"
+        [cdkConnectedOverlayHeight]="420"
         cdkConnectedOverlay
       >
         <ngx-dev-toolbar-window [config]="windowConfig()" (close)="onClose()">
@@ -66,7 +66,6 @@ export class DevToolbarToolComponent {
   windowConfig = input.required<WindowConfig>();
   icon = input.required<IconName>();
   title = input.required<string>();
-
   isActive = signal(false);
   positions = [
     {
@@ -74,11 +73,9 @@ export class DevToolbarToolComponent {
       originY: 'top' as const,
       overlayX: 'center' as const,
       overlayY: 'bottom' as const,
-      offsetY: -26,
+      offsetY: -16,
     },
   ];
-
-  constructor() {}
 
   onOpen(): void {
     const isActive = this.isActive();

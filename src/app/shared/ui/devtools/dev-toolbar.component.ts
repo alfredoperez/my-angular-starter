@@ -10,8 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { DevToolbarButtonComponent } from './components';
-import { IconComponent } from './components/icons';
-import { StarIconComponent } from './components/icons/star-icon.component';
+import { DevToolbarIconComponent } from './components/icons';
 import { DevToolbarStateService } from './dev-toolbar-state.service';
 import { SettingsToolbarAppComponent } from './tools/settings-toolbar-app/settings-toolbar-app.component';
 
@@ -23,8 +22,7 @@ import { SettingsToolbarAppComponent } from './tools/settings-toolbar-app/settin
     DevToolbarButtonComponent,
     SettingsToolbarAppComponent,
     DevToolbarButtonComponent,
-    StarIconComponent,
-    IconComponent,
+    DevToolbarIconComponent,
   ],
 
   template: `
@@ -39,6 +37,8 @@ import { SettingsToolbarAppComponent } from './tools/settings-toolbar-app/settin
       (mouseleave)="onMouseLeave()"
       (keydown.escape)="onEscape()"
     >
+      <ngx-toolbar-settings-app title="Settings" />
+
       <ngx-dev-toolbar-button title="Home">
         <ngx-dev-toolbar-icon name="angular" />
       </ngx-dev-toolbar-button>
