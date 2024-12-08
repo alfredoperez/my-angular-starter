@@ -23,6 +23,7 @@ export class DevToolbarStateService {
 
   // Selectors
   readonly isVisible = computed(() => !this.state().isHidden);
+  readonly isDarkTheme = computed(() => this.state().theme === 'dark');
   readonly activeToolId = computed(() => this.state().activeToolId);
   readonly hasActiveTool = computed(() => this.state().activeToolId !== null);
   readonly error = computed(() => this.state().error);

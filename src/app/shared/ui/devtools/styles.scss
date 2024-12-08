@@ -115,6 +115,15 @@ $font-family:
   'Segoe UI Symbol',
   'Noto Color Emoji';
 
+// Add font size variables
+$font-sizes: (
+  xs: 0.75rem,      
+  sm: 0.875rem,   
+  md: 1rem,         
+  lg: 1.25rem,      
+  xl: 1.5rem      
+);
+
 // Dimensions
 $dimensions: (
   toolbar-height: 40px,
@@ -143,17 +152,30 @@ $z-indices: (
 
 .dev-toolbar {
   // Border radius variables
-  --devtools-border-radius-small: #{map-get(map-get($dimensions, border-radius), small)};
-  --devtools-border-radius-medium: #{map-get(map-get($dimensions, border-radius), medium)};
-  --devtools-border-radius-large: #{map-get(map-get($dimensions, border-radius), large)};
-  
+  --devtools-border-radius-small: #{map-get(
+      map-get($dimensions, border-radius),
+      small
+    )};
+  --devtools-border-radius-medium: #{map-get(
+      map-get($dimensions, border-radius),
+      medium
+    )};
+  --devtools-border-radius-large: #{map-get(
+      map-get($dimensions, border-radius),
+      large
+    )};
+
   // Transition variables
   --devtools-transition-default: #{map-get($transitions, default)};
   --devtools-transition-smooth: #{map-get($transitions, smooth)};
 
   // Default light theme
   --devtools-bg-primary: #{map-get(map-get($colors, light), background, primary)};
-  --devtools-bg-gradient: #{map-get(map-get($colors, light), background, gradient)};
+  --devtools-bg-gradient: #{map-get(
+      map-get($colors, light),
+      background,
+      gradient
+    )};
   --devtools-text-primary: #{map-get(map-get($colors, light), text, primary)};
   --devtools-text-secondary: #{map-get(map-get($colors, light), text, secondary)};
   --devtools-text-muted: #{map-get(map-get($colors, light), text, muted)};
@@ -165,13 +187,88 @@ $z-indices: (
   --devtools-shadow-tooltip: #{map-get(map-get($shadow-themes, light), tooltip)};
   --devtools-shadow-window: #{map-get(map-get($shadow-themes, light), window)};
 
+  // Add these spacing variables
+  --devtools-spacing-xs: 4px;
+  --devtools-spacing-sm: 8px;
+  --devtools-spacing-md: 16px;
+  --devtools-window-padding: 24px;
+
+  // Add font size CSS variables
+  --devtools-font-size-xs: #{map-get($font-sizes, xs)};
+  --devtools-font-size-sm: #{map-get($font-sizes, sm)};
+  --devtools-font-size-md: #{map-get($font-sizes, md)};
+  --devtools-font-size-lg: #{map-get($font-sizes, lg)};
+  --devtools-font-size-xl: #{map-get($font-sizes, xl)};
+
+  // Background colors
+  --devtools-background-secondary: var(--devtools-bg-primary);
+  --devtools-background-hover: var(--devtools-hover-bg);
+  
+  // Primary color for active states
+  --devtools-primary: #df30d4; // You can adjust this color value
+  --devtools-text-on-primary: #{$color-white};
+  
+  // Border color
+  --devtools-border-color: var(--devtools-border-primary);
+
+  // Typography styles
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 600;
+    color: var(--devtools-text-primary);
+  }
+
+  h1 {
+    font-size: var(--devtools-font-extra-large);
+  }
+  h2 {
+    font-size: var(--devtools-font-large);
+  }
+  h3 {
+    font-size: var(--devtools-font-medium);
+  }
+  h4 {
+    font-size: var(--devtools-font-small);
+  }
+  h5 {
+    font-size: var(--devtools-font-extra-small);
+  }
+
+  hr {
+    border: 1px solid var(--devtools-border-subtle);
+    margin: 1em 0;
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+
   &[data-theme='dark'] {
-    --devtools-bg-primary: #{map-get(map-get($colors, dark), background, primary)};
-    --devtools-bg-gradient: #{map-get(map-get($colors, dark), background, gradient)};
+    --devtools-bg-primary: #{map-get(
+        map-get($colors, dark),
+        background,
+        primary
+      )};
+    --devtools-bg-gradient: #{map-get(
+        map-get($colors, dark),
+        background,
+        gradient
+      )};
     --devtools-text-primary: #{map-get(map-get($colors, dark), text, primary)};
-    --devtools-text-secondary: #{map-get(map-get($colors, dark), text, secondary)};
+    --devtools-text-secondary: #{map-get(
+        map-get($colors, dark),
+        text,
+        secondary
+      )};
     --devtools-text-muted: #{map-get(map-get($colors, dark), text, muted)};
-    --devtools-border-primary: #{map-get(map-get($colors, dark), border, primary)};
+    --devtools-border-primary: #{map-get(
+        map-get($colors, dark),
+        border,
+        primary
+      )};
     --devtools-border-subtle: #{map-get(map-get($colors, dark), border, subtle)};
     --devtools-hover-bg: #{map-get(map-get($colors, dark), hover, background)};
     --devtools-hover-danger: #{map-get(map-get($colors, dark), hover, danger)};
