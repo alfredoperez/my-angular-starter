@@ -1,9 +1,4 @@
-import {
-  CdkConnectedOverlay,
-  Overlay,
-  OverlayModule,
-  OverlayRef,
-} from '@angular/cdk/overlay';
+import { CdkConnectedOverlay, OverlayModule } from '@angular/cdk/overlay';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,6 +10,7 @@ import {
 } from '@angular/core';
 import { DevToolbarButtonComponent } from '../dev-toolbar-button/dev-toolbar-button.component';
 import { DevToolbarWindowComponent } from '../dev-toolbar-window/dev-toolbar-window.component';
+import { WindowConfig } from '../dev-toolbar-window/dev-toolbar-window.models';
 import { IconComponent, IconName } from '../icons';
 
 @Component({
@@ -31,10 +27,13 @@ import { IconComponent, IconName } from '../icons';
     <div #trigger="cdkOverlayOrigin" class="tool" cdkOverlayOrigin>
       <div class="trigger" (click)="onOpen()">
         <div [attr.data-tooltip]="title()">
-          <ngx-dev-toolbar-button [title]="title()">
-            <ngx-dev-toolbar-icon [name]="icon()" />
-          </ngx-dev-toolbar-button>
-          <ng-content select="ngx-dev-toolbar-button"></ng-content>
+          @if (icon()) {
+            <ngx-dev-toolbar-button [title]="title()">
+              <ngx-dev-toolbar-icon [name]="icon()" />
+            </ngx-dev-toolbar-button>
+          } @else {
+            <ng-content select="ngx-dev-toolbar-button"></ng-content>
+          }
         </div>
       </div>
 
@@ -49,19 +48,9 @@ import { IconComponent, IconName } from '../icons';
         [cdkConnectedOverlayHeight]="300"
         cdkConnectedOverlay
       >
-        <ngx-dev-toolbar-window [title]="title()" (close)="onClose()">
-          <ng-content select="ngx-devtool-content" />
+        <ngx-dev-toolbar-window [config]="windowConfig()" (close)="onClose()">
+          <ng-content />
         </ngx-dev-toolbar-window>
-
-        <!-- <div class="overlay">
-          <div class="header">
-            <h3 class="title">{{ title() }} s</h3>
-            <button class="close-btn" (click)="onClose()">×</button>
-          </div>
-
-          <div class="content">
-          </div>
-        </div> -->
       </ng-template>
     </div>
   `,
@@ -70,12 +59,13 @@ import { IconComponent, IconName } from '../icons';
 })
 export class DevToolbarToolComponent {
   @ViewChild('trigger') trigger!: ElementRef;
+
   @ContentChild(DevToolbarButtonComponent)
   buttonComponent!: DevToolbarButtonComponent;
 
+  windowConfig = input.required<WindowConfig>();
   icon = input.required<IconName>();
   title = input.required<string>();
-  component = input.required<any>();
 
   isActive = signal(false);
   positions = [
@@ -87,9 +77,8 @@ export class DevToolbarToolComponent {
       offsetY: -26,
     },
   ];
-  private overlayRef: OverlayRef | null = null;
 
-  constructor(private overlay: Overlay) {}
+  constructor() {}
 
   onOpen(): void {
     const isActive = this.isActive();

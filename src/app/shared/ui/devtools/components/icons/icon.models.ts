@@ -8,10 +8,12 @@ export type IconName =
   | 'git-branch'
   | 'layout'
   | 'lighting'
+  | 'moon'
   | 'network'
   | 'puzzle'
   | 'refresh'
   | 'star'
+  | 'sun'
   | 'terminal'
   | 'toggle-left'
   | 'user';

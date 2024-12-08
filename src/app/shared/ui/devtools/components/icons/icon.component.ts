@@ -23,6 +23,8 @@ import { StarIconComponent } from './star-icon.component';
 import { TerminalIconComponent } from './terminal-icon.component';
 import { ToggleLeftIconComponent } from './toggle-left-icon.component';
 import { UsersIconComponent } from './users-icon.component';
+import { SunIconComponent } from './sun-icon.component';
+import { MoonIconComponent } from './moon-icon.component';
 
 @Component({
   selector: 'ngx-dev-toolbar-icon',
@@ -44,6 +46,8 @@ import { UsersIconComponent } from './users-icon.component';
     TerminalIconComponent,
     ToggleLeftIconComponent,
     UsersIconComponent,
+    SunIconComponent,
+    MoonIconComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -95,6 +99,12 @@ import { UsersIconComponent } from './users-icon.component';
       }
       @case ('user') {
         <ngx-dev-toolbar-users-icon [fill]="fill()" />
+      }
+      @case ('sun') {
+        <ngx-dev-toolbar-sun-icon [fill]="fill()" />
+      }
+      @case ('moon') {
+        <ngx-dev-toolbar-moon-icon [fill]="fill()" />
       }
     }
   `,

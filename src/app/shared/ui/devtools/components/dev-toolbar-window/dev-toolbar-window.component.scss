@@ -1,143 +1,72 @@
+@import '../../styles';
+
+:host {
+  display: block;
+  width: 100%;
+}
+
 .window {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(0deg, #13151a, #13151a),
-    linear-gradient(0deg, #343841, #343841);
-  border: 1px solid rgba(52, 56, 65, 1);
-  width: min(640px, 100%);
-  max-height: 480px;
-  border-radius: 12px;
-  padding: 24px;
-  font-family:
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    'Noto Sans',
-    sans-serif,
-    'Apple Color Emoji',
-    'Segoe UI Emoji',
-    'Segoe UI Symbol',
-    'Noto Color Emoji';
-  color: rgba(191, 193, 201, 1);
-  position: fixed;
-  z-index: 999999999;
-  bottom: 72px;
-  box-shadow:
-    0px 0px 0px 0px rgba(19, 21, 26, 0.3),
-    0px 1px 2px 0px rgba(19, 21, 26, 0.29),
-    0px 4px 4px 0px rgba(19, 21, 26, 0.26),
-    0px 10px 6px 0px rgba(19, 21, 26, 0.15),
-    0px 17px 7px 0px rgba(19, 21, 26, 0.04),
-    0px 26px 7px 0px rgba(19, 21, 26, 0.01);
+  background: var(--devtools-bg-primary);
+  border: 1px solid var(--devtools-border-primary);
+  width: 100%;
+  max-height: #{map-get($dimensions, window-max-height)};
+  border-radius: var(--devtools-border-radius-large);
+  padding: var(--devtools-window-padding);
+  font-family: $font-family;
+  color: var(--devtools-text-secondary);
+  z-index: #{map-get($z-indices, window)};
+  box-shadow: var(--devtools-shadow-window);
 
-  &--bottom-left {
-    left: 16px;
-  }
-
-  &--bottom-center {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &--bottom-right {
-    right: 16px;
+  &--fullscreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    transform: none;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    font-size: var(--devtools-font-size-lg);
+    margin-bottom: var(--devtools-spacing-md);
   }
 
   &__title {
-    font-size: 22px;
+    font-size: var(--devtools-font-size-lg);
     font-weight: 600;
-    color: #fff;
+    color: var(--devtools-text-primary);
     margin: 0;
   }
 
   &__controls {
     display: flex;
-    gap: 8px;
+    gap: var(--devtools-spacing-sm);
   }
 
   &__control {
     background: none;
     border: none;
-    color: rgba(191, 193, 201, 1);
+    color: var(--devtools-text-secondary);
     cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: var(--devtools-spacing-xs) var(--devtools-spacing-sm);
+    border-radius: var(--devtools-border-radius-small);
+    font-size: var(--devtools-font-size-md);
     line-height: 1;
-    transition: all 0.2s ease;
+    transition: var(--devtools-transition-smooth);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
+      background: var(--devtools-hover-bg);
+      color: var(--devtools-text-primary);
     }
 
     &--close:hover {
-      background: rgb(220, 38, 38);
+      background: var(--devtools-hover-danger);
     }
-  }
-
-  &__content {
-    overflow-y: auto;
-
-    :host ::ng-deep {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        font-weight: 600;
-        color: #fff;
-      }
-
-      h1 {
-        font-size: 22px;
-      }
-      h2 {
-        font-size: 20px;
-      }
-      h3 {
-        font-size: 18px;
-      }
-      h4 {
-        font-size: 16px;
-      }
-      h5 {
-        font-size: 14px;
-      }
-
-      hr {
-        border: 1px solid rgba(27, 30, 36, 1);
-        margin: 1em 0;
-      }
-
-      p {
-        line-height: 1.5em;
-      }
-    }
-  }
-}
-
-@media (forced-colors: active) {
-  .window {
-    background: white;
-  }
-}
-
-@media (max-width: 640px) {
-  .window {
-    border-radius: 0;
   }
 }
