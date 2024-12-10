@@ -27,7 +27,7 @@
     "@ngrx/signals": "18.0.2",
     "@primeng/themes": "18.0.0-rc.1",
     "@tanstack/angular-query-devtools-experimental": "^5.62.1",
-    "@tanstack/angular-query-experimental": "^5.62.1",
+    "@tanstack/angular-query-experimental": "^5.62.6",
     "ag-grid-angular": "^32.3.2",
     "ag-grid-community": "32.3.2",
     "json-server": "^0.17.0",
