@@ -57,7 +57,7 @@
     "@storybook/angular": "^8.4.2",
     "@storybook/blocks": "^8.4.2",
     "@storybook/test": "^8.4.2",
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.0",
     "@types/jest": "^29.5.12",
     "angular-eslint": "18.0.1",
     "autoprefixer": "^10.4.19",
