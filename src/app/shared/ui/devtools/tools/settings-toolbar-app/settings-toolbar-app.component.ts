@@ -6,13 +6,13 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DevToolbarToolComponent } from '../../components';
-import { IconComponent } from '../../components/icons';
+import { DevToolbarIconComponent } from '../../components/icons';
 import { DevToolbarStateService } from '../../dev-toolbar-state.service';
 
 @Component({
   selector: 'ngx-toolbar-settings-app',
   standalone: true,
-  imports: [DevToolbarToolComponent, IconComponent, FormsModule],
+  imports: [DevToolbarToolComponent, DevToolbarIconComponent, FormsModule],
   template: `
     <ngx-dev-toolbar-tool
       [windowConfig]="windowConfig"

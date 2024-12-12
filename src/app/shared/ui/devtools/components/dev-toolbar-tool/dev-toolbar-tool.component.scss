@@ -1,52 +1,9 @@
-.dev-toolbar-tool {
+.tool {
   position: relative;
+}
 
-  &__icon {
-    cursor: pointer;
-  }
-
-  &__content {
-    background: var(--devtools-bg-primary);
-    border-radius: var(--devtools-border-radius-medium, 8px);
-    overflow: hidden;
-  }
-
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid var(--devtools-border-subtle);
-  }
-
-  &__title {
-    color: var(--devtools-text-primary);
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  &__close {
-    background: none;
-    border: none;
-    color: var(--devtools-text-muted);
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.25rem;
-    line-height: 1;
-    border-radius: var(--devtools-border-radius-small, 4px);
-    transition: var(--devtools-transition-smooth, all 0.2s ease-in-out);
-
-    &:hover {
-      color: var(--devtools-text-primary);
-      background: var(--devtools-hover-bg);
-    }
-  }
-
-  &__body {
-    padding: 1rem;
-    color: var(--devtools-text-secondary);
-  }
+.trigger {
+  cursor: pointer;
 }
 
 .overlay {

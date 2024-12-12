@@ -9,9 +9,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   background: var(--devtools-bg-primary);
   border: 1px solid var(--devtools-border-primary);
-  width: 100%;
+
   max-height: #{map-get($dimensions, window-max-height)};
   border-radius: var(--devtools-border-radius-large);
   padding: var(--devtools-window-padding);
