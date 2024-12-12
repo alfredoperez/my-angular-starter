@@ -94,8 +94,8 @@ importers:
         specifier: ^18.2.11
         version: 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
       '@chromatic-com/storybook':
-        specifier: ^1.5.0
-        version: 1.9.0(react@18.3.1)
+        specifier: ^3.2.2
+        version: 3.2.2(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
       '@compodoc/compodoc':
         specifier: ^1.1.24
         version: 1.1.26(typescript@5.4.5)
@@ -1110,9 +1110,11 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@chromatic-com/storybook@1.9.0':
-    resolution: {integrity: sha512-vYQ+TcfktEE3GHnLZXHCzXF/sN9dw+KivH8a5cmPyd9YtQs7fZtHrEgsIjWpYycXiweKMo1Lm1RZsjxk8DH3rA==}
+  '@chromatic-com/storybook@3.2.2':
+    resolution: {integrity: sha512-xmXt/GW0hAPbzNTrxYuVo43Adrtjue4DeVrsoIIEeJdGaPNNeNf+DHMlJKOBdlHmCnFUoe9R/0mLM9zUp5bKWw==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@compodoc/compodoc@1.1.26':
     resolution: {integrity: sha512-CJkqTtdotxMA4SDyUx8J6Mrm3MMmcgFtfEViUnG9Of2CXhYiXIqNeD881+pxn0opmMC+VCTL0/SCD03tDYhWYA==}
@@ -9066,12 +9068,13 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@chromatic-com/storybook@1.9.0(react@18.3.1)':
+  '@chromatic-com/storybook@3.2.2(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))':
     dependencies:
       chromatic: 11.18.1
       filesize: 10.1.6
       jsonfile: 6.1.0
       react-confetti: 6.1.0(react@18.3.1)
+      storybook: 8.4.5(prettier@3.3.3)
       strip-ansi: 7.1.0
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
