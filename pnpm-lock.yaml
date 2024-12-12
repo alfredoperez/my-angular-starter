@@ -39,8 +39,8 @@ importers:
         specifier: 18.0.2
         version: 18.0.2(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@primeng/themes':
-        specifier: 18.0.0-rc.1
-        version: 18.0.0-rc.1
+        specifier: 18.0.0
+        version: 18.0.0
       '@tanstack/angular-query-devtools-experimental':
         specifier: ^5.62.1
         version: 5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@tanstack/angular-query-experimental@5.62.1(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))
@@ -63,8 +63,8 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0
       primeng:
-        specifier: 18.0.0-rc.1
-        version: 18.0.0-rc.1(iwcioonqqzsgx7p4xnhuygza4m)
+        specifier: 18.0.0
+        version: 18.0.0(iwcioonqqzsgx7p4xnhuygza4m)
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -2098,8 +2098,8 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@primeng/themes@18.0.0-rc.1':
-    resolution: {integrity: sha512-049rm9CTYQKOKL9xgmRKOxOAEk0MxRaeyBDLrUX9/T6QF/XfduTKJzLgzZupYEfejJVYZbMFWl7j2FWa8gXSOA==}
+  '@primeng/themes@18.0.0':
+    resolution: {integrity: sha512-0S4o0dMhBYkXtt8mSW0XOiMtlkhmGDvFSkeToQ7IMqQiBGg30LcopvYKDEhnE1C2Ejku6jkl17vy7X2YgFZM9A==}
 
   '@primeuix/styled@0.3.2':
     resolution: {integrity: sha512-ColZes0+/WKqH4ob2x8DyNYf1NENpe5ZguOvx5yCLxaP8EIMVhLjWLO/3umJiDnQU4XXMLkn2mMHHw+fhTX/mw==}
@@ -3612,6 +3612,15 @@ packages:
 
   debug@4.3.7:
     resolution: {integrity: sha512-Er2nc/H7RrMXZBFCEim6TCmMk02Z8vLC2Rbi1KEBggpo0fS6l0S1nnapwmIi3yW/+GOJap1Krg4w0Hg80oCqgQ==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
+  debug@4.4.0:
+    resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
     engines: {node: '>=6.0'}
     peerDependencies:
       supports-color: '*'
@@ -5925,8 +5934,8 @@ packages:
   primeicons@7.0.0:
     resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
 
-  primeng@18.0.0-rc.1:
-    resolution: {integrity: sha512-6uon3gcSM38Q1jQ8HCahyOVm/GIgNmz6aRd14RxuWp4cchKR7KuZB+7FWVInXDGZv3jG7T3XAyznpHFQaxgrVg==}
+  primeng@18.0.0:
+    resolution: {integrity: sha512-H6+J9ZjRzWLoIQpOYxFcHRk/7emrIVmX0Y9O3Ff9fk+V0E7Yd4A1zLZFHllUAwJfdnJgno8+/iq2NvVwMXMHig==}
     peerDependencies:
       '@angular/animations': ^17.0.0 || ^18.0.0
       '@angular/cdk': ^17.0.0 || ^18.0.0
@@ -10007,7 +10016,7 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@primeng/themes@18.0.0-rc.1':
+  '@primeng/themes@18.0.0':
     dependencies:
       '@primeuix/styled': 0.3.2
 
@@ -11756,6 +11765,10 @@ snapshots:
       ms: 2.0.0
 
   debug@4.3.7:
+    dependencies:
+      ms: 2.1.3
+
+  debug@4.4.0:
     dependencies:
       ms: 2.1.3
 
@@ -14460,7 +14473,7 @@ snapshots:
 
   primeicons@7.0.0: {}
 
-  primeng@18.0.0-rc.1(iwcioonqqzsgx7p4xnhuygza4m):
+  primeng@18.0.0(iwcioonqqzsgx7p4xnhuygza4m):
     dependencies:
       '@angular/animations': 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
       '@angular/cdk': 18.2.14(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
@@ -14838,7 +14851,7 @@ snapshots:
 
   send@1.1.0:
     dependencies:
-      debug: 4.3.7
+      debug: 4.4.0
       destroy: 1.2.0
       encodeurl: 2.0.0
       escape-html: 1.0.3
