@@ -62,18 +62,18 @@ Welcome to **MyAngularStarter**, an Angular template designed to streamline the 
 2. **Install dependencies:**
 
    ```sh
-   npm install
+   pnpm install
    ```
 
 3. **Run the development server:**
 
    ```sh
-   ng serve
+   pnpm run start
    ```
 
-4. **Build for production:**
+4. **Run the mocked API Server:**
    ```sh
-   ng build --prod
+   pnpm run start-json-server 
    ```
 
 ---
