@@ -13,8 +13,6 @@
   height: 100%;
   background: var(--devtools-bg-primary);
   border: 1px solid var(--devtools-border-primary);
-
-  max-height: #{map-get($dimensions, window-max-height)};
   border-radius: var(--devtools-border-radius-large);
   padding: var(--devtools-window-padding);
   font-family: $font-family;
@@ -49,6 +47,11 @@
   &__controls {
     display: flex;
     gap: var(--devtools-spacing-sm);
+  }
+
+  &__content {
+    flex: 1;
+    overflow: auto;
   }
 
   &__control {

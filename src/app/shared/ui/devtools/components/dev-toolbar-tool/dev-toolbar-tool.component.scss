@@ -1,3 +1,5 @@
+@use '../../styles' as devtools;
+
 .tool {
   position: relative;
 }
@@ -6,19 +8,19 @@
   cursor: pointer;
 }
 
-.overlay {
-  height: 100%;
-  width: 100%;
-  background: var(--devtools-bg-primary);
-  border-radius: var(--devtools-border-radius-medium, 8px);
-  max-height: 80vh;
-  overflow: auto;
-  box-shadow: var(--devtools-shadow-window);
-  color: var(--devtools-text-secondary);
+// .overlay {
+//   height: 100%;
+//   width: 100%;
+//   background: var(--devtools-bg-primary);
+//   border-radius: var(--devtools-border-radius-medium, 8px);
+//   max-height: 80vh;
+//   overflow: auto;
+//   box-shadow: var(--devtools-shadow-window);
+//   color: var(--devtools-text-secondary);
 
-  :host-context(.cdk-overlay-container) {
-    .cdk-overlay-pane {
-      margin-top: 16px;
-    }
-  }
-}
+//   :host-context(.cdk-overlay-container) {
+//     .cdk-overlay-pane {
+//       margin-top: 16px;
+//     }
+//   }
+// }

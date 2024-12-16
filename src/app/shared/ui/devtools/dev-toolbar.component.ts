@@ -9,19 +9,20 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { DevToolbarButtonComponent } from './components';
+import { DevToolbarToolButtonComponent } from './components';
 import { DevToolbarIconComponent } from './components/icons';
 import { DevToolbarStateService } from './dev-toolbar-state.service';
-import { SettingsToolbarAppComponent } from './tools/settings-toolbar-app/settings-toolbar-app.component';
+import { DevToolbarFeatureFlagsToolComponent } from './tools/feature-flags-tool/feature-flags-tool.component';
+import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-tool.component';
 
 @Component({
   standalone: true,
   selector: 'ngx-dev-toolbar',
   styleUrls: ['./dev-toolbar.component.scss'],
   imports: [
-    DevToolbarButtonComponent,
-    SettingsToolbarAppComponent,
-    DevToolbarButtonComponent,
+    DevToolbarToolButtonComponent,
+    DevToolbarFeatureFlagsToolComponent,
+    DevToolbarSettingsToolComponent,
     DevToolbarIconComponent,
   ],
 
@@ -37,19 +38,14 @@ import { SettingsToolbarAppComponent } from './tools/settings-toolbar-app/settin
       (mouseleave)="onMouseLeave()"
       (keydown.escape)="onEscape()"
     >
-      <ngx-toolbar-settings-app title="Settings" />
-
-      <ngx-dev-toolbar-button title="Home">
+      <ndt-tool-button title="Home" toolId="ndt-home">
         <ngx-dev-toolbar-icon name="angular" />
-      </ngx-dev-toolbar-button>
-      <ngx-dev-toolbar-button
-        aria-label="Performance metrics"
-        title="Performance"
-      >
+      </ndt-tool-button>
+      <ndt-tool-button title="Performance" toolId="ndt-performance">
         <ngx-dev-toolbar-icon name="gauge" />
-      </ngx-dev-toolbar-button>
-
-      <ngx-toolbar-settings-app title="Settings" />
+      </ndt-tool-button>
+      <ndt-feature-flags-tool />
+      <ndt-settings-tool />
     </div>
   `,
   animations: [
@@ -77,8 +73,9 @@ export class DevToolbarComponent {
   destroyRef = inject(DestroyRef);
   isVisible = this.state.isVisible;
 
-  private hideDelay = 115000;
   theme = this.state.theme;
+  private hideDelay = 115000;
+
   constructor() {
     fromEvent<KeyboardEvent>(window, 'keydown')
       .pipe(

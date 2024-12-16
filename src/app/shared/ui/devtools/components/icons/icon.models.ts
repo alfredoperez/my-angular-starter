@@ -16,4 +16,5 @@ export type IconName =
   | 'sun'
   | 'terminal'
   | 'toggle-left'
-  | 'user';
+  | 'user'
+  | 'flag';

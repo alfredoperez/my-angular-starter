@@ -6,7 +6,9 @@ export type WindowPlacement =
   | 'top-center'
   | 'top-right';
 
+export type WindowSize = 'medium' | 'tall';
 export interface WindowConfig {
+  id: string;
   /**
    * The title of the window, this can be different from the name of the tool
    */
@@ -15,14 +17,10 @@ export interface WindowConfig {
   isMaximizable?: boolean;
   isMinimizable?: boolean;
   placement?: WindowPlacement;
+  size?: WindowSize;
 }
 
 export interface WindowPosition {
   x: number;
   y: number;
-}
-
-export interface WindowSize {
-  width: number;
-  height: number;
 }

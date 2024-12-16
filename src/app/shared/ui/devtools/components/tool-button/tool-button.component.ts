@@ -15,27 +15,26 @@ import {
   output,
   signal,
 } from '@angular/core';
-import { timer } from 'rxjs';
 import { DevToolbarStateService } from '../../dev-toolbar-state.service';
 
 @Component({
-  selector: 'ngx-dev-toolbar-button',
+  selector: 'ndt-tool-button',
   standalone: true,
   template: `
     <button
-      class="dev-toolbar-button"
-      [class.dev-toolbar-button--toolbar-visible]="isToolbarVisible()"
-      [class.dev-toolbar-button--active]="isActive()"
-      [class.dev-toolbar-button--focus]="isFocused()"
+      class="tool-button"
+      [class.tool-button--toolbar-visible]="isToolbarVisible()"
+      [class.tool-button--active]="isActive()"
+      [class.tool-button--focus]="isFocused()"
       (mouseenter)="onMouseEnter()"
       (focusin)="onFocus()"
-      (focusout)="onDefocus()"
+      (focusout)="onBlur()"
       (mouseleave)="onMouseLeave()"
       (keydown.escape)="onEscape()"
     >
       @if (isTooltipVisible()) {
         <span
-          class="dev-toolbar-button__tooltip"
+          class="tooltip"
           [@tooltipAnimation]="tooltipState ? 'visible' : 'hidden'"
         >
           {{ tooltip() }}
@@ -44,6 +43,7 @@ import { DevToolbarStateService } from '../../dev-toolbar-state.service';
       <ng-content />
     </button>
   `,
+  styleUrls: ['./tool-button.component.scss'],
   animations: [
     trigger('tooltipAnimation', [
       state(
@@ -64,49 +64,52 @@ import { DevToolbarStateService } from '../../dev-toolbar-state.service';
       transition('visible => hidden', [animate('150ms ease-in')]),
     ]),
   ],
-  styleUrl: './dev-toolbar-button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DevToolbarButtonComponent {
-  state = inject(DevToolbarStateService);
-
-  isToolbarVisible = this.state.isVisible;
-  title = input.required<string>();
-  isActive = signal(false);
-  isFocused = signal(false);
-  click = output<void>();
-
-  isTooltipVisible = computed(() => this.tooltip() && !this.isActive());
-
-  tooltipState = false;
-  private hideDelay = 3000;
+export class DevToolbarToolButtonComponent {
+  // Injects
+  private readonly state = inject(DevToolbarStateService);
   private readonly elementRef = inject(ElementRef);
 
-  tooltip = computed(
+  // Inputs
+  readonly title = input.required<string>();
+  readonly toolId = input.required<string>();
+  // Outputs
+  readonly click = output<void>();
+
+  // Signals
+  readonly isActive = computed(
+    () => this.state.activeToolId() === this.toolId(),
+  );
+  readonly isToolbarVisible = this.state.isVisible;
+
+  readonly isFocused = signal(false);
+  readonly tooltip = computed(
     () =>
       this.elementRef.nativeElement.parentElement?.getAttribute(
         'data-tooltip',
       ) ?? '',
   );
+  readonly isTooltipVisible = computed(
+    () => this.tooltip() && !this.isActive(),
+  );
 
-  onClick() {
+  // Properties
+  protected tooltipState = false;
+  private readonly hideDelay = 3000;
+
+  // Public methods
+  onClick(): void {
     this.isFocused.set(false);
     this.click.emit();
-    console.log(this.tooltip());
   }
 
   onMouseEnter(): void {
     this.tooltipState = true;
-    // this.isFocused.set(true);
   }
 
   onMouseLeave(): void {
     this.tooltipState = false;
-    timer(this.hideDelay)
-      // .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(() => {
-        // this.isFocused.set(false);
-      });
   }
 
   onEscape(): void {
@@ -116,7 +119,8 @@ export class DevToolbarButtonComponent {
   onFocus(): void {
     this.isFocused.set(true);
   }
-  onDefocus(): void {
+
+  onBlur(): void {
     this.isFocused.set(false);
   }
 }

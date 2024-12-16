@@ -9,7 +9,11 @@ $color-gray-200: rgb(243, 244, 246);
 $color-white: rgb(255, 255, 255);
 $color-red-600: rgb(220, 38, 38); // dark red
 $color-red-500: rgb(239, 68, 68); // light red
-
+$color-blue-100: rgb(219, 234, 254);
+$color-blue-600: rgb(37, 99, 235);
+$color-yellow-100: rgb(254, 249, 195);
+$color-yellow-600: rgb(202, 138, 4);
+$color-red-100: rgb(254, 226, 226);
 // Colors and Themes
 $colors: (
   dark: (
@@ -35,6 +39,20 @@ $colors: (
       background: rgba($color-white, 0.12),
       danger: $color-red-600,
     ),
+    annotation: (
+      note: (
+        background: rgba($color-blue-600, 0.15),
+        border: rgba($color-blue-600, 0.3),
+      ),
+      warning: (
+        background: rgba($color-yellow-600, 0.15),
+        border: rgba($color-yellow-600, 0.3),
+      ),
+      error: (
+        background: rgba($color-red-600, 0.15),
+        border: rgba($color-red-600, 0.3),
+      ),
+    ),
   ),
   light: (
     background: (
@@ -58,6 +76,20 @@ $colors: (
     hover: (
       background: rgba($color-black-900, 0.05),
       danger: $color-red-500,
+    ),
+    annotation: (
+      note: (
+        background: $color-blue-100,
+        border: rgba($color-blue-600, 0.2),
+      ),
+      warning: (
+        background: $color-yellow-100,
+        border: rgba($color-yellow-600, 0.2),
+      ),
+      error: (
+        background: $color-red-100,
+        border: rgba($color-red-600, 0.2),
+      ),
     ),
   ),
 );
@@ -117,11 +149,11 @@ $font-family:
 
 // Add font size variables
 $font-sizes: (
-  xs: 0.75rem,      
-  sm: 0.875rem,   
-  md: 1rem,         
-  lg: 1.25rem,      
-  xl: 1.5rem      
+  xs: 0.75rem,
+  sm: 0.875rem,
+  md: 1rem,
+  lg: 1.25rem,
+  xl: 1.5rem,
 );
 
 // Dimensions
@@ -203,11 +235,11 @@ $z-indices: (
   // Background colors
   --devtools-background-secondary: var(--devtools-bg-primary);
   --devtools-background-hover: var(--devtools-hover-bg);
-  
+
   // Primary color for active states
   --devtools-primary: #df30d4; // You can adjust this color value
   --devtools-text-on-primary: #{$color-white};
-  
+
   // Border color
   --devtools-border-color: var(--devtools-border-primary);
 
@@ -245,6 +277,36 @@ $z-indices: (
   p {
     line-height: 1.5em;
   }
+  --devtools-note-background: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      note,
+      background
+    )};
+  --devtools-note-border: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      note,
+      border
+    )};
+  --devtools-warning-background: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      warning,
+      background
+    )};
+  --devtools-warning-border: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      warning,
+      border
+    )};
+  --devtools-error-background: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      error,
+      background
+    )};
+  --devtools-error-border: #{map-get(
+      map-get(map-get($colors, light), annotation),
+      error,
+      border
+    )};
 
   &[data-theme='dark'] {
     --devtools-bg-primary: #{map-get(
@@ -275,5 +337,36 @@ $z-indices: (
     --devtools-shadow-toolbar: #{map-get(map-get($shadow-themes, dark), toolbar)};
     --devtools-shadow-tooltip: #{map-get(map-get($shadow-themes, dark), tooltip)};
     --devtools-shadow-window: #{map-get(map-get($shadow-themes, dark), window)};
+
+    --devtools-note-background: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        note,
+        background
+      )};
+    --devtools-note-border: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        note,
+        border
+      )};
+    --devtools-warning-background: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        warning,
+        background
+      )};
+    --devtools-warning-border: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        warning,
+        border
+      )};
+    --devtools-error-background: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        error,
+        background
+      )};
+    --devtools-error-border: #{map-get(
+        map-get(map-get($colors, dark), annotation),
+        error,
+        border
+      )};
   }
 }

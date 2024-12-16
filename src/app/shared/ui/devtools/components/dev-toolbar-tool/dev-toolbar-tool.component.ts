@@ -5,13 +5,15 @@ import {
   ContentChild,
   ElementRef,
   ViewChild,
+  computed,
+  inject,
   input,
-  signal,
 } from '@angular/core';
-import { DevToolbarButtonComponent } from '../dev-toolbar-button/dev-toolbar-button.component';
+import { DevToolbarStateService } from '../../dev-toolbar-state.service';
 import { DevToolbarWindowComponent } from '../dev-toolbar-window/dev-toolbar-window.component';
 import { WindowConfig } from '../dev-toolbar-window/dev-toolbar-window.models';
 import { DevToolbarIconComponent, IconName } from '../icons';
+import { DevToolbarToolButtonComponent } from '../tool-button/tool-button.component';
 
 @Component({
   selector: 'ngx-dev-toolbar-tool',
@@ -20,7 +22,7 @@ import { DevToolbarIconComponent, IconName } from '../icons';
     CdkConnectedOverlay,
     OverlayModule,
     DevToolbarWindowComponent,
-    DevToolbarButtonComponent,
+    DevToolbarToolButtonComponent,
     DevToolbarIconComponent,
   ],
   template: `
@@ -28,65 +30,84 @@ import { DevToolbarIconComponent, IconName } from '../icons';
       <div class="dev-toolbar-tool__icon" (click)="onOpen()">
         <div [attr.data-tooltip]="title()">
           @if (icon()) {
-            <ngx-dev-toolbar-button [title]="title()">
+            <ndt-tool-button [title]="title()" [toolId]="windowConfig().id">
               <ngx-dev-toolbar-icon [name]="icon()" />
-            </ngx-dev-toolbar-button>
+            </ndt-tool-button>
           } @else {
-            <ng-content select="ngx-dev-toolbar-button"></ng-content>
+            <ng-content select="ndt-tool-button"></ng-content>
           }
         </div>
       </div>
 
-      <ng-template
-        #contentTemplate
-        [cdkConnectedOverlayOrigin]="trigger"
-        [cdkConnectedOverlayOpen]="isActive()"
-        [cdkConnectedOverlayPositions]="positions"
-        [cdkConnectedOverlayWidth]="640"
-        [cdkConnectedOverlayMinWidth]="400"
-        [cdkConnectedOverlayMinHeight]="300"
-        [cdkConnectedOverlayHeight]="420"
-        cdkConnectedOverlay
-      >
-        <ngx-dev-toolbar-window [config]="windowConfig()" (close)="onClose()">
-          <ng-content />
-        </ngx-dev-toolbar-window>
-      </ng-template>
+      @if (isActive()) {
+        <ng-template
+          #contentTemplate
+          [cdkConnectedOverlayOrigin]="trigger"
+          [cdkConnectedOverlayOpen]="isActive()"
+          [cdkConnectedOverlayPositions]="positions()"
+          [cdkConnectedOverlayWidth]="width()"
+          [cdkConnectedOverlayHeight]="height()"
+          cdkConnectedOverlay
+        >
+          <ngx-dev-toolbar-window [config]="windowConfig()" (close)="onClose()">
+            <ng-content />
+          </ngx-dev-toolbar-window>
+        </ng-template>
+      }
     </div>
   `,
   styleUrl: './dev-toolbar-tool.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DevToolbarToolComponent {
+  state = inject(DevToolbarStateService);
   @ViewChild('trigger') trigger!: ElementRef;
 
-  @ContentChild(DevToolbarButtonComponent)
-  buttonComponent!: DevToolbarButtonComponent;
+  @ContentChild(DevToolbarToolButtonComponent)
+  buttonComponent!: DevToolbarToolButtonComponent;
 
   windowConfig = input.required<WindowConfig>();
   icon = input.required<IconName>();
   title = input.required<string>();
-  isActive = signal(false);
-  positions = [
+  isActive = computed(
+    () => this.state.activeToolId() === this.windowConfig().id,
+  );
+  height = computed(() => {
+    switch (this.windowConfig().size) {
+      case 'tall':
+        return 620;
+      case 'medium':
+        return 480;
+      default:
+        return 400;
+    }
+  });
+
+  width = computed(() => {
+    switch (this.windowConfig().size) {
+      case 'tall':
+        return 520;
+      case 'medium':
+        return 480;
+      default:
+        return 400;
+    }
+  });
+  positions = computed(() => [
     {
       originX: 'center' as const,
-      originY: 'top' as const,
+      originY: 'center' as const,
       overlayX: 'center' as const,
-      overlayY: 'bottom' as const,
-      offsetY: -16,
+      overlayY: 'center' as const,
+      offsetY: -(Math.ceil(this.height() / 2) + 36),
     },
-  ];
+  ]);
 
   onOpen(): void {
-    const isActive = this.isActive();
-
-    this.isActive.set(!isActive);
-    if (this.buttonComponent) {
-      this.buttonComponent.isActive = signal(!isActive);
-    }
+    this.state.setActiveTool(this.windowConfig().id);
   }
 
   onClose(): void {
-    this.isActive.set(false);
+    this.state.setActiveTool(null);
   }
 }

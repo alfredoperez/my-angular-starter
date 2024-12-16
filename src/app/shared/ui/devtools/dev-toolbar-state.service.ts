@@ -28,6 +28,7 @@ export class DevToolbarStateService {
   readonly hasActiveTool = computed(() => this.state().activeToolId !== null);
   readonly error = computed(() => this.state().error);
   readonly theme = computed(() => this.state().theme);
+
   // Action stream
   private toolActionSubject = new Subject<{ toolId: string | null }>();
 
@@ -42,25 +43,27 @@ export class DevToolbarStateService {
   }
 
   // State updates
-  public setVisibility(isVisible: boolean): void {
+   setVisibility(isVisible: boolean): void {
     this.state.update((state) => ({
       ...state,
       isHidden: !isVisible,
     }));
   }
 
-  public setTheme(theme: 'light' | 'dark'): void {
+   setTheme(theme: 'light' | 'dark'): void {
     this.state.update((state) => ({
       ...state,
       theme,
     }));
   }
 
-  public setActiveTool(toolId: string | null): void {
+   setActiveTool(toolId: string | null): void {
+    // Set to active only the current tool
     this.state.update((state) => ({
       ...state,
       activeToolId: toolId,
     }));
+
   }
 
   private setError(error: string): void {
