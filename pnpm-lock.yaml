@@ -69,11 +69,11 @@ importers:
         specifier: ~7.8.0
         version: 7.8.1
       tailwindcss:
-        specifier: ^3.4.15
-        version: 3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
+        specifier: ^3.4.16
+        version: 3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
       tailwindcss-primeui:
         specifier: ^0.3.4
-        version: 0.3.4(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))
+        version: 0.3.4(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
@@ -83,10 +83,10 @@ importers:
     devDependencies:
       '@angular-builders/jest':
         specifier: ^18.0.0
-        version: 18.0.0(ack4z55uxskhlxumi47kt5ibn4)
+        version: 18.0.0(ghvmbf5euvai4gi2peju5wsgua)
       '@angular-devkit/build-angular':
         specifier: ^18.2.11
-        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
+        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
       '@angular/cli':
         specifier: ^18.2.11
         version: 18.2.12(chokidar@4.0.1)
@@ -122,7 +122,7 @@ importers:
         version: 8.4.5(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
       '@storybook/angular':
         specifier: ^8.4.2
-        version: 8.4.5(37poftaejeyufazuirlsdovxym)
+        version: 8.4.5(exhmi4cvqjmy4ikebipvoo4yr4)
       '@storybook/blocks':
         specifier: ^8.4.2
         version: 8.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
@@ -4991,12 +4991,8 @@ packages:
       webpack:
         optional: true
 
-  lilconfig@2.1.0:
-    resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
-    engines: {node: '>=10'}
-
-  lilconfig@3.1.2:
-    resolution: {integrity: sha512-eop+wDAvpItUys0FWkHIKeC9ybYrTGbU41U5K7+bttZZeohvnY7M9dZ5kB21GNWiFT2q1OoPTvncPCgSOVO5ow==}
+  lilconfig@3.1.3:
+    resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
     engines: {node: '>=14'}
 
   lines-and-columns@1.2.4:
@@ -6541,8 +6537,8 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.1.0'
 
-  tailwindcss@3.4.15:
-    resolution: {integrity: sha512-r4MeXnfBmSOuKUWmXe6h2CcyfzJCEk4F0pptO5jlnYSIViUkVmsawj80N5h2lO3gwcmSb4n3PuN+e+GC1Guylw==}
+  tailwindcss@3.4.16:
+    resolution: {integrity: sha512-TI4Cyx7gDiZ6r44ewaJmt0o6BrMCT5aK5e0rmJ/G9Xq3w7CX/5VXl/zIPEJZFUK5VEqwByyhqNPycPlvcK4ZNw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -7193,17 +7189,17 @@ snapshots:
       - chokidar
       - typescript
 
-  '@angular-builders/jest@18.0.0(ack4z55uxskhlxumi47kt5ibn4)':
+  '@angular-builders/jest@18.0.0(ghvmbf5euvai4gi2peju5wsgua)':
     dependencies:
       '@angular-builders/common': 2.0.0(@types/node@22.9.3)(chokidar@4.0.1)(typescript@5.4.5)
       '@angular-devkit/architect': 0.1802.12(chokidar@4.0.1)
-      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
+      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
       '@angular-devkit/core': 18.2.12(chokidar@4.0.1)
       '@angular/compiler-cli': 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
       '@angular/core': 18.2.12(rxjs@7.8.1)(zone.js@0.14.10)
       '@angular/platform-browser-dynamic': 18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.12(@angular/animations@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))
       jest: 29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
-      jest-preset-angular: 14.1.0(cje5baq46ompmb3h4twn2axefi)
+      jest-preset-angular: 14.1.0(m3aqjpb2hcnobtlvlavtmnnahu)
       lodash: 4.17.21
     transitivePeerDependencies:
       - '@babel/core'
@@ -7227,13 +7223,13 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@angular-devkit/build-angular@18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)':
+  '@angular-devkit/build-angular@18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.12(chokidar@4.0.1)
       '@angular-devkit/build-webpack': 0.1802.12(chokidar@4.0.1)(webpack-dev-server@5.0.4(webpack@5.94.0(esbuild@0.23.0)))(webpack@5.94.0(esbuild@0.23.0))
       '@angular-devkit/core': 18.2.12(chokidar@4.0.1)
-      '@angular/build': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(less@4.2.0)(postcss@8.4.41)(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(terser@5.31.6)(typescript@5.4.5)
+      '@angular/build': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(less@4.2.0)(postcss@8.4.41)(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(terser@5.31.6)(typescript@5.4.5)
       '@angular/compiler-cli': 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
       '@babel/core': 7.25.2
       '@babel/generator': 7.25.0
@@ -7297,7 +7293,7 @@ snapshots:
       esbuild: 0.23.0
       jest: 29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
       jest-environment-jsdom: 29.7.0
-      tailwindcss: 3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
+      tailwindcss: 3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -7438,7 +7434,7 @@ snapshots:
       '@angular/core': 18.2.12(rxjs@7.8.1)(zone.js@0.14.10)
       tslib: 2.8.1
 
-  '@angular/build@18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(less@4.2.0)(postcss@8.4.41)(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(terser@5.31.6)(typescript@5.4.5)':
+  '@angular/build@18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(less@4.2.0)(postcss@8.4.41)(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(terser@5.31.6)(typescript@5.4.5)':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@angular-devkit/architect': 0.1802.12(chokidar@4.0.1)
@@ -7470,7 +7466,7 @@ snapshots:
     optionalDependencies:
       less: 4.2.0
       postcss: 8.4.41
-      tailwindcss: 3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
+      tailwindcss: 3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
     transitivePeerDependencies:
       - '@types/node'
       - chokidar
@@ -10229,10 +10225,10 @@ snapshots:
       memoizerific: 1.11.3
       storybook: 8.4.5(prettier@3.3.3)
 
-  '@storybook/angular@8.4.5(37poftaejeyufazuirlsdovxym)':
+  '@storybook/angular@8.4.5(exhmi4cvqjmy4ikebipvoo4yr4)':
     dependencies:
       '@angular-devkit/architect': 0.1802.12(chokidar@4.0.1)
-      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
+      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
       '@angular-devkit/core': 18.2.12(chokidar@4.0.1)
       '@angular/common': 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@angular/compiler': 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
@@ -13069,9 +13065,9 @@ snapshots:
     optionalDependencies:
       jest-resolve: 29.7.0
 
-  jest-preset-angular@14.1.0(cje5baq46ompmb3h4twn2axefi):
+  jest-preset-angular@14.1.0(m3aqjpb2hcnobtlvlavtmnnahu):
     dependencies:
-      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
+      '@angular-devkit/build-angular': 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(jest-environment-jsdom@29.7.0)(jest@29.7.0(@types/node@22.9.3)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)))(typescript@5.4.5)
       '@angular/compiler-cli': 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
       '@angular/core': 18.2.12(rxjs@7.8.1)(zone.js@0.14.10)
       '@angular/platform-browser-dynamic': 18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.12(@angular/animations@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))
@@ -13435,9 +13431,7 @@ snapshots:
     optionalDependencies:
       webpack: 5.94.0(esbuild@0.23.0)
 
-  lilconfig@2.1.0: {}
-
-  lilconfig@3.1.2: {}
+  lilconfig@3.1.3: {}
 
   lines-and-columns@1.2.4: {}
 
@@ -14307,7 +14301,7 @@ snapshots:
 
   postcss-load-config@4.0.2(postcss@8.4.49)(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)):
     dependencies:
-      lilconfig: 3.1.2
+      lilconfig: 3.1.3
       yaml: 2.6.1
     optionalDependencies:
       postcss: 8.4.49
@@ -15099,11 +15093,11 @@ snapshots:
 
   tablesort@5.3.0: {}
 
-  tailwindcss-primeui@0.3.4(tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))):
+  tailwindcss-primeui@0.3.4(tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))):
     dependencies:
-      tailwindcss: 3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
+      tailwindcss: 3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5))
 
-  tailwindcss@3.4.15(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)):
+  tailwindcss@3.4.16(ts-node@10.9.2(@types/node@22.9.3)(typescript@5.4.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -15114,7 +15108,7 @@ snapshots:
       glob-parent: 6.0.2
       is-glob: 4.0.3
       jiti: 1.21.6
-      lilconfig: 2.1.0
+      lilconfig: 3.1.3
       micromatch: 4.0.8
       normalize-path: 3.0.0
       object-hash: 3.0.0
