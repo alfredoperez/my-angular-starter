@@ -9,8 +9,8 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { DevToolbarToolButtonComponent } from './components';
-import { DevToolbarIconComponent } from './components/icons';
+import { DevToolbarIconComponent } from './components/icons/icon.component';
+import { DevToolbarToolButtonComponent } from './components/tool-button/tool-button.component';
 import { DevToolbarStateService } from './dev-toolbar-state.service';
 import { DevToolbarFeatureFlagsToolComponent } from './tools/feature-flags-tool/feature-flags-tool.component';
 import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-tool.component';
@@ -39,10 +39,10 @@ import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-
       (keydown.escape)="onEscape()"
     >
       <ndt-tool-button title="Home" toolId="ndt-home">
-        <ngx-dev-toolbar-icon name="angular" />
+        <ndt-icon name="angular" />
       </ndt-tool-button>
       <ndt-tool-button title="Performance" toolId="ndt-performance">
-        <ngx-dev-toolbar-icon name="gauge" />
+        <ndt-icon name="gauge" />
       </ndt-tool-button>
       <ndt-feature-flags-tool />
       <ndt-settings-tool />

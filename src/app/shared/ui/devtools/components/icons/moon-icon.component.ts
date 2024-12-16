@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-dev-toolbar-moon-icon',
+  selector: 'ndt-moon-icon',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -24,4 +24,4 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class MoonIconComponent {
   fill = input<string>('#FFFF');
-} 
+}

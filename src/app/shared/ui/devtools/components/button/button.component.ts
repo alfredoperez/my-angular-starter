@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { DevToolbarIconComponent, IconName } from '../icons';
+import { DevToolbarIconComponent } from '../icons/icon.component';
+import { IconName } from '../icons/icon.models';
 
 @Component({
   selector: 'ndt-button',
@@ -14,7 +15,7 @@ import { DevToolbarIconComponent, IconName } from '../icons';
       [class.button--icon]="variant() === 'icon'"
     >
       @if (icon()) {
-        <ngx-dev-toolbar-icon [name]="icon() || 'star'" />
+        <ndt-icon [name]="icon() || 'star'" />
       }
       @if (label()) {
         <span class="button__label">{{ label() }}</span>

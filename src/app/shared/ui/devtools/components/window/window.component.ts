@@ -1,9 +1,9 @@
 import { Component, computed, inject, input, output } from '@angular/core';
 import { DevToolbarStateService } from '../../dev-toolbar-state.service';
-import { WindowConfig } from './dev-toolbar-window.models';
+import { WindowConfig } from './window.models';
 
 @Component({
-  selector: 'ngx-dev-toolbar-window',
+  selector: 'ndt-window',
   standalone: true,
   template: `
     <div class="window dev-toolbar" [attr.data-theme]="theme()">
@@ -46,7 +46,7 @@ import { WindowConfig } from './dev-toolbar-window.models';
       </div>
     </div>
   `,
-  styleUrls: ['./dev-toolbar-window.component.scss'],
+  styleUrls: ['./window.component.scss'],
 })
 export class DevToolbarWindowComponent {
   readonly devToolbarStateService = inject(DevToolbarStateService);

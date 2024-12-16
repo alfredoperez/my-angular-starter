@@ -27,7 +27,7 @@ import { ToggleLeftIconComponent } from './toggle-left-icon.component';
 import { UsersIconComponent } from './users-icon.component';
 
 @Component({
-  selector: 'ngx-dev-toolbar-icon',
+  selector: 'ndt-icon',
   standalone: true,
   imports: [
     AngularIconComponent,
@@ -53,58 +53,58 @@ import { UsersIconComponent } from './users-icon.component';
   template: `
     @switch (name()) {
       @case ('angular') {
-        <ngx-dev-toolbar-angular-icon />
+        <ndt-angular-icon />
       }
       @case ('bug') {
-        <ngx-dev-toolbar-bug-icon [fill]="fill()" />
+        <ndt-bug-icon [fill]="fill()" />
       }
       @case ('code') {
-        <ngx-dev-toolbar-code-icon [fill]="fill()" />
+        <ndt-code-icon [fill]="fill()" />
       }
       @case ('database') {
-        <ngx-dev-toolbar-database-icon [fill]="fill()" />
+        <ndt-database-icon [fill]="fill()" />
       }
       @case ('gauge') {
-        <ngx-dev-toolbar-gauge-icon [fill]="fill()" />
+        <ndt-gauge-icon [fill]="fill()" />
       }
       @case ('gear') {
-        <ngx-dev-toolbar-gear-icon [fill]="fill()" />
+        <ndt-gear-icon [fill]="fill()" />
       }
       @case ('git-branch') {
-        <ngx-dev-toolbar-git-branch-icon [fill]="fill()" />
+        <ndt-git-branch-icon [fill]="fill()" />
       }
       @case ('layout') {
-        <ngx-dev-toolbar-layout-icon [fill]="fill()" />
+        <ndt-layout-icon [fill]="fill()" />
       }
       @case ('lighting') {
-        <ngx-dev-toolbar-lighting-icon [fill]="fill()" />
+        <ndt-lighting-icon [fill]="fill()" />
       }
       @case ('network') {
-        <ngx-dev-toolbar-network-icon [fill]="fill()" />
+        <ndt-network-icon [fill]="fill()" />
       }
       @case ('puzzle') {
-        <ngx-dev-toolbar-puzzle-icon [fill]="fill()" />
+        <ndt-puzzle-icon [fill]="fill()" />
       }
       @case ('refresh') {
-        <ngx-dev-toolbar-refresh-icon [fill]="fill()" />
+        <ndt-refresh-icon [fill]="fill()" />
       }
       @case ('star') {
-        <ngx-dev-toolbar-star-icon [fill]="fill()" />
+        <ndt-star-icon [fill]="fill()" />
       }
       @case ('terminal') {
-        <ngx-dev-toolbar-terminal-icon [fill]="fill()" />
+        <ndt-terminal-icon [fill]="fill()" />
       }
       @case ('toggle-left') {
-        <ngx-dev-toolbar-toggle-left-icon [fill]="fill()" />
+        <ndt-toggle-left-icon [fill]="fill()" />
       }
       @case ('user') {
-        <ngx-dev-toolbar-users-icon [fill]="fill()" />
+        <ndt-users-icon [fill]="fill()" />
       }
       @case ('sun') {
-        <ngx-dev-toolbar-sun-icon [fill]="fill()" />
+        <ndt-sun-icon [fill]="fill()" />
       }
       @case ('moon') {
-        <ngx-dev-toolbar-moon-icon [fill]="fill()" />
+        <ndt-moon-icon [fill]="fill()" />
       }
     }
   `,

@@ -10,10 +10,11 @@ import {
   input,
 } from '@angular/core';
 import { DevToolbarStateService } from '../../dev-toolbar-state.service';
-import { DevToolbarWindowComponent } from '../dev-toolbar-window/dev-toolbar-window.component';
-import { WindowConfig } from '../dev-toolbar-window/dev-toolbar-window.models';
-import { DevToolbarIconComponent, IconName } from '../icons';
+import { DevToolbarIconComponent } from '../icons/icon.component';
+import { IconName } from '../icons/icon.models';
 import { DevToolbarToolButtonComponent } from '../tool-button/tool-button.component';
+import { DevToolbarWindowComponent } from '../window/window.component';
+import { WindowConfig } from '../window/window.models';
 
 @Component({
   selector: 'ngx-dev-toolbar-tool',
@@ -31,7 +32,7 @@ import { DevToolbarToolButtonComponent } from '../tool-button/tool-button.compon
         <div [attr.data-tooltip]="title()">
           @if (icon()) {
             <ndt-tool-button [title]="title()" [toolId]="windowConfig().id">
-              <ngx-dev-toolbar-icon [name]="icon()" />
+              <ndt-icon [name]="icon()" />
             </ndt-tool-button>
           } @else {
             <ng-content select="ndt-tool-button"></ng-content>
@@ -49,14 +50,14 @@ import { DevToolbarToolButtonComponent } from '../tool-button/tool-button.compon
           [cdkConnectedOverlayHeight]="height()"
           cdkConnectedOverlay
         >
-          <ngx-dev-toolbar-window [config]="windowConfig()" (close)="onClose()">
+          <ndt-window [config]="windowConfig()" (close)="onClose()">
             <ng-content />
-          </ngx-dev-toolbar-window>
+          </ndt-window>
         </ng-template>
       }
     </div>
   `,
-  styleUrl: './dev-toolbar-tool.component.scss',
+  styleUrl: './toolbar-tool.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DevToolbarToolComponent {

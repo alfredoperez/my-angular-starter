@@ -1,4 +1,3 @@
-// src/app/shared/ui/input/input.component.ts
 import {
   ChangeDetectionStrategy,
   Component,

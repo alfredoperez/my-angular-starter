@@ -6,12 +6,10 @@ import {
   signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  DevToolbarInputComponent,
-  DevToolbarSelectComponent,
-  DevToolbarToolComponent,
-} from '../../components';
-import { WindowSize } from '../../components/dev-toolbar-window/dev-toolbar-window.models';
+import { DevToolbarInputComponent } from '../../components/input/input.component';
+import { DevToolbarSelectComponent } from '../../components/select/select.component';
+import { DevToolbarToolComponent } from '../../components/toolbar-tool/toolbar-tool.component';
+import { WindowSize } from '../../components/window/window.models';
 import { FeatureFlag, FeatureFlagFilter } from './feature-flags.models';
 import { DevToolbarFeatureFlagsService } from './feature-flags.service';
 

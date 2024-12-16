@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-dev-toolbar-sun-icon',
+  selector: 'ndt-sun-icon',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
@@ -24,4 +24,4 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 })
 export class SunIconComponent {
   fill = input<string>('#FFFF');
-} 
+}

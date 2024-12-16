@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-dev-toolbar-gear-icon',
+  selector: 'ndt-gear-icon',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,  
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <svg
       [attr.fill]="fill()"

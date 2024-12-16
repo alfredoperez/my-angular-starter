@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
-  selector: 'ngx-dev-toolbar-lighting-icon',
+  selector: 'ndt-lighting-icon',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
