@@ -5,15 +5,16 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { fromEvent } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, throttleTime } from 'rxjs/operators';
 import { DevToolbarIconComponent } from './components/icons/icon.component';
 import { DevToolbarToolButtonComponent } from './components/tool-button/tool-button.component';
 import { DevToolbarStateService } from './dev-toolbar-state.service';
 import { DevToolbarFeatureFlagsToolComponent } from './tools/feature-flags-tool/feature-flags-tool.component';
 import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-tool.component';
+import { SettingsService } from './tools/settings-tool/settings.service';
 
 @Component({
   standalone: true,
@@ -31,12 +32,10 @@ import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-
       aria-label="Developer tools"
       role="toolbar"
       class="dev-toolbar"
-      [@toolbarState]="isVisible() ? 'visible' : 'hidden'"
-      [attr.data-theme]="theme()"
-      [class.dev-toolbar--active]="isVisible()"
+      [@toolbarState]="state.isVisible() ? 'visible' : 'hidden'"
+      [attr.data-theme]="state.theme()"
+      [class.dev-toolbar--active]="state.isVisible()"
       (mouseenter)="onMouseEnter()"
-      (mouseleave)="onMouseLeave()"
-      (keydown.escape)="onEscape()"
     >
       <ndt-tool-button title="Home" toolId="ndt-home">
         <ndt-icon name="angular" />
@@ -68,21 +67,25 @@ import { DevToolbarSettingsToolComponent } from './tools/settings-tool/settings-
     ]),
   ],
 })
-export class DevToolbarComponent {
+export class DevToolbarComponent implements OnInit {
   state = inject(DevToolbarStateService);
   destroyRef = inject(DestroyRef);
-  isVisible = this.state.isVisible;
+  settingsService = inject(SettingsService);
 
-  theme = this.state.theme;
-  private hideDelay = 115000;
+  private keyboardShortcut = fromEvent<KeyboardEvent>(window, 'keydown')
+    .pipe(
+      filter((event) => event.ctrlKey && event.shiftKey && event.key === 'D'),
+      takeUntilDestroyed(this.destroyRef),
+    )
+    .subscribe(() => this.toggleDevTools());
 
-  constructor() {
-    fromEvent<KeyboardEvent>(window, 'keydown')
-      .pipe(
-        filter((event) => event.ctrlKey && event.shiftKey && event.key === 'D'),
-        takeUntilDestroyed(this.destroyRef),
-      )
-      .subscribe(() => this.toggleDevTools());
+  private mouseLeave = fromEvent<MouseEvent>(document, 'mouseleave')
+    .pipe(throttleTime(3000), takeUntilDestroyed(this.destroyRef))
+    .subscribe(() => this.onMouseLeave());
+
+  ngOnInit(): void {
+    const settings = this.settingsService.getSettings();
+    this.state.setTheme(settings.isDarkMode ? 'dark' : 'light');
   }
 
   onMouseEnter(): void {
@@ -90,14 +93,10 @@ export class DevToolbarComponent {
   }
 
   onMouseLeave(): void {
-    setTimeout(() => this.state.setVisibility(false), this.hideDelay);
-  }
-
-  onEscape(): void {
-    this.state.setVisibility(false);
+    setTimeout(() => this.state.setVisibility(false), this.state.delay());
   }
 
   private toggleDevTools(): void {
-    this.state.setVisibility(!this.isVisible());
+    this.state.setVisibility(!this.state.isVisible());
   }
 }

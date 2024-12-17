@@ -1,12 +1,11 @@
 import { Injectable, computed, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Subject } from 'rxjs';
 
 interface DevToolbarState {
   isHidden: boolean;
   activeToolId: string | null;
   error: string | null;
   theme: 'light' | 'dark';
+  delay: number;
 }
 
 @Injectable({
@@ -17,6 +16,7 @@ export class DevToolbarStateService {
   private state = signal<DevToolbarState>({
     isHidden: true,
     activeToolId: null,
+    delay: 3000,
     error: null,
     theme: 'dark',
   });
@@ -28,57 +28,51 @@ export class DevToolbarStateService {
   readonly hasActiveTool = computed(() => this.state().activeToolId !== null);
   readonly error = computed(() => this.state().error);
   readonly theme = computed(() => this.state().theme);
-
-  // Action stream
-  private toolActionSubject = new Subject<{ toolId: string | null }>();
-
-  constructor() {
-    // Handle tool activation/deactivation
-    this.toolActionSubject
-      .pipe(takeUntilDestroyed())
-      .subscribe(({ toolId }) => {
-        this.setActiveTool(toolId);
-        this.setVisibility(!!toolId);
-      });
-  }
+  readonly delay = computed(() => this.state().delay);
 
   // State updates
-   setVisibility(isVisible: boolean): void {
-    this.state.update((state) => ({
-      ...state,
-      isHidden: !isVisible,
-    }));
+  setVisibility(isVisible: boolean): void {
+    if (isVisible) {
+      this.state.update((state) => ({
+        ...state,
+        isHidden: false,
+      }));
+    } else {
+      if (this.activeToolId() === null) {
+        setTimeout(() => {
+          this.state.update((state) => ({
+            ...state,
+            isHidden: true,
+          }));
+        }, this.state().delay);
+      }
+    }
   }
 
-   setTheme(theme: 'light' | 'dark'): void {
+  setTheme(theme: 'light' | 'dark'): void {
     this.state.update((state) => ({
       ...state,
       theme,
     }));
   }
 
-   setActiveTool(toolId: string | null): void {
-    // Set to active only the current tool
+  setActiveTool(toolId: string | null): void {
     this.state.update((state) => ({
       ...state,
       activeToolId: toolId,
     }));
 
-  }
-
-  private setError(error: string): void {
-    this.state.update((state) => ({
-      ...state,
-      error,
-    }));
+    if (toolId === null) {
+      this.setVisibility(false);
+    } else {
+      this.setVisibility(true);
+    }
   }
 
   // Public actions
   toggleTool(toolId: string | null): void {
     const currentToolId = this.activeToolId();
-    this.toolActionSubject.next({
-      toolId: currentToolId === toolId ? null : toolId,
-    });
+    this.setActiveTool(currentToolId === toolId ? null : toolId);
   }
 
   toggleVisibility(): void {

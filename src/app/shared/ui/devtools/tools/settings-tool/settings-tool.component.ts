@@ -9,6 +9,7 @@ import { DevToolbarButtonComponent } from '../../components/button/button.compon
 import { DevToolbarToolComponent } from '../../components/toolbar-tool/toolbar-tool.component';
 import { WindowConfig } from '../../components/window/window.models';
 import { DevToolbarStateService } from '../../dev-toolbar-state.service';
+import { SettingsService } from './settings.service';
 
 type ThemeType = 'light' | 'dark';
 
@@ -57,6 +58,7 @@ type ThemeType = 'light' | 'dark';
 })
 export class DevToolbarSettingsToolComponent {
   state = inject(DevToolbarStateService);
+  settingsService = inject(SettingsService);
 
   readonly badge = input<string | number>();
   readonly windowConfig: WindowConfig = {
@@ -66,6 +68,7 @@ export class DevToolbarSettingsToolComponent {
   };
 
   onThemeSelect(theme: ThemeType): void {
+    this.settingsService.setSettings({ isDarkMode: theme === 'dark' });
     this.state.setTheme(theme);
   }
 }
