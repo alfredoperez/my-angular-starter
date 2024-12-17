@@ -2,6 +2,7 @@ export interface FeatureFlag {
   id: string;
   name: string;
   description?: string;
+  link?: string;
   isEnabled: boolean;
   isForced: boolean;
 }

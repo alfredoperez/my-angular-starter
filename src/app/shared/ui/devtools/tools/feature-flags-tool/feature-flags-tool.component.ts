@@ -174,6 +174,7 @@ export class DevToolbarFeatureFlagsToolComponent {
   // Signals
   protected readonly activeFilter = signal<FeatureFlagFilter>('all');
   protected readonly searchQuery = signal<string>('');
+
   protected readonly flags = this.featureFlags.flags;
   protected readonly hasNoFlags = computed(() => this.flags().length === 0);
   protected readonly filteredFlags = computed(() => {
@@ -184,18 +185,14 @@ export class DevToolbarFeatureFlagsToolComponent {
 
       const matchesSearch =
         !this.searchQuery() ||
-        flagName.includes(searchTerm) ||
-        flagDescription.includes(searchTerm);
+        flagName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        flagDescription.toLowerCase().includes(searchTerm.toLowerCase());
 
       const matchesFilter =
         this.activeFilter() === 'all' ||
         (this.activeFilter() === 'forced' && flag.isForced) ||
-        (this.activeFilter() === 'enabled' &&
-          flag.isEnabled &&
-          !flag.isForced) ||
-        (this.activeFilter() === 'disabled' &&
-          !flag.isEnabled &&
-          !flag.isForced);
+        (this.activeFilter() === 'enabled' && flag.isEnabled) ||
+        (this.activeFilter() === 'disabled' && !flag.isEnabled);
 
       return matchesSearch && matchesFilter;
     });
@@ -217,7 +214,7 @@ export class DevToolbarFeatureFlagsToolComponent {
   ];
 
   protected readonly flagValueOptions = [
-    { value: 'not-forced', label: 'Nothing' },
+    { value: 'not-forced', label: 'Select an override' },
     { value: 'off', label: 'Forced Off (false)' },
     { value: 'on', label: 'Forced On (true)' },
   ];
@@ -233,7 +230,7 @@ export class DevToolbarFeatureFlagsToolComponent {
   onFlagChange(flagId: string, value: string): void {
     switch (value) {
       case 'not-forced':
-        this.featureFlags.removeFlag(flagId);
+        this.featureFlags.removeFlagOverride(flagId);
         break;
       case 'on':
         this.featureFlags.setFlag(flagId, true);
