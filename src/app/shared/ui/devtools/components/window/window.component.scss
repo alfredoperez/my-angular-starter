@@ -19,29 +19,17 @@
   color: var(--devtools-text-secondary);
   z-index: #{map-get($z-indices, window)};
   box-shadow: var(--devtools-shadow-window);
+}
 
-  &--fullscreen {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    max-height: 100vh;
-    border-radius: 0;
-    transform: none;
-  }
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 
-  &__header {
+  &__content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--devtools-font-size-lg);
-    margin-bottom: var(--devtools-spacing-md);
-  }
-
-  &__title {
-    font-size: var(--devtools-font-size-lg);
-    font-weight: 600;
-    color: var(--devtools-text-primary);
-    margin: 0;
+    flex-direction: column;
   }
 
   &__controls {
@@ -49,29 +37,41 @@
     gap: var(--devtools-spacing-sm);
   }
 
-  &__content {
-    flex: 1;
-    overflow: auto;
+  &__description {
+    font-size: var(--devtools-font-size-sm);
+    color: var(--devtools-text-muted);
+  }
+}
+
+.content {
+  flex: 1;
+  overflow: auto;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--devtools-border-primary);
+  margin-bottom: var(--devtools-spacing-md);
+  margin-top: var(--devtools-spacing-md);
+}
+
+.control {
+  background: none;
+  border: none;
+  color: var(--devtools-text-secondary);
+  cursor: pointer;
+  padding: var(--devtools-spacing-xs) var(--devtools-spacing-sm);
+  border-radius: var(--devtools-border-radius-small);
+  font-size: var(--devtools-font-size-md);
+  line-height: 1;
+  transition: var(--devtools-transition-smooth);
+
+  &:hover {
+    background: var(--devtools-hover-bg);
+    color: var(--devtools-text-primary);
   }
 
-  &__control {
-    background: none;
-    border: none;
-    color: var(--devtools-text-secondary);
-    cursor: pointer;
-    padding: var(--devtools-spacing-xs) var(--devtools-spacing-sm);
-    border-radius: var(--devtools-border-radius-small);
-    font-size: var(--devtools-font-size-md);
-    line-height: 1;
-    transition: var(--devtools-transition-smooth);
-
-    &:hover {
-      background: var(--devtools-hover-bg);
-      color: var(--devtools-text-primary);
-    }
-
-    &--close:hover {
-      background: var(--devtools-hover-danger);
-    }
+  &--close:hover {
+    background: var(--devtools-hover-danger);
   }
 }

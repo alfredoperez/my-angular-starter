@@ -65,6 +65,7 @@ export class DevToolbarSettingsToolComponent {
     title: 'Settings',
     isClosable: true,
     id: 'ndt-settings',
+    description: 'Configure the settings for the Dev Toolbar',
   };
 
   onThemeSelect(theme: ThemeType): void {

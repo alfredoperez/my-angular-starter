@@ -13,6 +13,7 @@ export interface WindowConfig {
    * The title of the window, this can be different from the name of the tool
    */
   title: string;
+  description?: string;
   isClosable?: boolean;
   isMaximizable?: boolean;
   isMinimizable?: boolean;

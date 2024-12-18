@@ -7,13 +7,16 @@ import { WindowConfig } from './window.models';
   standalone: true,
   template: `
     <div class="window dev-toolbar" [attr.data-theme]="theme()">
-      <div class="window__header">
-        <h1 class="window__title">{{ config().title }}</h1>
-        <div class="window__controls">
+      <div class="header">
+        <div class="header__content">
+          <h1>{{ config().title }}</h1>
+          <p class="header__description">{{ config().description }}</p>
+        </div>
+        <div class="header__controls">
           @if (config().isMinimizable) {
             <button
               aria-label="Minimize"
-              class="window__minimize"
+              class="control"
               (click)="onMinimize()"
             >
               −
@@ -22,8 +25,7 @@ import { WindowConfig } from './window.models';
           @if (config().isMaximizable) {
             <button
               aria-label="Maximize"
-              aria-label="Maximize"
-              class="window__maximize"
+              class="control"
               (click)="onMaximize()"
             >
               □
@@ -32,8 +34,7 @@ import { WindowConfig } from './window.models';
           @if (config().isClosable) {
             <button
               aria-label="Close"
-              aria-label="Close"
-              class="window__close"
+              class="control control--close"
               (click)="onClose()"
             >
               ×
@@ -41,7 +42,9 @@ import { WindowConfig } from './window.models';
           }
         </div>
       </div>
-      <div class="window__content">
+
+      <div class="divider"></div>
+      <div class="content">
         <ng-content></ng-content>
       </div>
     </div>

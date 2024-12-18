@@ -153,7 +153,7 @@ $font-sizes: (
   sm: 0.875rem,
   md: 1rem,
   lg: 1.25rem,
-  xl: 1.5rem,
+  xl: 2rem,
 );
 
 // Dimensions
@@ -254,19 +254,19 @@ $z-indices: (
   }
 
   h1 {
-    font-size: var(--devtools-font-extra-large);
+    font-size: var(--devtools-font-size-xl);
   }
   h2 {
-    font-size: var(--devtools-font-large);
+    font-size: var(--devtools-font-size-lg);
   }
   h3 {
-    font-size: var(--devtools-font-medium);
+    font-size: var(--devtools-font-size-md);
   }
   h4 {
-    font-size: var(--devtools-font-small);
+    font-size: var(--devtools-font-size-sm);
   }
   h5 {
-    font-size: var(--devtools-font-extra-small);
+    font-size: var(--devtools-font-size-xs);
   }
 
   hr {

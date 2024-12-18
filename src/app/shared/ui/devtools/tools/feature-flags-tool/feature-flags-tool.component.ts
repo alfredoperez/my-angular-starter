@@ -38,6 +38,7 @@ import { DevToolbarFeatureFlagsService } from './feature-flags.service';
           <ndt-select
             [value]="activeFilter()"
             [options]="filterOptions"
+            [size]="'medium'"
             (valueChange)="onFilterChange($event)"
           />
         </div>
@@ -56,7 +57,6 @@ import { DevToolbarFeatureFlagsService } from './feature-flags.service';
                 </div>
 
                 <ndt-select
-                  class="flag-state-select"
                   [value]="getFlagValue(flag)"
                   [options]="flagValueOptions"
                   [ariaLabel]="'Set value for ' + flag.name"
@@ -142,10 +142,11 @@ import { DevToolbarFeatureFlagsService } from './feature-flags.service';
 
       .flag {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: var(--devtools-spacing-sm);
         background: var(--devtools-background-secondary);
         .info {
+          flex: 0 0 65%;
           h3 {
             margin: 0;
             font-size: var(--devtools-font-size-md);
@@ -158,9 +159,8 @@ import { DevToolbarFeatureFlagsService } from './feature-flags.service';
           }
         }
 
-        .flag-state-select {
-          flex: 1;
-          width: 100%;
+        ndt-select {
+          flex: 0 0 35%;
         }
       }
     `,
@@ -201,6 +201,7 @@ export class DevToolbarFeatureFlagsToolComponent {
   // Other properties
   protected readonly windowConfig = {
     title: 'Feature Flags',
+    description: 'Manage the feature flags for your current session',
     isClosable: true,
     size: 'tall' as WindowSize,
     id: 'ndt-feature-flags',
