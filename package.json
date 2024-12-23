@@ -29,7 +29,7 @@
     "@tanstack/angular-query-devtools-experimental": "^5.62.1",
     "@tanstack/angular-query-experimental": "^5.62.7",
     "ag-grid-angular": "^32.3.2",
-    "ag-grid-community": "32.3.2",
+    "ag-grid-community": "33.0.3",
     "json-server": "^0.17.0",
     "ngxtension": "^4.1.0",
     "primeicons": "^7.0.0",
