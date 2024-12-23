@@ -94,8 +94,8 @@ importers:
         specifier: ^18.2.11
         version: 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.4.5)
       '@chromatic-com/storybook':
-        specifier: ^3.2.2
-        version: 3.2.2(react@18.3.1)(storybook@8.4.5(prettier@3.4.2))
+        specifier: ^3.2.3
+        version: 3.2.3(react@18.3.1)(storybook@8.4.5(prettier@3.4.2))
       '@compodoc/compodoc':
         specifier: ^1.1.24
         version: 1.1.26(typescript@5.4.5)
@@ -1086,8 +1086,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@chromatic-com/storybook@3.2.2':
-    resolution: {integrity: sha512-xmXt/GW0hAPbzNTrxYuVo43Adrtjue4DeVrsoIIEeJdGaPNNeNf+DHMlJKOBdlHmCnFUoe9R/0mLM9zUp5bKWw==}
+  '@chromatic-com/storybook@3.2.3':
+    resolution: {integrity: sha512-3+hfANx79kIjP1qrOSLxpoAXOiYUA0S7A0WI0A24kASrv7USFNNW8etR5TjUilMb0LmqKUn3wDwUK2h6aceQ9g==}
     engines: {node: '>=16.0.0', yarn: '>=1.22.18'}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
@@ -9003,7 +9003,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@chromatic-com/storybook@3.2.2(react@18.3.1)(storybook@8.4.5(prettier@3.4.2))':
+  '@chromatic-com/storybook@3.2.3(react@18.3.1)(storybook@8.4.5(prettier@3.4.2))':
     dependencies:
       chromatic: 11.18.1
       filesize: 10.1.6

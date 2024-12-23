@@ -45,7 +45,7 @@
     "@angular-devkit/build-angular": "^18.2.11",
     "@angular/cli": "^18.2.11",
     "@angular/compiler-cli": "^18.2.11",
-    "@chromatic-com/storybook": "^3.2.2",
+    "@chromatic-com/storybook": "^3.2.3",
     "@compodoc/compodoc": "^1.1.24",
     "@jest/globals": "^29.7.0",
     "@softarc/eslint-plugin-sheriff": "^0.15.1",
