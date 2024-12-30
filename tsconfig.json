@@ -19,7 +19,9 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "@my/shared/*": ["./src/app/shared/*"],
+      "@my/data": ["./src/app/shared/data/index.ts"],
+      "@my/ui": ["./src/app/shared/ui/index.ts"],
+      "@my/utils": ["./src/app/shared/utils/index.ts"],
       "@my/users/*": ["./src/app/users/*"]
     }
   },
