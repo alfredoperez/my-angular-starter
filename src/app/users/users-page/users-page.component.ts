@@ -10,6 +10,7 @@ import { ButtonComponent, ModalService } from '@my/ui';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
+import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-flags.service';
 import { DataViewerStore } from '../../shared/state';
 
 @Component({
@@ -24,13 +25,13 @@ import { DataViewerStore } from '../../shared/state';
   ],
   providers: [DataViewerStore],
   template: `
-    <div class="flex flex-col gap-6 h-full">
-      <div class="flex gap-6 justify-between items-center">
+    <div class="flex h-full flex-col gap-6">
+      <div class="flex items-center justify-between gap-6">
         <h1 class="text-xl font-semibold">Users</h1>
         <a-button type="success" (click)="onAddUser()" label="Add User" />
       </div>
 
-      <div class="w-full p-input-icon-left">
+      <div class="p-input-icon-left w-full">
         <i class="pi pi-search"></i>
         <input
           type="text"
@@ -50,13 +51,26 @@ import { DataViewerStore } from '../../shared/state';
         }
         @if (usersQuery.isSuccess()) {
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
-            <ag-grid-angular
-              class="ag-theme-alpine border-round"
-              [rowData]="users()"
-              [columnDefs]="columnDefs"
-              (rowClicked)="onEditUser($event)"
-              style="width: 100%; height: 500px"
-            />
+            @if (showNewTable()) {
+              <ag-grid-angular
+                class="ag-theme-alpine border-round"
+                [rowData]="users()"
+                [columnDefs]="columnDefs"
+                (rowClicked)="onEditUser($event)"
+                style="width: 100%; height: 500px"
+              />
+            } @else {
+              <div class="flex flex-col gap-4">
+                @for (user of users(); track user.id) {
+                  <div
+                    class="cursor-pointer rounded-md border p-4 hover:bg-gray-50"
+                  >
+                    <div class="font-medium">{{ user.name }}</div>
+                    <div class="text-sm text-gray-600">{{ user.email }}</div>
+                  </div>
+                }
+              </div>
+            }
 
             <p-paginator
               class="mt-4 rounded-md border border-gray-200"
@@ -75,6 +89,7 @@ export class UsersPageComponent {
   #store = inject(DataViewerStore);
   #modalService = inject(ModalService);
   #router = inject(Router);
+  featureFlags = inject(FeatureFlagsService);
 
   usersQuery = usersQuery.page(this.#store.requestOptions);
   users = computed(() => this.usersQuery.data()?.items || []);
@@ -85,6 +100,8 @@ export class UsersPageComponent {
   protected readonly columnDefs = columnDefs;
 
   searchQuery = '';
+
+  showNewTable = computed(() => this.featureFlags.get('new_users_table')());
 
   constructor() {
     effect(() => {
