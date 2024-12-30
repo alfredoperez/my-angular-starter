@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
 import { RowClickedEvent } from 'ag-grid-community';
-import { InputTextModule } from 'primeng/inputtext';
-import { PaginatorModule } from 'primeng/paginator';
-import { ButtonComponent, ModalService } from '@my/ui';
+import { DataViewerStore } from '@my/shared/state';
+import {
+  ButtonComponent,
+  DefaultOptions,
+  ModalService,
+  PaginationComponent,
+} from '@my/shared/ui';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
-import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-flags.service';
-import { DataViewerStore } from '../../shared/state';
 
 @Component({
   standalone: true,
@@ -51,26 +53,13 @@ import { DataViewerStore } from '../../shared/state';
         }
         @if (usersQuery.isSuccess()) {
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
-            @if (showNewTable()) {
-              <ag-grid-angular
-                class="ag-theme-alpine border-round"
-                [rowData]="users()"
-                [columnDefs]="columnDefs"
-                (rowClicked)="onEditUser($event)"
-                style="width: 100%; height: 500px"
-              />
-            } @else {
-              <div class="flex flex-col gap-4">
-                @for (user of users(); track user.id) {
-                  <div
-                    class="cursor-pointer rounded-md border p-4 hover:bg-gray-50"
-                  >
-                    <div class="font-medium">{{ user.name }}</div>
-                    <div class="text-sm text-gray-600">{{ user.email }}</div>
-                  </div>
-                }
-              </div>
-            }
+            <ag-grid-angular
+              class="ag-theme-alpine border-round "
+              [rowData]="users()"
+              [columnDefs]="columnDefs"
+              (rowClicked)="handleRowClicked($event)"
+              style="width: 100%; height: 500px; max-width: 1000px"
+            />
 
             <p-paginator
               class="mt-4 rounded-md border border-gray-200"
@@ -86,18 +75,18 @@ import { DataViewerStore } from '../../shared/state';
   `,
 })
 export class UsersPageComponent {
-  #store = inject(DataViewerStore);
-  #modalService = inject(ModalService);
-  #router = inject(Router);
-  featureFlags = inject(FeatureFlagsService);
-
-  usersQuery = usersQuery.page(this.#store.requestOptions);
+  // injects
+  store = inject(DataViewerStore);
+  // signals
+  usersQuery = usersQuery.page(this.store.requestOptions);
   users = computed(() => this.usersQuery.data()?.items || []);
   totalItems = computed(() => this.usersQuery.data()?.total || 0);
   isPlaceholderData = this.usersQuery.isPlaceholderData;
-  prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
-
+  prefetchNextPage = usersQuery.prefetchNextPage(this.store.requestOptions);
+  // props
   protected readonly columnDefs = columnDefs;
+  #modalService = inject(ModalService);
+  #router = inject(Router);
 
   searchQuery = '';
 
@@ -124,12 +113,19 @@ export class UsersPageComponent {
     }
     this.#router.navigate(['/users', event.data.id]);
   }
+  // handleCurrentPageChange(page: number) {
+  //   this.store.setPage(page);
+  // }
 
   onPageChange(event: any) {
     this.#store.setPage(event.page);
   }
 
-  onSearch(event: Event) {
+  handleSortChanged() {
+    // TODO: need to implement this
+  }
+
+  handleSearchQueryChange(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.#store.setSearchQuery(value);
   }
