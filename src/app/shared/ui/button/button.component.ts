@@ -9,9 +9,8 @@ import {
 } from './button.models';
 
 @Component({
-  standalone: true,
-  selector: 'a-button',
-  template: `
+    selector: 'a-button',
+    template: `
     <p-button
       [severity]="type()"
       [size]="size()"
@@ -29,7 +28,7 @@ import {
     >
     </p-button>
   `,
-  imports: [ButtonModule, TooltipModule],
+    imports: [ButtonModule, TooltipModule]
 })
 export class ButtonComponent {
   /** Button severity type that defines its visual style */

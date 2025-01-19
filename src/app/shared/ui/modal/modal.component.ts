@@ -17,8 +17,8 @@ import { ModalService } from './modal.service';
  * I had to copy the code because the library does not support Angular 18 yet.
  */
 @Component({
-  selector: 'ui-modal',
-  template: `
+    selector: 'ui-modal',
+    template: `
     <div class="modal-container">
       <section #modal class="ngx-modal">
         <ng-content></ng-content>
@@ -27,11 +27,10 @@ import { ModalService } from './modal.service';
       <div #overlay class="ngx-overlay" (click)="onClose()"></div>
     </div>
   `,
-  styleUrls: ['./modal.component.scss'],
-  imports: [CommonModule],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./modal.component.scss'],
+    imports: [CommonModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit, AfterViewInit {
   @ViewChild('modal') modal!: ElementRef<HTMLDivElement>;

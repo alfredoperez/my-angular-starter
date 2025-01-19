@@ -5,10 +5,9 @@ import { User, usersQuery } from '@my/users/data';
 import { ButtonComponent, ModalService } from '../../../shared/ui';
 
 @Component({
-  selector: 'ui-add-user-modal',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
-  template: `
+    selector: 'ui-add-user-modal',
+    imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
+    template: `
     <div class="flex flex-col p-8 bg-base-100" [formGroup]="usersFormGroup">
       <h1 class="mb-2 text-2xl font-semibold">Add a new user</h1>
       <p class="mb-6 text-sm text-gray-500">
@@ -110,7 +109,7 @@ import { ButtonComponent, ModalService } from '../../../shared/ui';
       </div>
     </div>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddUserModalComponent {
   #modalService = inject(ModalService);

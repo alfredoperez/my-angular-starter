@@ -4,10 +4,8 @@ import { Router } from '@angular/router';
 import { usersQuery } from '@my/users/data';
 
 @Component({
-  standalone: true,
-  imports: [NgIf, DatePipe],
-
-  template: `
+    imports: [NgIf, DatePipe],
+    template: `
     <div *ngIf="userQuery?.data() as user" class="p-6">
       <div class="flex items-center justify-between">
         <h1 class="mb-4 text-2xl font-bold">User Details</h1>
@@ -97,7 +95,7 @@ import { usersQuery } from '@my/users/data';
         <p>Loading user details...</p>
       </div>
     }
-  `,
+  `
 })
 export class UserDetailPageComponent {
   id = input('');

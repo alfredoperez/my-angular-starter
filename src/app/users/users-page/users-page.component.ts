@@ -14,17 +14,16 @@ import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-fla
 import { DataViewerStore } from '../../shared/state';
 
 @Component({
-  standalone: true,
-  imports: [
-    CommonModule,
-    AgGridModule,
-    ButtonComponent,
-    InputTextModule,
-    PaginatorModule,
-    FormsModule,
-  ],
-  providers: [DataViewerStore],
-  template: `
+    imports: [
+        CommonModule,
+        AgGridModule,
+        ButtonComponent,
+        InputTextModule,
+        PaginatorModule,
+        FormsModule,
+    ],
+    providers: [DataViewerStore],
+    template: `
     <div class="flex h-full flex-col gap-6">
       <div class="flex items-center justify-between gap-6">
         <h1 class="text-xl font-semibold">Users</h1>
@@ -83,7 +82,7 @@ import { DataViewerStore } from '../../shared/state';
         }
       </div>
     </div>
-  `,
+  `
 })
 export class UsersPageComponent {
   #store = inject(DataViewerStore);
