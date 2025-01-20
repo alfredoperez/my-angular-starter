@@ -3,7 +3,7 @@ import { Component, computed, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent } from 'ag-grid-community';
+import { RowClickedEvent, themeAlpine } from 'ag-grid-community';
 import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule } from 'primeng/paginator';
 import { ButtonComponent, ModalService } from '@my/ui';
@@ -14,16 +14,16 @@ import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-fla
 import { DataViewerStore } from '../../shared/state';
 
 @Component({
-    imports: [
-        CommonModule,
-        AgGridModule,
-        ButtonComponent,
-        InputTextModule,
-        PaginatorModule,
-        FormsModule,
-    ],
-    providers: [DataViewerStore],
-    template: `
+  imports: [
+    CommonModule,
+    AgGridModule,
+    ButtonComponent,
+    InputTextModule,
+    PaginatorModule,
+    FormsModule,
+  ],
+  providers: [DataViewerStore],
+  template: `
     <div class="flex h-full flex-col gap-6">
       <div class="flex items-center justify-between gap-6">
         <h1 class="text-xl font-semibold">Users</h1>
@@ -52,9 +52,10 @@ import { DataViewerStore } from '../../shared/state';
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
             @if (showNewTable()) {
               <ag-grid-angular
-                class="ag-theme-alpine border-round"
+                class="border-round"
                 [rowData]="users()"
                 [columnDefs]="columnDefs"
+                [theme]="theme"
                 (rowClicked)="onEditUser($event)"
                 style="width: 100%; height: 500px"
               />
@@ -82,7 +83,7 @@ import { DataViewerStore } from '../../shared/state';
         }
       </div>
     </div>
-  `
+  `,
 })
 export class UsersPageComponent {
   #store = inject(DataViewerStore);
@@ -97,7 +98,7 @@ export class UsersPageComponent {
   prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
 
   protected readonly columnDefs = columnDefs;
-
+  theme = themeAlpine;
   searchQuery = '';
 
   showNewTable = computed(() => this.featureFlags.get('new_users_table')());
