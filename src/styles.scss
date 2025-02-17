@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-
+@import 'tailwindcss';
 html {
   color-scheme: light dark;
   @include mat.theme(
@@ -19,11 +19,6 @@ html {
 
 /* Overlay */
 @import '@angular/cdk/overlay-prebuilt.css';
-
-/*Tailwind*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
