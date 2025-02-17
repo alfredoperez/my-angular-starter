@@ -11,7 +11,8 @@
     "storybook": "ng run my-angular-starter:storybook",
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "stats": "ng build --configuration production --stats-json"
   },
   "private": true,
   "dependencies": {
@@ -73,7 +74,8 @@
     "prettier-plugin-tailwindcss": "^0.6.9",
     "storybook": "^8.5.3",
     "typescript": "~5.5.4",
-    "typescript-eslint": "8.0.0-alpha.20"
+    "typescript-eslint": "8.0.0-alpha.20",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "msw": {
     "workerDirectory": [

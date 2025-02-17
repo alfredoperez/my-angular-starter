@@ -151,7 +151,7 @@ export class UsersPageComponent {
     });
   }
 
-  public onUserRowClicked(event: RowClickedEvent<User>) {
+  public onUserRowClicked(event: RowClickedEvent<User, any>) {
     if (event.data === undefined) return;
     this.onEditUser(event.data);
   }

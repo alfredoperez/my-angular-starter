@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import 'tailwindcss';
+@use 'tailwindcss';
 html {
   color-scheme: light dark;
   @include mat.theme(

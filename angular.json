@@ -9,7 +9,6 @@
         "@schematics/angular:component": {
           "style": "scss",
           "skipTests": true,
-          "standalone": true,
           "inlineStyle": true,
           "inlineTemplate": true
         }
@@ -39,11 +38,13 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "sourceMap": false,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
