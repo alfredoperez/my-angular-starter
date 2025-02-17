@@ -1,14 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { User, usersQuery } from '@my/users/data';
-import { ButtonComponent, ModalService } from '../../../shared/ui';
 
 @Component({
-    selector: 'ui-add-user-modal',
-    imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
-    template: `
-    <div class="flex flex-col p-8 bg-base-100" [formGroup]="usersFormGroup">
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+  template: `
+    <div class="bg-base-100 flex flex-col p-8" [formGroup]="usersFormGroup">
       <h1 class="mb-2 text-2xl font-semibold">Add a new user</h1>
       <p class="mb-6 text-sm text-gray-500">
         Here you can add a new user to the system
@@ -16,103 +25,85 @@ import { ButtonComponent, ModalService } from '../../../shared/ui';
 
       <div class="grid grid-cols-2 gap-6">
         <div class="col-span-2">
-          <label class="block mb-1 text-sm font-medium text-gray-700" for="name"
-            >Name</label
-          >
-          <input
-            id="name"
-            type="text"
-            class="w-full input input-bordered input-primary"
-            placeholder="Full Name"
-            formControlName="name"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" placeholder="Full Name" />
+          </mat-form-field>
         </div>
 
         <div>
-          <label class="block mb-1 text-sm font-medium text-gray-700" for="age"
-            >Age</label
-          >
-          <input
-            id="age"
-            type="number"
-            class="w-full input input-bordered input-primary"
-            placeholder="Age"
-            formControlName="age"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Age</mat-label>
+            <input
+              type="number"
+              matInput
+              formControlName="age"
+              placeholder="Age"
+            />
+          </mat-form-field>
         </div>
 
         <div>
-          <label
-            class="block mb-1 text-sm font-medium text-gray-700"
-            for="email"
-            >Email</label
-          >
-          <input
-            id="email"
-            type="email"
-            class="w-full input input-bordered input-primary"
-            placeholder="Email Address"
-            formControlName="email"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Email Address"
+            />
+          </mat-form-field>
         </div>
+
         <div class="col-span-2">
-          <label
-            class="block mb-1 text-sm font-medium text-gray-700"
-            for="company"
-            >Company</label
-          >
-          <input
-            id="company"
-            type="text"
-            class="w-full input input-bordered input-primary"
-            placeholder="Company Name"
-            formControlName="company"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Company</mat-label>
+            <input
+              matInput
+              formControlName="company"
+              placeholder="Company Name"
+            />
+          </mat-form-field>
         </div>
 
         <div>
-          <label
-            class="block mb-1 text-sm font-medium text-gray-700"
-            for="title"
-            >Title</label
-          >
-          <input
-            id="title"
-            type="text"
-            class="w-full input input-bordered input-primary"
-            placeholder="Job Title"
-            formControlName="title"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Job Title" />
+          </mat-form-field>
         </div>
 
         <div>
-          <label
-            class="block mb-1 text-sm font-medium text-gray-700"
-            for="department"
-            >Department</label
-          >
-          <input
-            id="department"
-            type="text"
-            class="w-full input input-bordered input-primary"
-            placeholder="Department"
-            formControlName="department"
-          />
+          <mat-form-field class="w-full">
+            <mat-label>Department</mat-label>
+            <input
+              matInput
+              formControlName="department"
+              placeholder="Department"
+            />
+          </mat-form-field>
         </div>
       </div>
 
-      <div class="flex gap-2 justify-end mt-8">
-        <a-button type="secondary" (click)="onCancel()">Cancel</a-button>
-        <a-button [disabled]="!usersFormGroup.valid" (click)="onSaveUser()"
-          >Save</a-button
+      <div class="mt-8 flex justify-end gap-2">
+        <button type="secondary" (click)="onCancel()" mat-stroked-button>
+          Cancel
+        </button>
+        <button
+          [disabled]="!usersFormGroup.valid"
+          (click)="onSaveUser()"
+          mat-stroked-button
+          color="primary"
         >
+          Save
+        </button>
       </div>
     </div>
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddUserModalComponent {
-  #modalService = inject(ModalService);
+  #dialogRef = inject(MatDialogRef);
   #fb = inject(FormBuilder);
 
   addMutation = usersQuery.add();
@@ -147,11 +138,10 @@ export class AddUserModalComponent {
     } as unknown as User;
 
     this.addMutation.mutate(user);
-    this.#modalService.close();
-    this.#modalService.close();
+    this.#dialogRef.close();
   }
 
   onCancel() {
-    this.#modalService.close();
+    this.#dialogRef.close();
   }
 }

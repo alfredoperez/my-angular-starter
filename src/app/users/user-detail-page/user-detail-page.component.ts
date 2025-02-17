@@ -1,105 +1,100 @@
-import { DatePipe, NgIf } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, computed, inject, input } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { usersQuery } from '@my/users/data';
 
 @Component({
-    imports: [NgIf, DatePipe],
-    template: `
-    <div *ngIf="userQuery?.data() as user" class="p-6">
-      <div class="flex items-center justify-between">
-        <h1 class="mb-4 text-2xl font-bold">User Details</h1>
-        <button
-          class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
-          (click)="onGoBack()"
-        >
-          Go Back
-        </button>
-      </div>
-      <div class="mt-6 overflow-hidden bg-white shadow sm:rounded-lg">
-        <div class="flex items-center justify-between px-4 py-5 sm:px-6">
-          <div>
-            <h3 class="text-lg font-medium leading-6 text-gray-900">
-              {{ user?.name }}
-            </h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+  imports: [
+    DatePipe,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+  ],
+  template: `
+    <div class="p-6">
+      @if (isLoading()) {
+        <div class="flex h-64 items-center justify-center">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+      }
+      @if (isSuccess()) {
+        @let user = data();
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title class="flex items-center justify-between">
+              <span>User Details</span>
+              <button (click)="onGoBack()" mat-button>Go Back</button>
+            </mat-card-title>
+            <mat-card-subtitle>
               {{ user?.email }}
-            </p>
-          </div>
-        </div>
-        <div class="border-t border-gray-200">
-          <dl>
-            <div
-              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">ID</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.id }}
-              </dd>
-            </div>
-            <div
-              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Company</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.company }}
-              </dd>
-            </div>
-            <div
-              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Title</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.title }}
-              </dd>
-            </div>
-            <div
-              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Department</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.department }}
-              </dd>
-            </div>
-            <div
-              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Age</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.age }}
-              </dd>
-            </div>
-            <div
-              class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Created At</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.createdAt | date: 'medium' }}
-              </dd>
-            </div>
-            <div
-              class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-            >
-              <dt class="text-sm font-medium text-gray-500">Updated At</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
-                {{ user?.updatedAt | date: 'medium' }}
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-    </div>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="grid grid-cols-1 gap-4">
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">ID</span>
+                <span class="col-span-2">{{ user?.id }}</span>
+              </div>
+              <mat-divider></mat-divider>
 
-    @if (userQuery?.isLoading()) {
-      <div class="flex h-64 items-center justify-center">
-        <p>Loading user details...</p>
-      </div>
-    }
-  `
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Company</span>
+                <span class="col-span-2">{{ user?.company }}</span>
+              </div>
+              <mat-divider></mat-divider>
+
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Title</span>
+                <span class="col-span-2">{{ user?.title }}</span>
+              </div>
+              <mat-divider></mat-divider>
+
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Department</span>
+                <span class="col-span-2">{{ user?.department }}</span>
+              </div>
+              <mat-divider></mat-divider>
+
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Age</span>
+                <span class="col-span-2">{{ user?.age }}</span>
+              </div>
+              <mat-divider></mat-divider>
+
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Created At</span>
+                <span class="col-span-2">{{
+                  user?.createdAt | date: 'medium'
+                }}</span>
+              </div>
+              <mat-divider></mat-divider>
+
+              <div class="grid grid-cols-3 gap-4 p-4">
+                <span class="text-gray-500">Updated At</span>
+                <span class="col-span-2">{{
+                  user?.updatedAt | date: 'medium'
+                }}</span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  `,
 })
 export class UserDetailPageComponent {
-  id = input('');
+  id = input.required<string>();
   userQuery = usersQuery.details(this.id);
+  status = computed(() => this.userQuery?.status());
+  isLoading = computed(() => this.userQuery?.isLoading());
+  isSuccess = computed(() => this.userQuery?.isSuccess());
+  data = computed(() => this.userQuery?.data());
+
   #router = inject(Router);
 
   onGoBack(): void {
