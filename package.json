@@ -32,7 +32,7 @@
     "@tailwindcss/postcss": "^4.0.6",
     "@tanstack/angular-query-devtools-experimental": "^5.66.0",
     "@tanstack/angular-query-experimental": "^5.66.0",
-    "ag-grid-angular": "^33.0.4",
+    "ag-grid-angular": "^33.2.1",
     "ag-grid-community": "33.0.4",
     "json-server": "^0.17.0",
     "ngx-dev-toolbar": "^1.0.4",
