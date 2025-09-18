@@ -1,0 +1,533 @@
+// Material Design overrides using CSS variables for modern, compact theme
+@use './colors' as colors;
+@use 'sass:map';
+
+// Remove Material Design specific features
+@mixin remove-material-features() {
+  // 1. Remove ripple effects globally
+  .mat-mdc-button,
+  .mat-mdc-raised-button,
+  .mat-mdc-icon-button,
+  .mat-mdc-fab,
+  .mat-mdc-mini-fab,
+  .mat-mdc-checkbox,
+  .mat-mdc-radio-button,
+  .mat-mdc-slide-toggle,
+  .mat-mdc-list-item {
+    .mat-ripple,
+    .mat-mdc-button-ripple,
+    .mat-mdc-checkbox-ripple,
+    .mat-mdc-radio-ripple,
+    .mat-mdc-slide-toggle-ripple {
+      display: none !important;
+    }
+  }
+
+  // 2. Remove elevation/shadows
+  [class*="mat-elevation-z"] {
+    box-shadow: none !important;
+  }
+
+  // 3. Faster animations using variables
+  * {
+    --mat-transition-duration: var(--theme-transition-fast) !important;
+  }
+
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-flex,
+  .mat-mdc-form-field-infix {
+    transition: all var(--theme-transition-fast) !important;
+  }
+}
+
+// Modern compact form field styles using variables
+@mixin custom-form-fields() {
+  // Apply density globally
+  .mat-mdc-form-field {
+    --mat-form-field-container-height: var(--theme-input-height);
+    --mat-form-field-container-vertical-padding: var(--theme-spacing-sm);
+
+    // Modern flat dark background
+    .mat-mdc-form-field-flex {
+      background-color: var(--theme-input-bg);
+      border-radius: var(--theme-radius-md);
+      transition: background-color var(--theme-transition-fast),
+                  border-color var(--theme-transition-fast);
+
+      &:hover {
+        background-color: var(--theme-input-bg-hover);
+      }
+    }
+
+    // Compact infix
+    .mat-mdc-form-field-infix {
+      padding-top: var(--theme-spacing-sm) !important;
+      padding-bottom: var(--theme-spacing-sm) !important;
+      min-height: auto;
+    }
+
+    // Modern focus states
+    &.mat-focused {
+      .mat-mdc-form-field-flex {
+        background-color: var(--theme-input-bg-focus);
+        box-shadow: 0 0 0 2px var(--theme-primary-subtle);
+      }
+
+      .mat-mdc-form-field-outline-thick {
+        color: var(--theme-primary);
+      }
+    }
+
+    // Smaller text
+    .mat-mdc-input-element {
+      font-size: var(--theme-font-size-sm);
+      height: auto;
+      padding: var(--theme-spacing-xs) 0;
+      color: var(--theme-text-primary);
+    }
+
+    // Floating label adjustments
+    .mat-mdc-floating-label {
+      font-size: var(--theme-font-size-sm);
+      color: var(--theme-text-muted);
+
+      &.mdc-floating-label--float-above {
+        font-size: var(--theme-font-size-xs);
+        color: var(--theme-text-secondary);
+      }
+    }
+
+    // Error messages
+    .mat-mdc-form-field-error {
+      font-size: var(--theme-font-size-xs);
+      margin-top: var(--theme-spacing-xs);
+      color: var(--theme-danger);
+    }
+
+    // Hint text
+    .mat-mdc-form-field-hint {
+      font-size: var(--theme-font-size-xs);
+      color: var(--theme-text-muted);
+    }
+  }
+
+  // Outline appearance customization
+  .mat-mdc-form-field-appearance-outline {
+    .mat-mdc-form-field-outline {
+      color: var(--theme-input-border);
+    }
+
+    .mat-mdc-form-field-outline-thick {
+      color: var(--theme-input-border-focus);
+      width: 1px;
+    }
+
+    // Rounded corners
+    .mat-mdc-form-field-outline-start,
+    .mat-mdc-form-field-outline-end {
+      border-radius: var(--theme-radius-md) !important;
+    }
+
+
+    // Input field styles
+    .mat-mdc-input-element {
+      &::placeholder {
+        color: var(--theme-input-placeholder);
+      }
+    }
+  }
+
+  // Fill appearance (flat modern style)
+  .mat-mdc-form-field-appearance-fill {
+    .mat-mdc-form-field-flex {
+      background-color: var(--theme-input-bg);
+      border-radius: var(--theme-radius-md);
+      border: 1px solid var(--theme-input-border);
+      padding: 0 var(--theme-spacing-md);
+    }
+
+    .mat-mdc-form-field-underline,
+    .mat-mdc-form-field-ripple {
+      display: none !important;
+    }
+  }
+
+  // Prefix and suffix icons
+  .mat-mdc-form-field-icon-prefix,
+  .mat-mdc-form-field-icon-suffix {
+    padding: 0 var(--theme-spacing-xs);
+
+    .mat-icon {
+      font-size: 1.125rem;
+      width: 1.125rem;
+      height: 1.125rem;
+      color: var(--theme-text-muted);
+    }
+  }
+}
+
+// Modern compact button styles using variables
+@mixin custom-buttons() {
+  // Base button styles (flat, modern design)
+  .mat-mdc-button,
+  .mat-mdc-raised-button,
+  .mat-mdc-flat-button,
+  .mat-mdc-stroked-button {
+    --mdc-text-button-container-height: var(--theme-button-height);
+    --mdc-filled-button-container-height: var(--theme-button-height);
+    --mdc-outlined-button-container-height: var(--theme-button-height);
+
+    border-radius: var(--theme-radius-md);
+    font-size: var(--theme-font-size-sm);
+    font-weight: 500;
+    letter-spacing: 0;
+    transition: all var(--theme-transition-fast);
+    text-transform: none;
+    padding: 0 var(--theme-spacing-md);
+    box-shadow: none !important;
+
+    // Remove Material hover elevation
+    &:not([disabled]):hover {
+      transform: none;
+      box-shadow: none !important;
+    }
+  }
+
+  // Primary button (filled, flat design)
+  .mat-mdc-raised-button.mat-primary,
+  .mat-mdc-flat-button.mat-primary {
+    background-color: var(--theme-primary);
+    color: white;
+    box-shadow: none !important;
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-primary-hover);
+      box-shadow: none !important;
+    }
+  }
+
+  // Secondary button
+  .mat-mdc-raised-button:not(.mat-primary):not(.mat-accent):not(.mat-warn),
+  .mat-mdc-flat-button:not(.mat-primary):not(.mat-accent):not(.mat-warn) {
+    background-color: var(--theme-button-secondary-bg);
+    color: var(--theme-text-primary);
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-button-secondary-bg-hover);
+    }
+  }
+
+  // Stroked button (flat border style)
+  .mat-mdc-stroked-button {
+    border: 1px solid var(--theme-border-strong);
+    background-color: transparent;
+    color: var(--theme-text-primary);
+    box-shadow: none !important;
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-button-ghost-bg-hover);
+      border-color: var(--theme-border-strong);
+      box-shadow: none !important;
+    }
+
+    &.mat-primary {
+      border-color: var(--theme-primary);
+      color: var(--theme-primary);
+
+      &:not([disabled]):hover {
+        background-color: var(--theme-primary-subtle);
+        border-color: var(--theme-primary);
+      }
+    }
+  }
+
+  // Text button
+  .mat-mdc-button {
+    color: var(--theme-text-primary);
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-button-ghost-bg-hover);
+    }
+  }
+
+  // Icon button
+  .mat-mdc-icon-button {
+    --mdc-icon-button-state-layer-size: var(--theme-button-height);
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-button-ghost-bg-hover);
+    }
+  }
+
+  // FAB buttons (flat design)
+  .mat-mdc-fab,
+  .mat-mdc-mini-fab {
+    box-shadow: none !important;
+    background-color: var(--theme-primary);
+
+    &:not([disabled]):hover {
+      background-color: var(--theme-primary-hover);
+      box-shadow: none !important;
+    }
+  }
+}
+
+// Modern checkbox and radio styles using variables
+@mixin custom-checkboxes() {
+  // Checkbox
+  .mat-mdc-checkbox {
+    --mdc-checkbox-state-layer-size: 32px;
+
+    .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
+      border-radius: var(--theme-radius-sm);
+      border-width: 1px;
+      border-color: var(--theme-border-strong);
+      background-color: transparent;
+    }
+
+    .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background {
+      background-color: var(--theme-primary);
+      border-color: var(--theme-primary);
+    }
+  }
+
+  // Radio button
+  .mat-mdc-radio-button {
+    --mdc-radio-state-layer-size: 32px;
+
+    .mdc-radio__outer-circle {
+      border-width: 1px;
+      border-color: var(--theme-border-strong);
+    }
+
+    &.mat-mdc-radio-checked {
+      .mdc-radio__outer-circle {
+        border-color: var(--theme-primary);
+      }
+
+      .mdc-radio__inner-circle {
+        background-color: var(--theme-primary);
+      }
+    }
+  }
+}
+
+// Modern select styles using variables
+@mixin custom-selects() {
+  .mat-mdc-select {
+    .mat-mdc-select-trigger {
+      height: var(--theme-input-height);
+      font-size: var(--theme-font-size-sm);
+    }
+
+    .mat-mdc-select-arrow {
+      color: var(--theme-text-muted);
+    }
+
+    .mat-mdc-select-value {
+      color: var(--theme-text-primary);
+    }
+
+    .mat-mdc-select-placeholder {
+      color: var(--theme-input-placeholder);
+    }
+  }
+
+  // Option panel
+  .mat-mdc-select-panel {
+    background-color: var(--theme-menu-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--theme-radius-md);
+    box-shadow: var(--theme-shadow-lg);
+
+    .mat-mdc-option {
+      font-size: var(--theme-font-size-sm);
+      min-height: var(--theme-button-height);
+
+      &:hover:not(.mat-mdc-option-disabled) {
+        background-color: var(--theme-menu-item-hover);
+      }
+
+      &.mat-mdc-option-active {
+        background-color: var(--theme-menu-item-hover);
+      }
+
+      &.mdc-list-item--selected {
+        background-color: var(--theme-menu-item-selected);
+      }
+    }
+  }
+}
+
+// Modern card styles using variables
+@mixin custom-cards() {
+  .mat-mdc-card {
+    background-color: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--theme-radius-lg);
+    box-shadow: none;
+    transition: all var(--theme-transition-fast);
+
+    &:hover {
+      background-color: var(--theme-card-bg-hover);
+      border-color: var(--theme-border-strong);
+    }
+  }
+
+  .mat-mdc-card-content {
+    padding: var(--theme-spacing-md);
+  }
+
+  .mat-mdc-card-header {
+    padding: var(--theme-spacing-md) var(--theme-spacing-md) var(--theme-spacing-sm);
+  }
+
+  .mat-mdc-card-title {
+    font-size: var(--theme-font-size-base);
+    font-weight: 600;
+    color: var(--theme-text-primary);
+  }
+
+  .mat-mdc-card-subtitle {
+    font-size: var(--theme-font-size-sm);
+    color: var(--theme-text-secondary);
+  }
+}
+
+// Modern dialog styles using variables
+@mixin custom-dialogs() {
+  .mat-mdc-dialog-container {
+    background-color: var(--theme-dialog-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--theme-radius-lg);
+    box-shadow: var(--theme-shadow-lg);
+    padding: 0;
+  }
+
+  .mat-mdc-dialog-content {
+    padding: var(--theme-spacing-lg);
+    max-height: 80vh;
+    color: var(--theme-text-primary);
+  }
+
+  .mat-mdc-dialog-actions {
+    padding: var(--theme-spacing-md) var(--theme-spacing-lg);
+    border-top: 1px solid var(--theme-border);
+  }
+
+  // Dark backdrop
+  .cdk-overlay-dark-backdrop {
+    background-color: var(--theme-dialog-backdrop);
+  }
+}
+
+// Modern paginator styles using variables
+@mixin custom-paginator() {
+  .mat-mdc-paginator {
+    background-color: transparent;
+    color: var(--theme-text-primary);
+    font-size: var(--theme-font-size-sm);
+
+    .mat-mdc-paginator-container {
+      min-height: 48px;
+    }
+
+    .mat-mdc-paginator-page-size-label,
+    .mat-mdc-paginator-range-label {
+      color: var(--theme-text-secondary);
+    }
+
+    .mat-mdc-icon-button {
+      --mdc-icon-button-state-layer-size: var(--theme-button-height);
+    }
+
+    .mat-mdc-form-field {
+      margin-top: 0;
+    }
+  }
+}
+
+// Modern list styles using variables
+@mixin custom-lists() {
+  .mat-mdc-list {
+    padding: var(--theme-spacing-sm);
+  }
+
+  .mat-mdc-list-item {
+    border-radius: var(--theme-radius-md);
+    margin-bottom: var(--theme-spacing-xs);
+    min-height: 40px;
+    font-size: var(--theme-font-size-sm);
+
+    &:hover {
+      background-color: var(--theme-menu-item-hover);
+    }
+
+    &.mdc-list-item--selected {
+      background-color: var(--theme-menu-item-selected);
+    }
+  }
+
+  .mat-mdc-list-item-title {
+    font-size: var(--theme-font-size-sm);
+    color: var(--theme-text-primary);
+  }
+
+  .mat-mdc-list-item-line {
+    font-size: var(--theme-font-size-xs);
+    color: var(--theme-text-secondary);
+  }
+}
+
+// Modern menu styles using variables
+@mixin custom-menus() {
+  .mat-mdc-menu-panel {
+    background-color: var(--theme-menu-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: var(--theme-radius-md);
+    box-shadow: var(--theme-shadow-lg);
+    min-width: 160px;
+  }
+
+  .mat-mdc-menu-item {
+    font-size: var(--theme-font-size-sm);
+    min-height: var(--theme-button-height);
+    color: var(--theme-text-primary);
+
+    &:hover:not([disabled]) {
+      background-color: var(--theme-menu-item-hover);
+    }
+
+    &.mdc-list-item--selected {
+      background-color: var(--theme-menu-item-selected);
+    }
+  }
+}
+
+// Modern progress spinner using variables
+@mixin custom-progress() {
+  .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: var(--theme-primary);
+  }
+
+  .mat-spinner {
+    circle {
+      stroke: var(--theme-primary);
+    }
+  }
+}
+
+// Main mixin to apply all customizations
+@mixin apply-custom-theme() {
+  @include remove-material-features();
+  @include custom-form-fields();
+  @include custom-buttons();
+  @include custom-checkboxes();
+  @include custom-selects();
+  @include custom-cards();
+  @include custom-dialogs();
+  @include custom-paginator();
+  @include custom-lists();
+  @include custom-menus();
+  @include custom-progress();
+}

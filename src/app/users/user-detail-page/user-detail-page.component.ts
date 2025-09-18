@@ -1,88 +1,96 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { DividerModule } from 'primeng/divider';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
 import { usersQuery } from '@my/users/data';
 
 @Component({
+  standalone: true,
   imports: [
     DatePipe,
-    MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
-    MatProgressSpinnerModule,
+    ButtonModule,
+    CardModule,
+    DividerModule,
+    ProgressSpinnerModule,
   ],
   template: `
     <div class="p-6">
       @if (isLoading()) {
         <div class="flex h-64 items-center justify-center">
-          <mat-spinner diameter="40"></mat-spinner>
+          <p-progressSpinner
+            styleClass="w-12 h-12"
+            strokeWidth="4"
+            animationDuration=".5s"
+          />
         </div>
       }
       @if (isSuccess()) {
         @let user = data();
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title class="flex items-center justify-between">
-              <span>User Details</span>
-              <button (click)="onGoBack()" mat-button>Go Back</button>
-            </mat-card-title>
-            <mat-card-subtitle>
-              {{ user?.email }}
-            </mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <div class="grid grid-cols-1 gap-4">
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">ID</span>
-                <span class="col-span-2">{{ user?.id }}</span>
+        <p-card>
+          <ng-template pTemplate="header">
+            <div class="flex items-center justify-between p-4">
+              <div>
+                <h2 class="text-xl font-semibold">User Details</h2>
+                <p class="text-sm text-gray-500">{{ user?.email }}</p>
               </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Company</span>
-                <span class="col-span-2">{{ user?.company }}</span>
-              </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Title</span>
-                <span class="col-span-2">{{ user?.title }}</span>
-              </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Department</span>
-                <span class="col-span-2">{{ user?.department }}</span>
-              </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Age</span>
-                <span class="col-span-2">{{ user?.age }}</span>
-              </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Created At</span>
-                <span class="col-span-2">{{
-                  user?.createdAt | date: 'medium'
-                }}</span>
-              </div>
-              <mat-divider></mat-divider>
-
-              <div class="grid grid-cols-3 gap-4 p-4">
-                <span class="text-gray-500">Updated At</span>
-                <span class="col-span-2">{{
-                  user?.updatedAt | date: 'medium'
-                }}</span>
-              </div>
+              <p-button
+                label="Go Back"
+                icon="pi pi-arrow-left"
+                [outlined]="true"
+                (onClick)="onGoBack()"
+              />
             </div>
-          </mat-card-content>
-        </mat-card>
+          </ng-template>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">ID</span>
+              <span class="col-span-2">{{ user?.id }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Company</span>
+              <span class="col-span-2">{{ user?.company }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Title</span>
+              <span class="col-span-2">{{ user?.title }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Department</span>
+              <span class="col-span-2">{{ user?.department }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Age</span>
+              <span class="col-span-2">{{ user?.age }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Created At</span>
+              <span class="col-span-2">{{
+                user?.createdAt | date: 'medium'
+              }}</span>
+            </div>
+            <p-divider />
+
+            <div class="grid grid-cols-3 gap-4 p-4">
+              <span class="text-gray-500">Updated At</span>
+              <span class="col-span-2">{{
+                user?.updatedAt | date: 'medium'
+              }}</span>
+            </div>
+          </div>
+        </p-card>
       }
     </div>
   `,

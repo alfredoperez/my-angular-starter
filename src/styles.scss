@@ -1,35 +1,95 @@
-@use '@angular/material' as mat;
-@use 'tailwindcss';
-html {
-  color-scheme: light dark;
-  @include mat.theme(
-    (
-      color: mat.$violet-palette,
-      typography: (
-        plain-family: Roboto,
-        brand-family: Open Sans,
-        bold-weight: 900,
-        medium-weight: 500,
-        regular-weight: 300,
-      ),
-      density: 0,
-    )
-  );
+// Import Tailwind CSS v4 via app.css
+@import "./app.css";
+
+// PrimeNG Aura theme customization with Indigo
+:root {
+  /* Indigo color palette for primary */
+  --a-primary-50: #eef2ff;
+  --a-primary-100: #e0e7ff;
+  --a-primary-200: #c7d2fe;
+  --a-primary-300: #a5b4fc;
+  --a-primary-400: #818cf8;
+  --a-primary-500: #6366f1;
+  --a-primary-600: #4f46e5;
+  --a-primary-700: #4338ca;
+  --a-primary-800: #3730a3;
+  --a-primary-900: #312e81;
+  --a-primary-950: #1e1b4b;
+
+  /* Override the default primary color */
+  --a-primary: var(--a-primary-500);
+  --a-primary-color: var(--a-primary-500);
+  --a-primary-contrast-color: #ffffff;
+
+  /* Button specific overrides */
+  --a-button-primary-background: var(--a-primary-600);
+  --a-button-primary-hover-background: var(--a-primary-700);
+  --a-button-primary-active-background: var(--a-primary-800);
+  --a-button-primary-border-color: var(--a-primary-600);
+  --a-button-primary-hover-border-color: var(--a-primary-700);
+  --a-button-primary-active-border-color: var(--a-primary-800);
+  --a-button-primary-color: #ffffff;
+  --a-button-primary-hover-color: #ffffff;
+  --a-button-primary-active-color: #ffffff;
+
+  --surface-0: #ffffff;
+  --surface-50: #f8fafc;
+  --surface-100: #f1f5f9;
+  --surface-200: #e2e8f0;
+  --surface-300: #cbd5e1;
+  --surface-400: #94a3b8;
+  --surface-500: #64748b;
+  --surface-600: #475569;
+  --surface-700: #334155;
+  --surface-800: #1e293b;
+  --surface-900: #0f172a;
 }
 
-/* Overlay */
-@import '@angular/cdk/overlay-prebuilt.css';
+// AG-Grid compact styling
+.ag-theme-material {
+  --ag-row-height: 32px;  // Compact row height
+  --ag-header-height: 36px;  // Compact header
+  --ag-list-item-height: 28px;  // Compact dropdowns
+}
 
-html,
-body {
+// Basic styles
+html, body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
-:host {
+
+// App container styles
+app-root {
   display: block;
-  width: 100%;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+}
+
+// PrimeNG component customizations for compact modern look
+.p-component {
+  font-size: 14px;
+}
+
+.p-inputtext {
+  padding: 0.5rem 0.75rem;
+  font-size: 14px;
+}
+
+.p-button {
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+}
+
+.p-dialog {
+  .p-dialog-header {
+    padding: 1rem;
+  }
+
+  .p-dialog-content {
+    padding: 0 1rem 1rem;
+  }
 }

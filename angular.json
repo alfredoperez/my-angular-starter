@@ -33,7 +33,10 @@
               },
               "src/assets"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "node_modules/primeicons/primeicons.css",
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

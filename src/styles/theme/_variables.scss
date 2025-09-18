@@ -1,0 +1,207 @@
+// Theme Variables System
+// ========================================
+
+// Dark Theme Variables (Default)
+@mixin define-dark-theme-variables() {
+  // Core Colors
+  --theme-background: #1b1526;
+  --theme-surface: #0f0b14;
+  --theme-surface-variant: #191521;
+  --theme-surface-elevated: #221d2e;
+
+  // Text Colors
+  --theme-text-primary: #f0f0f5;
+  --theme-text-secondary: #a8a8b8;
+  --theme-text-muted: #6b6b7c;
+  --theme-text-disabled: #4a4a58;
+
+  // Brand Colors
+  --theme-primary: #9353d3;
+  --theme-primary-hover: #a671db;
+  --theme-primary-active: #7944ae;
+  --theme-primary-subtle: rgba(147, 83, 211, 0.15);
+  --theme-primary-glow: rgba(147, 83, 211, 0.3);
+
+  --theme-secondary: #637aff;
+  --theme-secondary-hover: #7e91ff;
+  --theme-secondary-active: #5265d2;
+  --theme-secondary-subtle: rgba(99, 122, 255, 0.15);
+
+  // Status Colors
+  --theme-success: #23d98d;
+  --theme-success-subtle: rgba(35, 217, 141, 0.15);
+
+  --theme-warning: #ffca3a;
+  --theme-warning-subtle: rgba(255, 202, 58, 0.15);
+
+  --theme-danger: #ff6b6b;
+  --theme-danger-subtle: rgba(255, 107, 107, 0.15);
+
+  // Border Colors
+  --theme-border: rgba(255, 255, 255, 0.08);
+  --theme-border-strong: rgba(255, 255, 255, 0.12);
+  --theme-border-subtle: rgba(255, 255, 255, 0.04);
+
+  // Component Specific
+  --theme-input-bg: rgba(255, 255, 255, 0.02);
+  --theme-input-bg-hover: rgba(255, 255, 255, 0.04);
+  --theme-input-bg-focus: rgba(255, 255, 255, 0.05);
+  --theme-input-border: rgba(255, 255, 255, 0.06);
+  --theme-input-border-focus: var(--theme-primary);
+  --theme-input-placeholder: rgba(255, 255, 255, 0.4);
+
+  --theme-button-bg: var(--theme-primary);
+  --theme-button-bg-hover: var(--theme-primary-hover);
+  --theme-button-secondary-bg: rgba(255, 255, 255, 0.06);
+  --theme-button-secondary-bg-hover: rgba(255, 255, 255, 0.1);
+  --theme-button-ghost-bg-hover: rgba(255, 255, 255, 0.03);
+
+  --theme-card-bg: var(--theme-surface);
+  --theme-card-bg-hover: var(--theme-surface-variant);
+
+  --theme-dialog-bg: var(--theme-surface);
+  --theme-dialog-backdrop: rgba(0, 0, 0, 0.8);
+
+  --theme-menu-bg: var(--theme-surface-elevated);
+  --theme-menu-item-hover: rgba(255, 255, 255, 0.04);
+  --theme-menu-item-selected: var(--theme-primary-subtle);
+
+  // Shadows
+  --theme-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --theme-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --theme-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.7);
+  --theme-shadow-glow: 0 0 20px var(--theme-primary-glow);
+
+  // Transitions
+  --theme-transition-fast: 100ms ease;
+  --theme-transition-normal: 200ms ease;
+  --theme-transition-slow: 300ms ease;
+
+  // Spacing & Sizing
+  --theme-spacing-xs: 0.25rem;
+  --theme-spacing-sm: 0.5rem;
+  --theme-spacing-md: 1rem;
+  --theme-spacing-lg: 1.5rem;
+  --theme-spacing-xl: 2rem;
+
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;
+
+  --theme-input-height: 36px;
+  --theme-button-height: 36px;
+
+  // Typography
+  --theme-font-size-xs: 0.75rem;
+  --theme-font-size-sm: 0.875rem;
+  --theme-font-size-base: 1rem;
+  --theme-font-size-lg: 1.125rem;
+  --theme-font-size-xl: 1.25rem;
+
+  // Opacity levels
+  --theme-opacity-disabled: 0.4;
+  --theme-opacity-hover: 0.08;
+  --theme-opacity-active: 0.12;
+  --theme-opacity-selected: 0.15;
+}
+
+// Light Theme Variables
+@mixin define-light-theme-variables() {
+  // Core Colors
+  --theme-background: #fafafa;
+  --theme-surface: #ffffff;
+  --theme-surface-variant: #f5f5f5;
+  --theme-surface-elevated: #ffffff;
+
+  // Text Colors
+  --theme-text-primary: #1a1a1a;
+  --theme-text-secondary: #5a5a5a;
+  --theme-text-muted: #8a8a8a;
+  --theme-text-disabled: #bababa;
+
+  // Brand Colors
+  --theme-primary: #7828c8;
+  --theme-primary-hover: #6321a5;
+  --theme-primary-active: #904ed2;
+  --theme-primary-subtle: rgba(120, 40, 200, 0.1);
+  --theme-primary-glow: rgba(120, 40, 200, 0.2);
+
+  --theme-secondary: #5271ff;
+  --theme-secondary-hover: #445dd2;
+  --theme-secondary-active: #637aff;
+  --theme-secondary-subtle: rgba(82, 113, 255, 0.1);
+
+  // Status Colors
+  --theme-success: #1bc47d;
+  --theme-success-subtle: rgba(27, 196, 125, 0.1);
+
+  --theme-warning: #ffb100;
+  --theme-warning-subtle: rgba(255, 177, 0, 0.1);
+
+  --theme-danger: #ff4f4f;
+  --theme-danger-subtle: rgba(255, 79, 79, 0.1);
+
+  // Border Colors
+  --theme-border: #e5e5e5;
+  --theme-border-strong: #d0d0d0;
+  --theme-border-subtle: #f0f0f0;
+
+  // Component Specific
+  --theme-input-bg: #f8f8f8;
+  --theme-input-bg-hover: #f0f0f0;
+  --theme-input-bg-focus: #ffffff;
+  --theme-input-border: #d5d5d5;
+  --theme-input-border-focus: var(--theme-primary);
+  --theme-input-placeholder: #9a9a9a;
+
+  --theme-button-bg: var(--theme-primary);
+  --theme-button-bg-hover: var(--theme-primary-hover);
+  --theme-button-secondary-bg: #f0f0f0;
+  --theme-button-secondary-bg-hover: #e5e5e5;
+  --theme-button-ghost-bg-hover: rgba(0, 0, 0, 0.04);
+
+  --theme-card-bg: var(--theme-surface);
+  --theme-card-bg-hover: var(--theme-surface-variant);
+
+  --theme-dialog-bg: var(--theme-surface);
+  --theme-dialog-backdrop: rgba(0, 0, 0, 0.5);
+
+  --theme-menu-bg: var(--theme-surface);
+  --theme-menu-item-hover: #f5f5f5;
+  --theme-menu-item-selected: var(--theme-primary-subtle);
+
+  // Shadows
+  --theme-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --theme-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --theme-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.12);
+  --theme-shadow-glow: 0 0 20px var(--theme-primary-glow);
+
+  // Keep other variables same as dark theme
+  --theme-transition-fast: 100ms ease;
+  --theme-transition-normal: 200ms ease;
+  --theme-transition-slow: 300ms ease;
+
+  --theme-spacing-xs: 0.25rem;
+  --theme-spacing-sm: 0.5rem;
+  --theme-spacing-md: 1rem;
+  --theme-spacing-lg: 1.5rem;
+  --theme-spacing-xl: 2rem;
+
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;
+
+  --theme-input-height: 36px;
+  --theme-button-height: 36px;
+
+  --theme-font-size-xs: 0.75rem;
+  --theme-font-size-sm: 0.875rem;
+  --theme-font-size-base: 1rem;
+  --theme-font-size-lg: 1.125rem;
+  --theme-font-size-xl: 1.25rem;
+
+  --theme-opacity-disabled: 0.5;
+  --theme-opacity-hover: 0.04;
+  --theme-opacity-active: 0.08;
+  --theme-opacity-selected: 0.1;
+}

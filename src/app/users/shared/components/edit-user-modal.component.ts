@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
-  inject,
   signal,
 } from '@angular/core';
 import {
@@ -12,10 +11,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { User, usersQuery } from '@my/users/data';
 
 @Component({
@@ -24,45 +24,59 @@ import { User, usersQuery } from '@my/users/data';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    InputNumberModule,
   ],
   template: `
-    <div class="bg-base-100 flex flex-col p-8" [formGroup]="usersFormGroup">
-      <h1 class="text-2xl font-semibold">Edit User</h1>
+    <div class="flex flex-col p-6" [formGroup]="usersFormGroup">
+      <h2 class="mb-2 text-2xl font-semibold">Edit User</h2>
       <div class="mt-4 flex flex-col gap-4">
-        <mat-form-field class="w-full">
-          <mat-label>Name</mat-label>
-          <input matInput formControlName="name" placeholder="Full Name" />
-        </mat-form-field>
-
-        <mat-form-field class="w-full">
-          <mat-label>Age</mat-label>
+        <div>
+          <label for="edit-name" class="block text-sm font-medium mb-2">Name</label>
           <input
-            type="number"
-            matInput
+            id="edit-name"
+            type="text"
+            pInputText
+            formControlName="name"
+            placeholder="Full Name"
+            class="w-full"
+          />
+        </div>
+
+        <div>
+          <label for="edit-age" class="block text-sm font-medium mb-2">Age</label>
+          <p-inputNumber
+            id="edit-age"
             formControlName="age"
             placeholder="Age"
+            [min]="18"
+            [max]="120"
+            class="w-full"
+            styleClass="w-full"
           />
-        </mat-form-field>
+        </div>
       </div>
-      <div class="mt-4 flex justify-between">
-        <button type="danger" (click)="handleDelete()" mat-stroked-button>
-          Delete
-        </button>
+      <div class="mt-6 flex justify-between">
+        <p-button
+          label="Delete"
+          severity="danger"
+          [outlined]="true"
+          (onClick)="handleDelete()"
+        />
         <div class="flex justify-end gap-2">
-          <button type="secondary" (click)="handleClose()" mat-stroked-button>
-            Cancel
-          </button>
-          <button
+          <p-button
+            label="Cancel"
+            severity="secondary"
+            [outlined]="true"
+            (onClick)="handleClose()"
+          />
+          <p-button
+            label="Save"
             [disabled]="!usersFormGroup.valid"
-            (click)="handleSaveUser()"
-            mat-stroked-button
-          >
-            Save
-          </button>
+            (onClick)="handleSaveUser()"
+          />
         </div>
       </div>
     </div>
@@ -70,7 +84,6 @@ import { User, usersQuery } from '@my/users/data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditUserModalComponent implements OnInit {
-  #dialogRef = inject(MatDialogRef);
   usersFormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     age: new FormControl(0, [Validators.required]),
@@ -79,8 +92,13 @@ export class EditUserModalComponent implements OnInit {
   updateMutation = usersQuery.update(this.#user);
   deleteMutation = usersQuery.delete(this.#user);
 
+  constructor(
+    private dialogRef: DynamicDialogRef,
+    private config: DynamicDialogConfig
+  ) {}
+
   public ngOnInit(): void {
-    const user = this.#dialogRef.componentInstance?.data?.['item'] as User;
+    const user = this.config.data as User;
 
     this.#user.set(user);
     const { name, age } = user;
@@ -109,7 +127,7 @@ export class EditUserModalComponent implements OnInit {
   }
 
   handleClose() {
-    this.#dialogRef.close();
+    this.dialogRef.close();
   }
 
   handleDelete() {

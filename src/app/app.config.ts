@@ -2,6 +2,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
 import {
   QueryClient,
   provideTanStackQuery,
@@ -17,5 +19,17 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimationsAsync(),
     provideTanStackQuery(new QueryClient(), withDevtools()),
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: {
+          prefix: 'a',
+          darkModeSelector: '.dark',
+          cssLayer: false  // Disable CSS layers for Tailwind v4 compatibility
+        }
+      },
+      ripple: true,
+      inputStyle: 'outlined'
+    })
   ],
 };

@@ -1,110 +1,125 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { User, usersQuery } from '@my/users/data';
 
 @Component({
+  selector: 'app-add-user-modal',
+  standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
+    ButtonModule,
+    DialogModule,
+    InputTextModule,
+    InputNumberModule,
   ],
   template: `
-    <div class="bg-base-100 flex flex-col p-8" [formGroup]="usersFormGroup">
-      <h1 class="mb-2 text-2xl font-semibold">Add a new user</h1>
-      <p class="mb-6 text-sm text-gray-500">
-        Here you can add a new user to the system
+    <div class="flex flex-col" [formGroup]="usersFormGroup">
+      <p class="mb-4 text-sm text-gray-600">
+        Fill in the details below to add a new user to the system.
       </p>
 
-      <div class="grid grid-cols-2 gap-6">
+      <div class="grid grid-cols-2 gap-4">
         <div class="col-span-2">
-          <mat-form-field class="w-full">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" placeholder="Full Name" />
-          </mat-form-field>
+          <label for="name" class="block text-sm font-medium mb-2">Name</label>
+          <input
+            id="name"
+            type="text"
+            pInputText
+            formControlName="name"
+            placeholder="Full Name"
+            class="w-full"
+          />
         </div>
 
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Age</mat-label>
-            <input
-              type="number"
-              matInput
-              formControlName="age"
-              placeholder="Age"
-            />
-          </mat-form-field>
+          <label for="age" class="block text-sm font-medium mb-2">Age</label>
+          <p-inputNumber
+            id="age"
+            formControlName="age"
+            placeholder="Age"
+            [min]="18"
+            [max]="120"
+            class="w-full"
+            styleClass="w-full"
+          />
         </div>
 
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Email</mat-label>
-            <input
-              type="email"
-              matInput
-              formControlName="email"
-              placeholder="Email Address"
-            />
-          </mat-form-field>
+          <label for="email" class="block text-sm font-medium mb-2">Email</label>
+          <input
+            id="email"
+            type="email"
+            pInputText
+            formControlName="email"
+            placeholder="Email Address"
+            class="w-full"
+          />
         </div>
 
         <div class="col-span-2">
-          <mat-form-field class="w-full">
-            <mat-label>Company</mat-label>
-            <input
-              matInput
-              formControlName="company"
-              placeholder="Company Name"
-            />
-          </mat-form-field>
+          <label for="company" class="block text-sm font-medium mb-2">Company</label>
+          <input
+            id="company"
+            type="text"
+            pInputText
+            formControlName="company"
+            placeholder="Company Name"
+            class="w-full"
+          />
         </div>
 
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Title</mat-label>
-            <input matInput formControlName="title" placeholder="Job Title" />
-          </mat-form-field>
+          <label for="title" class="block text-sm font-medium mb-2">Title</label>
+          <input
+            id="title"
+            type="text"
+            pInputText
+            formControlName="title"
+            placeholder="Job Title"
+            class="w-full"
+          />
         </div>
 
         <div>
-          <mat-form-field class="w-full">
-            <mat-label>Department</mat-label>
-            <input
-              matInput
-              formControlName="department"
-              placeholder="Department"
-            />
-          </mat-form-field>
+          <label for="department" class="block text-sm font-medium mb-2">Department</label>
+          <input
+            id="department"
+            type="text"
+            pInputText
+            formControlName="department"
+            placeholder="Department"
+            class="w-full"
+          />
         </div>
       </div>
 
-      <div class="mt-8 flex justify-end gap-2">
-        <button type="secondary" (click)="onCancel()" mat-stroked-button>
-          Cancel
-        </button>
-        <button
+      <div class="mt-6 flex justify-end gap-2">
+        <p-button
+          label="Cancel"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="onCancel()"
+        />
+        <p-button
+          label="Save"
           [disabled]="!usersFormGroup.valid"
-          (click)="onSaveUser()"
-          mat-stroked-button
-          color="primary"
-        >
-          Save
-        </button>
+          (onClick)="onSaveUser()"
+        />
       </div>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddUserModalComponent {
-  #dialogRef = inject(MatDialogRef);
-  #fb = inject(FormBuilder);
+  #fb = new FormBuilder();
+
 
   addMutation = usersQuery.add();
 
@@ -138,10 +153,12 @@ export class AddUserModalComponent {
     } as unknown as User;
 
     this.addMutation.mutate(user);
-    this.#dialogRef.close();
+    this.dialogRef.close();
   }
 
+  constructor(private dialogRef: DynamicDialogRef) {}
+
   onCancel() {
-    this.#dialogRef.close();
+    this.dialogRef.close();
   }
 }

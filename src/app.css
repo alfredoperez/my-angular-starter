@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/* Tailwind v4 configuration using CSS */
+@theme {
+  --color-primary: #6366f1;
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
