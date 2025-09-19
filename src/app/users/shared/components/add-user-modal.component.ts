@@ -100,16 +100,18 @@ import { User, usersQuery } from '@my/users/data';
         </div>
       </div>
 
-      <div class="mt-6 flex justify-end gap-2">
+      <div class="mt-6 flex justify-between">
         <p-button
           label="Cancel"
           severity="secondary"
           [outlined]="true"
+          size="small"
           (onClick)="onCancel()"
         />
         <p-button
           label="Save"
           [disabled]="!usersFormGroup.valid"
+          size="small"
           (onClick)="onSaveUser()"
         />
       </div>

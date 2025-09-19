@@ -10,7 +10,7 @@ import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
 import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent, themeMaterial } from 'ag-grid-community';
+import { RowClickedEvent, themeQuartz } from 'ag-grid-community';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { EditUserModalComponent } from '@my/users/shared/components/edit-user-modal.component';
@@ -32,25 +32,27 @@ import { DataViewerStore } from '../../shared/state';
   providers: [DataViewerStore, DialogService],
   template: `
     <div class="flex h-full flex-col gap-6">
-      <div class="flex items-center justify-between gap-6">
+      <div class="flex items-center justify-between">
         <h1 class="text-xl font-semibold">Users</h1>
-        <p-button
-          label="Add User"
-          icon="pi pi-plus"
-          [outlined]="true"
-          (onClick)="onAddUser()"
-        />
-      </div>
 
-      <div class="p-input-icon-left w-full">
-        <i class="pi pi-search"></i>
-        <input
-          type="text"
-          pInputText
-          class="w-full"
-          placeholder="Search users..."
-          (input)="onSearch($event)"
-        />
+        <div class="flex items-center gap-3">
+          <div class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input
+              type="text"
+              pInputText
+              style="width: 350px"
+              placeholder="Search"
+              (input)="onSearch($event)"
+            />
+          </div>
+
+          <p-button
+            label="Add User"
+            icon="pi pi-plus"
+            (onClick)="onAddUser()"
+          />
+        </div>
       </div>
 
       <div>
@@ -78,7 +80,7 @@ import { DataViewerStore } from '../../shared/state';
                 [theme]="theme"
                 [columnDefs]="columnDefs"
                 (rowClicked)="onUserRowClicked($event)"
-                style="width: 100%; height: 500px"
+                style="width: 100%; height: calc(100vh - 300px); min-height: 400px"
               />
             } @else {
               <div class="flex flex-col gap-4">
@@ -120,7 +122,7 @@ export class UsersPageComponent {
   prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
 
   protected readonly columnDefs = columnDefs;
-  theme = themeMaterial;
+  theme = themeQuartz;
   searchQuery = '';
 
   showNewTable = toSignal(this.featureFlags.get('new_users_table'));

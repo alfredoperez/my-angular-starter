@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
     selector: 'ui-page-container',
     imports: [CommonModule, RouterModule],
     template: `
-    <div class="flex min-h-screen w-full justify-center">
+    <div class="flex min-h-screen w-full justify-center pt-16">
       <div class="w-full max-w-7xl px-4 py-8">
         <router-outlet></router-outlet>
       </div>

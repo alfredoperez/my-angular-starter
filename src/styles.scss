@@ -45,11 +45,40 @@
   --surface-900: #0f172a;
 }
 
-// AG-Grid compact styling
-.ag-theme-material {
-  --ag-row-height: 32px;  // Compact row height
-  --ag-header-height: 36px;  // Compact header
-  --ag-list-item-height: 28px;  // Compact dropdowns
+// AG-Grid Quartz theme with indigo accent and ultra-compact styling
+.ag-theme-quartz {
+  // Ultra-compact sizing for modern look
+  --ag-row-height: 32px;  // Reduced from 36px
+  --ag-header-height: 36px;  // Reduced from 40px
+  --ag-list-item-height: 24px;
+  --ag-cell-horizontal-padding: 8px;  // Reduced from 12px
+  --ag-grid-size: 3px;  // Even smaller
+  --ag-icon-size: 14px;
+  --ag-widget-spacing: 4px;
+  --ag-widget-container-vertical-padding: 4px;
+  --ag-widget-container-horizontal-padding: 8px;
+
+  // Indigo accent colors
+  --ag-accent-color: #4f46e5;  // Indigo 600
+  --ag-material-primary-color: #4f46e5;
+  --ag-alpine-active-color: #4f46e5;
+  --ag-selected-row-background-color: rgba(79, 70, 229, 0.08);
+  --ag-range-selection-background-color: rgba(79, 70, 229, 0.15);
+  --ag-row-hover-color: rgba(79, 70, 229, 0.03);
+  --ag-column-hover-color: rgba(79, 70, 229, 0.03);
+  --ag-input-focus-border-color: #4f46e5;
+  --ag-checkbox-checked-color: #4f46e5;
+
+  // More visible borders
+  --ag-border-color: #d1d5db;  // Gray-300
+  --ag-secondary-border-color: #e5e7eb;  // Gray-200
+  --ag-header-background-color: #f9fafb;  // Gray-50
+  --ag-row-border-color: #e5e7eb;
+  --ag-cell-horizontal-border: solid 1px #e5e7eb;
+
+  // Font settings - smaller for professional look
+  --ag-font-size: 12px;
+  --ag-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 // Basic styles
@@ -69,27 +98,100 @@ app-root {
   width: 100vw;
 }
 
-// PrimeNG component customizations for compact modern look
+// PrimeNG component customizations for compact modern/professional look
 .p-component {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .p-inputtext {
-  padding: 0.5rem 0.75rem;
-  font-size: 14px;
+  padding: 0.375rem 0.625rem;  // Smaller padding
+  font-size: 13px;
+  height: 36px;  // Fixed height for consistency
 }
 
 .p-button {
-  padding: 0.5rem 1rem;
-  font-size: 14px;
+  padding: 0.375rem 0.875rem;  // Smaller padding
+  font-size: 13px;
+  font-weight: 500;
+  height: 36px;  // Match input height
 }
 
+.p-button-sm {
+  padding: 0.25rem 0.625rem;
+  font-size: 12px;
+  height: 32px;
+}
+
+// Dialog customizations
 .p-dialog {
   .p-dialog-header {
-    padding: 1rem;
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
   }
 
   .p-dialog-content {
-    padding: 0 1rem 1rem;
+    padding: 1.25rem;
+  }
+
+  .p-dialog-footer {
+    padding: 0.875rem 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+
+    // Cancel button on the left
+    button:first-child {
+      margin-right: auto;
+    }
+  }
+}
+
+// Paginator compact and visible styling
+.p-paginator {
+  padding: 0.5rem 0.75rem;
+  font-size: 12px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+
+  .p-paginator-element {
+    min-width: 32px;
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .p-paginator-pages .p-paginator-page {
+    min-width: 32px;
+    height: 32px;
+    margin: 0 2px;
+    font-weight: 500;
+
+    &.p-highlight {
+      background: #4f46e5;
+      color: white;
+      border-color: #4f46e5;
+    }
+  }
+
+  .p-paginator-first,
+  .p-paginator-prev,
+  .p-paginator-next,
+  .p-paginator-last {
+    color: #6b7280;
+
+    &:hover:not(.p-disabled) {
+      background: #f3f4f6;
+      color: #4f46e5;
+    }
+  }
+
+  .p-dropdown {
+    height: 32px;
+    font-size: 12px;
+
+    .p-dropdown-trigger {
+      width: 32px;
+    }
   }
 }
