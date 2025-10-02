@@ -34,7 +34,9 @@ describe('mockApiInterceptor', () => {
 
       // Act
       const response = (await firstValueFrom(
-        mockApiInterceptor(request, nextHandler as any),
+        TestBed.runInInjectionContext(() =>
+          mockApiInterceptor(request, nextHandler as any)
+        ),
       )) as HttpResponse<unknown>;
 
       // Assert
@@ -56,7 +58,9 @@ describe('mockApiInterceptor', () => {
       const request = new HttpRequest('POST' as 'GET', '/test');
 
       // Act
-      mockApiInterceptor(request, nextHandler as any);
+      TestBed.runInInjectionContext(() =>
+        mockApiInterceptor(request, nextHandler as any)
+      );
 
       // Assert
       expect(mockApiService.getResponse).toHaveBeenCalledWith('/test', 'POST');

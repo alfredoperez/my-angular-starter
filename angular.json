@@ -34,8 +34,6 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/ag-grid-community/styles/ag-grid.css",
-              "node_modules/ag-grid-community/styles/ag-theme-quartz.css",
               "node_modules/primeicons/primeicons.css",
               "src/styles.scss"
             ],

@@ -9,19 +9,27 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
-import { AgGridModule } from 'ag-grid-angular';
-import { RowClickedEvent, themeQuartz } from 'ag-grid-community';
 import { User, usersQuery } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { EditUserModalComponent } from '@my/users/shared/components/edit-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
 import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-flags.service';
 import { DataViewerStore } from '../../shared/state';
+import {
+  TableComponent,
+  TableRowClickEvent,
+  PageTitleComponent,
+  SearchInputComponent,
+  AddButtonComponent
+} from '../../shared/ui';
 
 @Component({
   imports: [
     CommonModule,
-    AgGridModule,
+    TableComponent,
+    PageTitleComponent,
+    SearchInputComponent,
+    AddButtonComponent,
     ButtonModule,
     CardModule,
     InputTextModule,
@@ -33,24 +41,20 @@ import { DataViewerStore } from '../../shared/state';
   template: `
     <div class="flex h-full flex-col gap-6">
       <div class="flex items-center justify-between">
-        <h1 class="text-xl font-semibold">Users</h1>
+        <ui-page-title
+          title="Users"
+        />
 
         <div class="flex items-center gap-3">
-          <div class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input
-              type="text"
-              pInputText
-              style="width: 350px"
-              placeholder="Search"
-              (input)="onSearch($event)"
-            />
-          </div>
+          <ui-search-input
+            placeholder="Search users..."
+            (searchChange)="onSearchChange($event)"
+          />
 
-          <p-button
+          <ui-add-button
             label="Add User"
-            icon="pi pi-plus"
-            (onClick)="onAddUser()"
+            icon="pi-user-plus"
+            (addClick)="onAddUser()"
           />
         </div>
       </div>
@@ -74,12 +78,10 @@ import { DataViewerStore } from '../../shared/state';
         @if (usersQuery.isSuccess()) {
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
             @if (showNewTable()) {
-              <ag-grid-angular
-                class="border-round"
-                [rowData]="users()"
-                [theme]="theme"
-                [columnDefs]="columnDefs"
-                (rowClicked)="onUserRowClicked($event)"
+              <ui-table
+                [rows]="users()"
+                [columns]="columnDefs"
+                (rowClick)="onUserRowClicked($event)"
                 style="width: 100%; height: calc(100vh - 300px); min-height: 400px"
               />
             } @else {
@@ -122,7 +124,7 @@ export class UsersPageComponent {
   prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
 
   protected readonly columnDefs = columnDefs;
-  theme = themeQuartz;
+
   searchQuery = '';
 
   showNewTable = toSignal(this.featureFlags.get('new_users_table'));
@@ -162,7 +164,7 @@ export class UsersPageComponent {
     });
   }
 
-  public onUserRowClicked(event: RowClickedEvent<User, any>) {
+  public onUserRowClicked(event: TableRowClickEvent<User>) {
     if (event.data === undefined) return;
     this.onEditUser(event.data);
   }
@@ -173,6 +175,10 @@ export class UsersPageComponent {
 
   onSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
+    this.#store.setSearchQuery(value);
+  }
+
+  onSearchChange(value: string) {
     this.#store.setSearchQuery(value);
   }
 }

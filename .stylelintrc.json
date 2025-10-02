@@ -1,0 +1,14 @@
+{
+  "extends": "@craftworks/stylelint-config-angular",
+  "rules": {
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["theme", "tailwind", "apply", "variants", "responsive", "screen", "layer"]
+      }
+    ],
+    "plugin/no-unsupported-browser-features": null,
+    "alpha-value-notation": null,
+    "color-hex-length": null
+  }
+}

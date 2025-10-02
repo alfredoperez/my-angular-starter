@@ -63,7 +63,7 @@ export abstract class ApiService<T> {
     const options = this.getOptions(requestOptions, body);
 
     return lastValueFrom(
-      this.#httpClient.request(method, url, options).pipe(delay(1000)),
+      this.#httpClient.request(method, url, options).pipe(delay(0)),
     );
   }
 

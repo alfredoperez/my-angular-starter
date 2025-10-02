@@ -10,7 +10,7 @@ import {
   provideTanStackQuery,
   withDevtools,
 } from '@tanstack/angular-query-experimental';
-import { ModuleRegistry, ClientSideRowModelModule } from 'ag-grid-community';
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 import { appRoutes } from './app.routes';
 
 // Create Indigo preset
@@ -62,7 +62,7 @@ const IndigoPreset = definePreset(Aura, {
   },
 });
 
-ModuleRegistry.registerModules([ClientSideRowModelModule]);
+ModuleRegistry.registerModules([AllCommunityModule]);
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes, withComponentInputBinding()),

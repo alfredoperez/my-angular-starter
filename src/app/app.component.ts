@@ -8,7 +8,7 @@ import { TopBarComponent } from './shared/ui/layout/top-bar.component';
   imports: [PageContainerComponent, DevToolbarComponent, TopBarComponent],
   selector: 'app-root',
   template: `
-    <div class="min-h-screen bg-gray-50">
+    <div class="min-h-screen bg-gray-100">
       <ndt-toolbar />
       <ui-top-bar />
       <ui-page-container />
