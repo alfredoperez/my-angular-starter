@@ -174,3 +174,9 @@ export class BadComponent {
 - Component class: `FeatureNameComponent` (PascalCase)
 - Selector: `app-feature-name` (kebab-case with prefix)
 
+## Storybook Documentation
+
+All components should have corresponding Storybook stories for visual documentation and testing.
+
+See: [Storybook Guide](/knowledge-base/code-style/storybook/storybook-guide.md)
+

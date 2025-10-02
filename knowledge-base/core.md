@@ -3,24 +3,41 @@
 ## Purpose
 Central index and standards for our AI-optimized knowledge base system.
 
+## Primary Reference
+**[CLAUDE.md](/CLAUDE.md)** - The authoritative source for project configuration, commands, architecture, and conventions. Always consult this file first for project-specific guidance.
+
+## Knowledge Base Index
+
+### [/code-style](./code-style/)
+Framework and language-specific coding patterns and conventions.
+- **angular/** - Angular-specific patterns (components, services, state management, templates, etc.)
+- **testing/** - Testing patterns and best practices
+- **storybook/** - Storybook configuration and patterns
+
+### [/project](./project/)
+Project-specific implementations, architecture, and guides.
+- **guides/** - Step-by-step implementation guides for common tasks
+
+### [/tools](./tools/)
+AI tool configurations, agents, and custom commands.
+- **agents/** - Specialized agent definitions for specific tasks
+- **commands/** - Custom slash command definitions
+
 ## Structure Overview
 
-### /code-style
+### Code Style Organization
 Framework and language-specific patterns that are project-agnostic.
 - Split by framework/tool (angular/, testing/, etc.)
 - Each file focuses on one aspect (components, services, etc.)
 
-### /project
+### Project Organization
 Project-specific implementations and patterns.
-- /core - Architecture and technical specs
-- /code-style - Project conventions
 - /guides - Step-by-step implementations
 
-### /tools
+### Tools Organization
 AI tool configurations and templates.
 - /agents - Specialized agent definitions
 - /commands - Quick command definitions
-- /modes - Tool-specific modes
 
 ## File Standards
 
