@@ -10,6 +10,7 @@ Central index and standards for our AI-optimized knowledge base system.
 
 ### [/code-style](./code-style/)
 Framework and language-specific coding patterns and conventions.
+- **[typescript-rules.md](./code-style/typescript-rules.md)** - TypeScript code style rules and best practices
 - **angular/** - Angular-specific patterns (components, services, state management, templates, etc.)
 - **testing/** - Testing patterns and best practices
 - **storybook/** - Storybook configuration and patterns
