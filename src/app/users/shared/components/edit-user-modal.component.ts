@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   OnInit,
-  signal,
 } from '@angular/core';
 import {
   FormControl,
@@ -16,7 +16,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { User, usersQuery } from '@my/users/data';
+import { User, UsersRepository } from '@my/users/data';
 
 @Component({
   selector: 'ui-edit-user-modal',
@@ -84,24 +84,22 @@ import { User, usersQuery } from '@my/users/data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditUserModalComponent implements OnInit {
+  #usersRepo = inject(UsersRepository);
+  #dialogRef = inject(DynamicDialogRef);
+  #config = inject(DynamicDialogConfig);
+
   usersFormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     age: new FormControl(0, [Validators.required]),
   });
-  #user = signal({} as User);
-  updateMutation = usersQuery.update(this.#user);
-  deleteMutation = usersQuery.delete(this.#user);
 
-  constructor(
-    private dialogRef: DynamicDialogRef,
-    private config: DynamicDialogConfig
-  ) {}
+  #user!: User;
+  updateMutation = this.#usersRepo.update();
+  deleteMutation = this.#usersRepo.delete();
 
   public ngOnInit(): void {
-    const user = this.config.data as User;
-
-    this.#user.set(user);
-    const { name, age } = user;
+    this.#user = this.#config.data as User;
+    const { name, age } = this.#user;
     this.usersFormGroup.setValue({ name, age });
   }
 
@@ -113,25 +111,20 @@ export class EditUserModalComponent implements OnInit {
     const { name, age } = this.usersFormGroup.value;
     if (!name || !age) return;
 
-    const user = {
-      ...this.#user(),
-      name,
-      age,
-      updatedAt: new Date(),
-    } as unknown as User;
-
-    this.#user.set(user);
-    this.updateMutation.mutate();
+    this.updateMutation.mutate({
+      id: this.#user.id,
+      data: { name, age }
+    });
 
     this.handleClose();
   }
 
   handleClose() {
-    this.dialogRef.close();
+    this.#dialogRef.close();
   }
 
   handleDelete() {
-    this.deleteMutation.mutate();
+    this.deleteMutation.mutate(this.#user.id);
     this.handleClose();
   }
 }

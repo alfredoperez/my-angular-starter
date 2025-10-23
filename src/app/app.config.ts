@@ -5,11 +5,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
-import {
-  QueryClient,
-  provideTanStackQuery,
-  withDevtools,
-} from '@tanstack/angular-query-experimental';
+import { provideQueryClient, QueryClient } from '@ngneat/query';
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
 import { appRoutes } from './app.routes';
 
@@ -68,7 +64,16 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withComponentInputBinding()),
     provideHttpClient(),
     provideAnimationsAsync(),
-    provideTanStackQuery(new QueryClient(), withDevtools()),
+    provideQueryClient(new QueryClient({
+      defaultOptions: {
+        queries: {
+          staleTime: 1000 * 60 * 5, // 5 minutes
+          gcTime: 1000 * 60 * 10, // 10 minutes
+          retry: 1,
+          refetchOnWindowFocus: false,
+        },
+      },
+    })),
     providePrimeNG({
       theme: {
         preset: IndigoPreset,

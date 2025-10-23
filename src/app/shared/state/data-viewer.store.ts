@@ -12,30 +12,38 @@ interface DataViewerState {
   /**
    * The search query to filter the results
    */
-  searchQuery?: string;
+  searchQuery: string;
 
   /**
    * The pagination options
    */
   pagination: Partial<Pagination>;
+
+  /**
+   * How long the data will be considered fresh (in milliseconds)
+   * @default 300000 (5 minutes)
+   */
+  staleTime: number;
 }
 
 const initialState: DataViewerState = {
   pagination: { limit: 20, page: 1 },
   searchQuery: '',
+  staleTime: 1000 * 60 * 5, // 5 minutes default
 };
 
 export const DataViewerStore = signalStore(
   withState(initialState),
-  withComputed(({ pagination }) => ({
+  withComputed(({ pagination, staleTime, searchQuery }) => ({
     page: computed(() => pagination().page),
     requestOptions: computed(() => {
       return {
-        // searchQuery: searchQuery(),
+        searchQuery: searchQuery() ?? '',
         pagination: pagination(),
         orderBy: 'age',
         orderDirection: 'ASC',
-      } as RequestOptions;
+        staleTime: staleTime() ?? 1000 * 60 * 5,
+      } as Partial<RequestOptions>;
     }),
   })),
   withMethods((store) => ({
@@ -50,6 +58,9 @@ export const DataViewerStore = signalStore(
           page,
         },
       }));
+    },
+    setStaleTime: (staleTime: number) => {
+      patchState(store, (state) => ({ ...state, staleTime }));
     },
   })),
 );

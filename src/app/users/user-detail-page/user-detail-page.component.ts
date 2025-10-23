@@ -1,11 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, effect, inject, input, untracked } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DividerModule } from 'primeng/divider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
-import { usersQuery } from '@my/users/data';
+import { UsersRepository } from '@my/users/data';
 
 @Component({
   standalone: true,
@@ -97,13 +97,21 @@ import { usersQuery } from '@my/users/data';
 })
 export class UserDetailPageComponent {
   id = input.required<string>();
-  userQuery = usersQuery.details(this.id);
-  status = computed(() => this.userQuery?.status());
-  isLoading = computed(() => this.userQuery?.isLoading());
-  isSuccess = computed(() => this.userQuery?.isSuccess());
-  data = computed(() => this.userQuery?.data());
-
   #router = inject(Router);
+  #usersRepo = inject(UsersRepository);
+
+  // Initialize query with signal - field initialization
+  userQuery = this.#usersRepo.fetchById(this.id);
+
+  status = computed(() => this.userQuery.result().status);
+  isLoading = computed(() => this.userQuery.result().isLoading);
+  isSuccess = computed(() => this.userQuery.result().isSuccess);
+  data = computed(() => this.userQuery.result().data);
+
+  constructor() {
+    // Setup reactivity in constructor - has injection context
+    this.userQuery.setupReactivity();
+  }
 
   onGoBack(): void {
     this.#router.navigate(['/users']);

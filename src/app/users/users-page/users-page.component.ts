@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, computed, effect, inject, Signal, untracked } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
@@ -9,11 +9,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
-import { User, usersQuery } from '@my/users/data';
+import { QueryObserverResult } from '@ngneat/query';
+import { Observable } from 'rxjs';
+import { User, UsersRepository } from '@my/users/data';
 import { AddUserModalComponent } from '@my/users/shared/components/add-user-modal.component';
 import { EditUserModalComponent } from '@my/users/shared/components/edit-user-modal.component';
 import { columnDefs } from '@my/users/users-page/user-page.models';
 import { FeatureFlagsService } from '../../shared/data/feature-flags/feature-flags.service';
+import { ListResponse } from '../../shared/data/api.models';
 import { DataViewerStore } from '../../shared/state';
 import {
   TableComponent,
@@ -60,7 +63,7 @@ import {
       </div>
 
       <div>
-        @if (usersQuery.isPending()) {
+        @if (usersQuery.result().isPending) {
           <div class="flex justify-center p-4">
             <p-progressSpinner
               styleClass="w-12 h-12"
@@ -69,13 +72,13 @@ import {
             />
           </div>
         }
-        @if (usersQuery.isError()) {
+        @if (usersQuery.result().isError) {
           <div class="flex items-center gap-2 text-red-500">
             <i class="pi pi-exclamation-circle"></i>
             <span>An error occurred while loading users</span>
           </div>
         }
-        @if (usersQuery.isSuccess()) {
+        @if (usersQuery.result().isSuccess) {
           <div [style.opacity]="isPlaceholderData() ? 0.5 : 1">
             @if (showNewTable()) {
               <ui-table
@@ -114,14 +117,16 @@ export class UsersPageComponent {
   #store = inject(DataViewerStore);
   #dialogService = inject(DialogService);
   #router = inject(Router);
+  #usersRepo = inject(UsersRepository);
   dialogRef: DynamicDialogRef | undefined;
   featureFlags = inject(FeatureFlagsService);
 
-  usersQuery = usersQuery.page(this.#store.requestOptions);
-  users = computed(() => this.usersQuery.data()?.items || []);
-  totalItems = computed(() => this.usersQuery.data()?.total || 0);
-  isPlaceholderData = this.usersQuery.isPlaceholderData;
-  prefetchNextPage = usersQuery.prefetchNextPage(this.#store.requestOptions);
+  // Initialize query with signal - field initialization
+  usersQuery = this.#usersRepo.fetchPage(this.#store.requestOptions);
+
+  users = computed(() => this.usersQuery.result().data?.items || []);
+  totalItems = computed(() => this.usersQuery.result().data?.total || 0);
+  isPlaceholderData = computed(() => this.usersQuery.result().isPlaceholderData ?? false);
 
   protected readonly columnDefs = columnDefs;
 
@@ -130,12 +135,14 @@ export class UsersPageComponent {
   showNewTable = toSignal(this.featureFlags.get('new_users_table'));
 
   constructor() {
+    // Setup reactivity in constructor - has injection context
+    this.usersQuery.setupReactivity();
+
+    // Prefetch next page when data is ready
     effect(() => {
-      if (
-        !this.usersQuery.isPlaceholderData() &&
-        this.usersQuery.data()?.hasMore
-      ) {
-        this.prefetchNextPage.prefetch();
+      const result = this.usersQuery.result();
+      if (!result.isPlaceholderData && result.data?.hasMore) {
+        this.#usersRepo.prefetchNextPage(this.#store.requestOptions);
       }
     });
   }

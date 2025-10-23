@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { User, usersQuery } from '@my/users/data';
+import { User, UsersRepository } from '@my/users/data';
 
 @Component({
   selector: 'app-add-user-modal',
@@ -121,9 +121,10 @@ import { User, usersQuery } from '@my/users/data';
 })
 export class AddUserModalComponent {
   #fb = new FormBuilder();
+  #usersRepo = inject(UsersRepository);
+  #dialogRef = inject(DynamicDialogRef);
 
-
-  addMutation = usersQuery.add();
+  createMutation = this.#usersRepo.create();
 
   usersFormGroup = this.#fb.group({
     name: ['', [Validators.required]],
@@ -154,13 +155,11 @@ export class AddUserModalComponent {
       updatedAt: new Date(),
     } as unknown as User;
 
-    this.addMutation.mutate(user);
-    this.dialogRef.close();
+    this.createMutation.mutate(user);
+    this.#dialogRef.close();
   }
 
-  constructor(private dialogRef: DynamicDialogRef) {}
-
   onCancel() {
-    this.dialogRef.close();
+    this.#dialogRef.close();
   }
 }

@@ -41,6 +41,9 @@ importers:
       '@angular/router':
         specifier: ^20.3.0
         version: 20.3.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@20.3.0(@angular/animations@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)))(rxjs@7.8.1)
+      '@ngneat/query':
+        specifier: ^3.3.0
+        version: 3.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(@tanstack/query-core@5.66.0)
       '@ngrx/signals':
         specifier: 20.0.1
         version: 20.0.1(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
@@ -50,12 +53,6 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.0.6
         version: 4.0.6
-      '@tanstack/angular-query-devtools-experimental':
-        specifier: ^5.66.0
-        version: 5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(@tanstack/angular-query-experimental@5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)))
-      '@tanstack/angular-query-experimental':
-        specifier: ^5.66.0
-        version: 5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))
       ag-grid-angular:
         specifier: ^34.2.0
         version: 34.2.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))
@@ -2447,6 +2444,12 @@ packages:
   '@neoconfetti/react@1.0.0':
     resolution: {integrity: sha512-klcSooChXXOzIm+SE5IISIAn3bYzYfPjbX7D7HoqZL84oAfgREeSg5vSIaSFH+DaGzzvImTyWe1OyrJ67vik4A==}
 
+  '@ngneat/query@3.3.0':
+    resolution: {integrity: sha512-pB6WQ+TunOYYEUPS6XRSvWMLYR5+IW2kK1gTCtQhDBVPFlsgujh8q5l4DBAd4wBZ+LJK1exzNg8up25TetFe6g==}
+    peerDependencies:
+      '@angular/core': '>=16.0.0 <=20.x.x'
+      '@tanstack/query-core': ^5.80.6
+
   '@ngrx/signals@20.0.1':
     resolution: {integrity: sha512-7YYPH4nTkmLEgibJnwi527toEm3tsnlCzp5AzT9osS8JxN9cHxkG6iQ7fzhw9N4bTt+8wyUZb7PF0YLFYD2RHA==}
     peerDependencies:
@@ -3018,24 +3021,8 @@ packages:
   '@tailwindcss/postcss@4.0.6':
     resolution: {integrity: sha512-noTaGPHjGCXTCc487TWnfAEN0VMjqDAecssWDOsfxV2hFrcZR0AHthX7IdY/0xHTg/EtpmIPdssddlZ5/B7JnQ==}
 
-  '@tanstack/angular-query-devtools-experimental@5.66.0':
-    resolution: {integrity: sha512-AI5Zl88Ob1/qOaJPsSSpSxgj3wrIUI0pIFDif6QD+DMeVOEgDrwVU8yssYrOEv2FkHHKcH/H6n7RRiXne1xmAA==}
-    peerDependencies:
-      '@angular/common': '>=16.0.0'
-      '@angular/core': '>=16.0.0'
-      '@tanstack/angular-query-experimental': ^5.66.0
-
-  '@tanstack/angular-query-experimental@5.66.0':
-    resolution: {integrity: sha512-wECwAbsIQWXiKXNOjvAWeyw44KZJ/q0hWdWUy4SV3vp8eFW3f0LvAlkuLvUSA8jdcC5NvO2VO8T/gLRE9YjArg==}
-    peerDependencies:
-      '@angular/common': '>=16.0.0'
-      '@angular/core': '>=16.0.0'
-
   '@tanstack/query-core@5.66.0':
     resolution: {integrity: sha512-J+JeBtthiKxrpzUu7rfIPDzhscXF2p5zE/hVdrqkACBP8Yu0M96mwJ5m/8cPPYQE9aRNvXztXHlNwIh4FEeMZw==}
-
-  '@tanstack/query-devtools@5.65.0':
-    resolution: {integrity: sha512-g5y7zc07U9D3esMdqUfTEVu9kMHoIaVBsD0+M3LPdAdD710RpTcLiNvJY1JkYXqkq9+NV+CQoemVNpQPBXVsJg==}
 
   '@testing-library/angular@18.0.0':
     resolution: {integrity: sha512-0seNMa4ql2I3VD7CtnI9i4sFgxEgRES+EtGid8H4MTuOK/dlj457mVk8tWdFjPQPC/cPromcUNw0is1ogO3DSA==}
@@ -11087,6 +11074,12 @@ snapshots:
 
   '@neoconfetti/react@1.0.0': {}
 
+  '@ngneat/query@3.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(@tanstack/query-core@5.66.0)':
+    dependencies:
+      '@angular/core': 20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)
+      '@tanstack/query-core': 5.66.0
+      tslib: 2.8.1
+
   '@ngrx/signals@20.0.1(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)':
     dependencies:
       '@angular/core': 20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)
@@ -11610,23 +11603,7 @@ snapshots:
       postcss: 8.4.49
       tailwindcss: 4.0.6
 
-  '@tanstack/angular-query-devtools-experimental@5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(@tanstack/angular-query-experimental@5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)))':
-    dependencies:
-      '@angular/common': 20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
-      '@angular/core': 20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)
-      '@tanstack/angular-query-experimental': 5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))
-      '@tanstack/query-devtools': 5.65.0
-
-  '@tanstack/angular-query-experimental@5.66.0(@angular/common@20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))':
-    dependencies:
-      '@angular/common': 20.3.0(@angular/core@20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
-      '@angular/core': 20.3.0(@angular/compiler@20.3.0)(rxjs@7.8.1)(zone.js@0.15.0)
-      '@tanstack/query-core': 5.66.0
-      '@tanstack/query-devtools': 5.65.0
-
   '@tanstack/query-core@5.66.0': {}
-
-  '@tanstack/query-devtools@5.65.0': {}
 
   '@testing-library/angular@18.0.0(03f3fe2221dedcc2d5c98552f08d705d)':
     dependencies:
